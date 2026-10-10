@@ -82,68 +82,52 @@ h1{margin:0;font:900 40px/1 Impact,"Arial Black",sans-serif;letter-spacing:3px;c
 </div>
 <script>
 const SERIES={name:"Атака титанов",chars:[
-{n:"Эрен Йегер", hair:"#3a2518", bg:"#3d5a45"},
-{n:"Микаса Аккерман", hair:"#1a1a1a", bg:"#702c2c"},
-{n:"Армин Арлерт", hair:"#e8c15a", bg:"#3a536b"},
-{n:"Леви Аккерман", hair:"#1f1f1f", bg:"#2d3b2d"},
-{n:"Эрвин Смит", hair:"#f0d27a", bg:"#425870"},
-{n:"Райнер Браун", hair:"#e3bf73", bg:"#635a4d"},
-{n:"Бертольт Гувер", hair:"#2b211b", bg:"#524d47"},
-{n:"Энни Леонхарт", hair:"#ebd280", bg:"#423d38"},
-{n:"Жан Кирштайн", hair:"#8a6b47", bg:"#5e6653"},
-{n:"Конни Спрингер", hair:"#b5b5b5", bg:"#525c52"},
-{n:"Саша Браус", hair:"#6e3c23", bg:"#614f3c"},
-{n:"Хистория Рейсс", hair:"#fae39d", bg:"#4c6175"},
-{n:"Имир", hair:"#473224", bg:"#475447"},
-{n:"Ханджи Зоэ", hair:"#54321d", bg:"#384f3e"},
-{n:"Зик Йегер", hair:"#d6a75c", bg:"#5c5143"},
-{n:"Гриша Йегер", hair:"#36251b", bg:"#3b4754"},
-{n:"Карла Йегер", hair:"#2e1f17", bg:"#694043"},
-{n:"Пик Фингер", hair:"#242120", bg:"#404d43"},
-{n:"Порко Галлиард", hair:"#d4ab63", bg:"#52473c"},
-{n:"Флок Форстер", hair:"#b85228", bg:"#404f43"},
-{n:"Кенни Аккерман", hair:"#2e2b2a", bg:"#453e3b"},
-{n:"Петра Рал", hair:"#b86d3b", bg:"#3d5242"},
-{n:"Дот Пиксис", hair:"#888888", bg:"#3d4852"},
-{n:"Марко Ботт", hair:"#3d2e24", bg:"#4f5c4f"}
+{n:"Эрен Йегер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/3/3c/Eren_Jaeger_%28Anime%29_character_image_%28850%29.png"},
+{n:"Микаса Аккерман", img:"https://pbs.twimg.com/profile_images/1389861826972864512/jo4vL7kc_400x400.jpg"},
+{n:"Армин Арлерт", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/8/87/Armin_Arlelt_%28Anime%29_character_image_%28854%29.png"},
+{n:"Леви Аккерман", img:"https://images.hiwaifu.com/uploads/Api/robot_avatar/202511/ff8ae61c8d30399294597c2974098249.webp?image_process=resize,w_640"},
+{n:"Эрвин Смит", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/d/de/Erwin_Smith_%28Anime%29_character_image.png"},
+{n:"Райнер Браун", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/c/c8/Reiner_Braun_%28Anime%29_character_image_%28854%29.png"},
+{n:"Бертольт Гувер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYd79cu-LxQRjppEbgDjhSsWZUsy5VWcn7dH-aP3qO6w&s=10"},
+{n:"Энни Леонхарт", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHQwKWSV6DqEFnMlNVIEwndql4ad8sZQ-1BD4-z5jcBw&s=10"},
+{n:"Жан Кирштайн", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMdKlqjSsa_2op5mFFhuGRPc0ubFmB67D2JBcustKUFQ&s=10"},
+{n:"Конни Спрингер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdpFVnw6z1c9DZimnsnI_vyfTftAQOHta_9OcXUM-y1Q&s=10"},
+{n:"Саша Браус", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTr3ra55vVhBwef_FI3gQOSNSVdLAzFGurtqa5hHna0A&s=10"},
+{n:"Хистория Рейсс", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrC1Q7lyxQ-ynPLSNGBW1_33jVqsXQ8L_zoW5vJNJSQ&s=10"},
+{n:"Имир", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8vNJm1PLMBEirMItxMtX9RRGORXLN2NFZ-DyO2xN5vw&s=10"},
+{n:"Ханджи Зоэ", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKbvyl2Ih_GHlVYTNxKKs1LJLVZo6SGU6hY3OhEXAvxQ&s=10"},
+{n:"Зик Йегер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKjubCv38ZwdcGYOAdXKnUUFXHDx0GEhbX3cP1fTwa7g&s=10"},
+{n:"Гриша Йегер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsnZ7u4sjOxV3QaBidRIbBxjb3GAxusQNtlCeGI5t-A&s=10"},
+{n:"Карла Йегер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVOwipZX11ZT63K52u_HIX-orwnpi-z4hU4sD_P55HMw&s=10"},
+{n:"Пик Фингер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnxOyRNvC0vGMLdfWA6RH2lKvA-42ySBWqp5wsye9HSA&s=10"},
+{n:"Порко Галлиард", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9gxKSKRPPwH3BtYVVCxgJ3QaGgZzhNn4EJF6YAgbYPA&s=10"},
+{n:"Флок Форстер", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtCVkJoTTAQIGVy74iBBWhDmd2O_XFjOYD-GiB91Ck3Q&s=10"},
+{n:"Кенни Аккерман", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwo9XcP24n7TLqOPJB5kolQUU5KM1ChcM7lB1xTIC75A&s=10"},
+{n:"Петра Рал", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK9Zu8c3gdX8iTGegmqwsKcq6S4pM38i2o5P3DoLW_Fw&s=10"},
+{n:"Дот Пиксис", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJf-c5b4u3AFzHldrTNRlUYM25XLNxuZsUeZ3XCNSmtg&s=10"},
+{n:"Марко Ботт", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1oEaCGEWl8QSkP_GjY8NHs9gCORvkTLrPgnBX5Nq46A&s=10"}
 ]};
 
 const $=s=>document.querySelector(s);
-
-function generateAvatar(c){
- if(c.img) return `<img src="${c.img}" alt="${c.n}">`;
- const ini = c.n.split(" ").map(w=>w[0]).join("");
- return `<svg viewBox="0 0 100 120" role="img" aria-label="${c.n}">
-   <rect width="100" height="120" fill="${c.bg||'#3a3a3a'}"/>
-   <circle cx="50" cy="52" r="28" fill="#e8c8a8"/>
-   <path d="M 22 52 C 22 25, 78 25, 78 52 C 78 30, 22 30, 22 52 Z" fill="${c.hair||'#222'}"/>
-   <path d="M 15 120 C 15 85, 30 75, 50 75 C 70 75, 85 85, 85 120 Z" fill="#2b2621"/>
-   <path d="M 38 75 L 50 90 L 62 75 Z" fill="#ffffff"/>
-   <circle cx="41" cy="50" r="3" fill="#333"/>
-   <circle cx="59" cy="50" r="3" fill="#333"/>
-   <path d="M 45 61 Q 50 64 55 61" stroke="#a36953" stroke-width="2" fill="none"/>
-   <rect x="25" y="100" width="50" height="15" rx="3" fill="rgba(0,0,0,0.6)"/>
-   <text x="50" y="112" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#fff" font-weight="bold">${ini}</text>
- </svg>`;
-}
-
-const face=c=>`<div class="face bevel">${generateAvatar(c)}<div class="name">${c.n}</div></div>`;
+function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
+function avatar(c){
+ if(c.img)return `<img src="${c.img}" alt="${c.n}">`;
+ const h=hue(c.n),ini=c.n.split(" ").map(w=>w[0]).join("");
+ return `<svg viewBox="0 0 100 120" role="img" aria-label="${c.n}"><rect width="100" height="120" fill="hsl(${h} 25% 82%)"/><circle cx="50" cy="48" r="20" fill="hsl(${h} 22% 62%)"/><path d="M12 120c0-26 16-40 38-40s38 14 38 40z" fill="hsl(${h} 30% 48%)"/><text x="50" y="54" text-anchor="middle" font-size="16" font-family="system-ui,sans-serif" fill="#fff" font-weight="600">${ini}</text></svg>`}
+const face=c=>`<div class="face bevel">${avatar(c)}<div class="name">${c.n}</div></div>`;
 const Q={close:["Мимо! Этот не ваш.","Щёлк! Пластик сказал «ку».","Леви одобряет чистоту на столе.","Ещё один в минус. Как будто Титан наступил.","Эрвин: «Вперёд!» Карточка: «Вниз»."],open:["Воскрес! Прямо как Эрен.","Передумали? Бывает.","Вернули в строй."],pick:["Секрет спрятан. Не пялься, оппонент!","Загадано. Делайте вид, что вам всё равно.","Ваш персонаж в бункере. Стена Мария держит."],roll:["Кубик брошен! Судьба решена.","Бросок... стол дрожит, как от Колоссального."]};
 function say(k){const a=Q[k];$("#note").textContent=a[Math.floor(Math.random()*a.length)]}
 let closed=new Set(),secret=null,picking=false;
-
 function render(){
  $("#grid").innerHTML=SERIES.chars.map((c,i)=>`<button class="card" data-i="${i}" style="--r:${((i*37)%7-3)*.6}deg">${face(c)}<div class="flap">?<small>ЗАКРЫТО</small></div></button>`).join("");
  update();
 }
-
 function setSecret(i){
  secret=i;picking=false;closed=new Set();
  $("#secret").classList.remove("hidden");$("#peek").textContent="Скрыть";
  $("#secret").innerHTML=face(SERIES.chars[i]);say("pick");
  render();
 }
-
 function update(){
  const cards=[...document.querySelectorAll(".card")],left=SERIES.chars.length-closed.size;
  cards.forEach((el,i)=>{el.classList.toggle("closed",closed.has(i));el.classList.toggle("last",!picking&&left===1&&!closed.has(i))});
@@ -157,7 +141,6 @@ function update(){
  if(!picking&&left===1){const i=cards.findIndex((_,k)=>!closed.has(k));m.textContent="Это "+SERIES.chars[i].n+"!"}
  else if(left===0)m.textContent="Все закрыты — откройте кого-нибудь.";
 }
-
 $("#grid").addEventListener("click",e=>{
  const el=e.target.closest(".card");if(!el)return;
  const i=+el.dataset.i;
@@ -165,16 +148,13 @@ $("#grid").addEventListener("click",e=>{
  if(picking){setSecret(i);return}
  closed.has(i)?closed.delete(i):closed.add(i);update();say(closed.has(i)?"close":"open");
 });
-
 $("#pick").onclick=()=>{picking=true;update()};
 $("#rand").onclick=()=>{const d=$("#dice");d.classList.add("roll");say("roll");setTimeout(()=>{d.classList.remove("roll");setSecret(Math.floor(Math.random()*SERIES.chars.length))},700)};
 $("#reset").onclick=()=>{closed=new Set();update()};
 $("#peek").onclick=()=>{const h=$("#secret").classList.toggle("hidden");$("#peek").textContent=h?"Показать":"Скрыть"};
-
 let photoMode=false,pending=null;
 try{const st=JSON.parse(localStorage.getItem("aot-photos")||"{}");SERIES.chars.forEach(c=>{if(st[c.n])c.img=st[c.n]})}catch(e){}
-function savePhotos(){try{const o={};SERIES.chars.forEach(c=>{if(c.img&&c.img.startsWith("data:"))o[c.n]=c.img});localStorage.setItem("aot-photos",JSON.stringify(o))}catch(e){}}
-
+function savePhotos(){try{const o={};SERIES.chars.forEach(c=>{if(c.img&&(c.img.startsWith("data:")||c.img.startsWith("http"))):o[c.n]=c.img});localStorage.setItem("aot-photos",JSON.stringify(o))}catch(e){}}
 $("#photo").onclick=()=>{photoMode=!photoMode;$("#photo").textContent=photoMode?"Готово":"Загрузить фото";update()};
 $("#file").onchange=e=>{
  const f=e.target.files[0];e.target.value="";if(!f||pending===null)return;
@@ -187,7 +167,6 @@ $("#file").onchange=e=>{
   if(secret===i)$("#secret").innerHTML=face(SERIES.chars[i]);
  };im.src=r.result};r.readAsDataURL(f);
 };
-
 $("#secret").innerHTML='<div class="empty">Персонаж ещё не загадан</div>';
 render();
 </script>
