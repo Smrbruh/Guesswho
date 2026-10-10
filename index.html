@@ -81,38 +81,46 @@ h1{margin:0;font:900 40px/1 Impact,"Arial Black",sans-serif;letter-spacing:3px;c
 </aside>
 </div>
 <script>
+const BASE="https://images.weserv.nl/?url=";
+const cUrl=u=>BASE+encodeURIComponent(u);
+
 const SERIES={name:"Атака титанов",chars:[
-{n:"Эрен Йегер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/a/a1/Eren_Jaeger_%28Anime%29_character_image.png"},
-{n:"Микаса Аккерман", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/4/4f/Mikasa_Ackerman_%28Anime%29_character_image.png"},
-{n:"Армин Арлерт", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/2/22/Armin_Arlelt_%28Anime%29_character_image.png"},
-{n:"Леви Аккерман", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/9/94/Levi_Ackerman_%28Anime%29_character_image.png"},
-{n:"Эрвин Смит", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/c/c5/Erwin_Smith_%28Anime%29_character_image.png"},
-{n:"Райнер Браун", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/2/29/Reiner_Braun_%28Anime%29_character_image.png"},
-{n:"Бертольт Гувер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/2/2a/Bertolt_Hoover_%28Anime%29_character_image.png"},
-{n:"Энни Леонхарт", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/7/70/Annie_Leonhart_%28Anime%29_character_image.png"},
-{n:"Жан Кирштайн", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/e/e0/Jean_Kirstein_%28Anime%29_character_image.png"},
-{n:"Конни Спрингер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/8/87/Connie_Springer_%28Anime%29_character_image.png"},
-{n:"Саша Браус", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/8/88/Sasha_Braus_%28Anime%29_character_image.png"},
-{n:"Хистория Рейсс", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/f/f6/Historia_Reiss_%28Anime%29_character_image.png"},
-{n:"Имир", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/c/c1/Ymir_%28Anime%29_character_image.png"},
-{n:"Ханджи Зоэ", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/c/c8/Hange_Zo%C3%AB_%28Anime%29_character_image.png"},
-{n:"Зик Йегер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/b/b3/Zeke_Jaeger_%28Anime%29_character_image.png"},
-{n:"Гриша Йегер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/2/2b/Grisha_Jaeger_%28Anime%29_character_image.png"},
-{n:"Карла Йегер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/d/df/Carla_Jaeger_%28Anime%29_character_image.png"},
-{n:"Пик Фингер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/f/f4/Pieck_Finger_%28Anime%29_character_image.png"},
-{n:"Порко Галлиард", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/0/07/Porco_Galliard_%28Anime%29_character_image.png"},
-{n:"Флок Форстер", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/5/5e/Floch_Forster_%28Anime%29_character_image.png"},
-{n:"Кенни Аккерман", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/1/14/Kenny_Ackerman_%28Anime%29_character_image.png"},
-{n:"Петра Рал", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/5/52/Petra_Rall_%28Anime%29_character_image.png"},
-{n:"Дот Пиксис", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/d/d4/Dot_Pyxis_%28Anime%29_character_image.png"},
-{n:"Марко Ботт", img:"https://static.wikia.nocookie.net/shingekinokyojin/images/5/5d/Marco_Bott_%28Anime%29_character_image.png"}
+{n:"Эрен Йегер", img:cUrl("https://upload.wikimedia.org/wikipedia/ru/a/a1/Eren_Yeager.jpg")},
+{n:"Микаса Аккерман", img:cUrl("https://upload.wikimedia.org/wikipedia/ru/4/4f/Mikasa_Ackerman.jpg")},
+{n:"Армин Арлерт", img:cUrl("https://upload.wikimedia.org/wikipedia/ru/2/22/Armin_Arlert.jpg")},
+{n:"Леви Аккерман", img:cUrl("https://upload.wikimedia.org/wikipedia/ru/9/94/Levi_Ackerman.jpg")},
+{n:"Эрвин Смит", img:cUrl("https://upload.wikimedia.org/wikipedia/en/c/c5/Erwin_Smith.jpg")},
+{n:"Райнер Браун", img:cUrl("https://upload.wikimedia.org/wikipedia/en/2/29/Reiner_Braun.jpg")},
+{n:"Бертольт Гувер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/2/2a/Bertolt_Hoover.jpg")},
+{n:"Энни Леонхарт", img:cUrl("https://upload.wikimedia.org/wikipedia/en/7/70/Annie_Leonhart.jpg")},
+{n:"Жан Кирштайн", img:cUrl("https://upload.wikimedia.org/wikipedia/en/e/e0/Jean_Kirstein.jpg")},
+{n:"Конни Спрингер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/8/87/Connie_Springer.jpg")},
+{n:"Саша Браус", img:cUrl("https://upload.wikimedia.org/wikipedia/en/8/88/Sasha_Braus.jpg")},
+{n:"Хистория Рейсс", img:cUrl("https://upload.wikimedia.org/wikipedia/en/f/f6/Historia_Reiss.jpg")},
+{n:"Имир", img:cUrl("https://upload.wikimedia.org/wikipedia/en/c/c1/Ymir_%28Attack_on_Titan%29.jpg")},
+{n:"Ханджи Зоэ", img:cUrl("https://upload.wikimedia.org/wikipedia/en/c/c8/Hange_Zoe.jpg")},
+{n:"Зик Йегер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/b/b3/Zeke_Yeager.jpg")},
+{n:"Гриша Йегер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/2/2b/Grisha_Yeager.jpg")},
+{n:"Карла Йегер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/d/df/Carla_Yeager.jpg")},
+{n:"Пик Фингер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/f/f4/Pieck_Finger.jpg")},
+{n:"Порко Галлиард", img:cUrl("https://upload.wikimedia.org/wikipedia/en/0/07/Porco_Galliard.jpg")},
+{n:"Флок Форстер", img:cUrl("https://upload.wikimedia.org/wikipedia/en/5/5e/Floch_Forster.jpg")},
+{n:"Кенни Аккерман", img:cUrl("https://upload.wikimedia.org/wikipedia/en/1/14/Kenny_Ackerman.jpg")},
+{n:"Петра Рал", img:cUrl("https://upload.wikimedia.org/wikipedia/en/5/52/Petra_Ral.jpg")},
+{n:"Дот Пиксис", img:cUrl("https://upload.wikimedia.org/wikipedia/en/d/d4/Dot_Pyxis.jpg")},
+{n:"Марко Ботт", img:cUrl("https://upload.wikimedia.org/wikipedia/en/5/5d/Marco_Bott.jpg")}
 ]};
+
 const $=s=>document.querySelector(s);
 function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
 function avatar(c){
- if(c.img)return `<img src="${c.img}" alt="${c.n}">`;
- const h=hue(c.n),ini=c.n.split(" ").map(w=>w[0]).join("");
- return `<svg viewBox="0 0 100 120" role="img" aria-label="${c.n}"><rect width="100" height="120" fill="hsl(${h} 25% 82%)"/><circle cx="50" cy="48" r="20" fill="hsl(${h} 22% 62%)"/><path d="M12 120c0-26 16-40 38-40s38 14 38 40z" fill="hsl(${h} 30% 48%)"/><text x="50" y="54" text-anchor="middle" font-size="16" font-family="system-ui,sans-serif" fill="#fff" font-weight="600">${ini}</text></svg>`}
+ if(c.img)return `<img src="${c.img}" alt="${c.n}" onerror="this.onerror=null;this.parentElement.innerHTML=fallbackAvatar('${c.n}')">`;
+ return fallbackAvatar(c.n);
+}
+function fallbackAvatar(name){
+ const h=hue(name),ini=name.split(" ").map(w=>w[0]).join("");
+ return `<svg viewBox="0 0 100 120" role="img" aria-label="${name}"><rect width="100" height="120" fill="hsl(${h} 25% 82%)"/><circle cx="50" cy="48" r="20" fill="hsl(${h} 22% 62%)"/><path d="M12 120c0-26 16-40 38-40s38 14 38 40z" fill="hsl(${h} 30% 48%)"/><text x="50" y="54" text-anchor="middle" font-size="16" font-family="system-ui,sans-serif" fill="#fff" font-weight="600">${ini}</text></svg>`;
+}
 const face=c=>`<div class="face bevel">${avatar(c)}<div class="name">${c.n}</div></div>`;
 const Q={close:["Мимо! Этот не ваш.","Щёлк! Пластик сказал «ку».","Леви одобряет чистоту на столе.","Ещё один в минус. Как будто Титан наступил.","Эрвин: «Вперёд!» Карточка: «Вниз»."],open:["Воскрес! Прямо как Эрен.","Передумали? Бывает.","Вернули в строй."],pick:["Секрет спрятан. Не пялься, оппонент!","Загадано. Делайте вид, что вам всё равно.","Ваш персонаж в бункере. Стена Мария держит."],roll:["Кубик брошен! Судьба решена.","Бросок... стол дрожит, как от Колоссального."]};
 function say(k){const a=Q[k];$("#note").textContent=a[Math.floor(Math.random()*a.length)]}
