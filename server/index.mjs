@@ -4,12 +4,19 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { WebSocketServer, WebSocket } from 'ws';
 import { createDatabase } from './database.mjs';
+import { createDatabaseViewer } from './db-viewer.mjs';
 import { networkInterfaces } from 'node:os';
 
 try { process.loadEnvFile('.env'); } catch {}
 const port = Number(process.env.PORT || 3000);
 const root = resolve('dist');
 const database = await createDatabase(resolve(process.env.DATA_DIR || 'server/.data'));
+const viewer = createDatabaseViewer(database.db);
+if(process.env.DB_VIEWER_PORT!=='0') {
+  const viewerPort=Number(process.env.DB_VIEWER_PORT || 3002);
+  viewer.on('error',error=>console.error('Database viewer:',error.message));
+  viewer.listen(viewerPort,'127.0.0.1',()=>console.log(`Database viewer: http://127.0.0.1:${viewerPort}`));
+}
 const limits = new Map();
 function allowed(key, count, interval) {
   const now = Date.now(); const item = limits.get(key);
@@ -114,5 +121,5 @@ server.listen(port,'0.0.0.0',() => {
   for (const entries of Object.values(networkInterfaces())) for (const entry of entries || []) if (entry.family === 'IPv4' && !entry.internal) console.log(`LAN: http://${entry.address}:${port}`);
   console.log('Persistent database: ' + resolve(process.env.DATA_DIR || 'server/.data'));
 });
-async function stop() { clearInterval(sweep); clearInterval(heartbeat); clearInterval(presenceSweep); for (const ws of wss.clients) ws.close(); server.close(); await database.close(); process.exit(0); }
+async function stop() { clearInterval(sweep); clearInterval(heartbeat); clearInterval(presenceSweep); for (const ws of wss.clients) ws.close(); server.close(); viewer.close(); await database.close(); process.exit(0); }
 process.on('SIGINT',stop); process.on('SIGTERM',stop);
