@@ -1,0 +1,6 @@
+.table{position:fixed;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 38%,rgba(10,4,0,.7)),radial-gradient(ellipse at 50% 25%,rgba(255,206,140,.22),transparent 60%),repeating-linear-gradient(90deg,transparent 0 179px,rgba(0,0,0,.5) 179px 181px,rgba(255,200,130,.09) 181px 182px),repeating-linear-gradient(90.5deg,rgba(255,215,160,.045) 0 1px,transparent 1px 5px,rgba(0,0,0,.07) 5px 6px,transparent 6px 13px),repeating-linear-gradient(90deg,#74482a 0 182px,#653d22 182px 364px,#7b4e2d 364px 546px,#5a351c 546px 728px)}
+.table .ico{position:absolute;width:min(30vw,240px);height:auto;aspect-ratio:1;color:rgba(255,220,160,.07);stroke-width:1}
+.t1{left:-4%;top:10%}
+.t2{right:-3%;top:34%}
+.t3{left:8%;bottom:-4%}
+.t4{right:10%;bottom:4%}
