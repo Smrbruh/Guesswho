@@ -6,7 +6,7 @@ export type Room = { id: string; code: string; category: string; host_id: string
 export type Message = { id: string; sender_id: string; username: string; body: string; created_at: string };
 export type GameView = { room: Room; voice_allowed: boolean; friendship: 'none' | 'incoming' | 'outgoing' | 'friends'; own_closed: string[] | null; own_board_version: number; opponent_closed: string[]; secret: string | null; messages: Message[]; players?:Record<string,{avatar:string|null;title:string;rating:number;frame:string;staff_badge?:'gold'|'violet'|null}> };
 export type DeckRecord = { id: string; owner_id: string | null; published: boolean; data: Category };
-export type DeckSummary = Omit<Category, 'characters'> & { owner_id: string | null; published: boolean; author: string | null; cover: string; size: number; likes: number; dislikes: number; my_vote: number };
+export type DeckSummary = Omit<Category, 'characters'> & { owner_id: string | null; published: boolean; author: string | null; cover: string; size: number; likes: number; dislikes: number; my_vote: number; trending: boolean; recent_likes: number; recent_score: number };
 export type MatchHistory = { games: number; wins: number; losses: number; draws: number; opponents: {id:string;username:string}[]; matches: {id:string;category:string;is_ranked:boolean;finished_at:string;outcome:'win'|'draw';winner_id:string|null;opponent_id:string;opponent_name:string;rating_change:string|null}[] };
 
 export type StreakStatus = { count: number; best: number; lit: boolean; today: string; last_day: string | null; timezone: string; reward: { coins: number; gift: string | null } | null; recent: string[] };
