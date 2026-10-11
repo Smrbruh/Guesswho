@@ -1,0 +1,177 @@
+import { useEffect, useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight, Check, Copy, Eye, EyeOff, Flag, MessageCircle, Mic, MicOff, RotateCcw, Search, Send, Smile, Shuffle, Swords, Target, Trophy, Users, Volume2, X } from 'lucide-react';
+import { useApp } from '../context';
+import type { Category, Character, GameView, Message, Room } from '../types';
+import { Avatar, Coin, DeckCard, Modal, PageHeading } from '../components/ui';
+import { randomCharacter, questions, toggleCard, shopItems } from '../lib/game';
+import { sound } from '../lib/audio';
+import { read, write } from '../lib/storage';
+import { getGame, rpc, supabase, localSocket } from '../lib/supabase';
+import { titleById } from '../lib/achievements';
+import { VoiceChat } from '../lib/voice';
+
+type Practice = { secret: string; target: string; messages: Message[]; asked: string[]; botAsked: string[]; botCandidates: string[]; result: 'win' | 'loss' | null };
+export default function Game({ categories }: { categories: Category[] }) {
+  const { t, path, navigate } = useApp();
+  const query = new URLSearchParams(path.split('?')[1]); const roomId = query.get('room'); const deck = query.get('deck');
+  if (!roomId && !deck) return <><PageHeading eyebrow="LET’S PLAY" title={t('В какой мир отправимся?', 'Which world is calling?')} text={t('Выбери колоду для тренировки или создай онлайн-комнату.', 'Pick a deck to practice or create an online room.')}><button className="button primary" onClick={() => navigate('/servers')}><Users size={18}/>{t('Играть с другом','Play with a friend')}</button></PageHeading><div className="deck-grid play-decks">{categories.map((category, index) => <DeckCard key={category.id} category={category} index={index} onClick={() => navigate(`/play?deck=${category.id}`)}/>)}</div><div className="practice-info"><Target/><div><h3>{t('Тренировка без ожидания','Practice without the wait')}</h3><p>{t('Бот отвечает на вопросы о внешности и пытается угадать твоего персонажа. Тренировки не приносят монет.', 'The bot answers questions about appearance and tries to guess your character. Practice does not earn coins.')}</p></div></div></>;
+  if (deck && !categories.some(c => c.id === deck)) return <div className="empty-state"><h2>{t('Колода не найдена','Deck not found')}</h2><button className="button" onClick={() => navigate('/play')}>{t('Выбрать колоду','Choose a deck')}</button></div>;
+  return <Match key={roomId || deck} categories={categories} roomId={roomId} deckId={deck}/>;
+}
+
+function Match({ categories, roomId, deckId }: { categories: Category[]; roomId: string | null; deckId: string | null }) {
+  const { t, lang, profile, online, navigate, toast, refresh } = useApp();
+  const [view, setView] = useState<GameView | null>(null); const [error, setError] = useState(''); const [busy, setBusy] = useState(false);
+  const category = categories.find(c => c.id === (view?.room.category || deckId)) || categories[0];
+  const storageKey = `match:${roomId || deckId}`;
+  const [closed, setClosed] = useState<string[]>(read(`${storageKey}:closed`, []));
+  const [practice, setPractice] = useState<Practice | null>(roomId ? null : read(`practice:${deckId}`, null));
+  const [thinking, setThinking] = useState(false); const [secretVisible, setSecretVisible] = useState(false); const [guessMode, setGuessMode] = useState(false);
+  const [guess, setGuess] = useState<Character | null>(null); const [leaving, setLeaving] = useState(false); const [search, setSearch] = useState(''); const [message, setMessage] = useState('');
+  const [voiceState, setVoiceState] = useState('off'); const [muted, setMuted] = useState(false); const [chatOpen, setChatOpen] = useState(false);
+  const [reactionOpen,setReactionOpen] = useState(false);
+  const [mobileSecret,setMobileSecret] = useState(false); const chatInitialized = useRef(false);
+  const [incoming, setIncoming] = useState<Message | null>(null); const [unread, setUnread] = useState(0);
+  const chatScroll = useRef<HTMLDivElement>(null);
+  const voice = useRef<VoiceChat | null>(null); const handledResult = useRef(false); const botTimer = useRef<ReturnType<typeof setTimeout> | null>(null); const lastMessage = useRef('');
+  const secretId = roomId ? view?.secret : practice?.secret;
+  const secret = category.characters.find(c => c.id === secretId);
+  const result = roomId ? view?.room.status === 'finished' ? view.room.winner_id === profile.id ? 'win' : view.room.winner_id ? 'loss' : 'closed' : null : practice?.result;
+  const selecting = !secretId && !result;
+  const isPlaying = roomId ? view?.room.status === 'playing' : !!practice && !practice.result;
+  const myTurn = roomId ? view?.room.turn_id === profile.id : !thinking;
+  const messages = roomId ? view?.messages || [] : practice?.messages || [];
+  const name = (c: Character) => t(c.name,c.nameEn);
+  const opponent = roomId ? view?.room.host_id === profile.id ? view.room.guest_name : view?.room.host_name : t('Бот Шерлок','Sherlock Bot');
+  const opponentId = view?.room.host_id === profile.id ? view.room.guest_id : view?.room.host_id;
+  const opponentProfile = opponentId ? view?.players?.[opponentId] : undefined;
+  const ratingChange = view?.room.rating_changes?.[profile.id];
+  const load = async () => { if (!roomId) return; try { setView(await getGame(roomId)); setError(''); } catch { setError(t('Не удалось загрузить матч. Проверь подключение и доступ к комнате.', 'Could not load this match. Check your connection and room access.')); } };
+  useEffect(() => {
+    if (!roomId || !online) return;
+    let active = true; let inFlight = false;
+    const sync = async () => { if (inFlight) return; inFlight = true; try { const next = await getGame(roomId); if (active) { setView(next); setError(''); } } catch { if (active) setError(t('Соединение прервано. Переподключаемся…','Connection lost. Reconnecting…')); } finally { inFlight = false; } };
+    void sync(); const timer = setInterval(() => void sync(), 2500);
+    const channel = supabase?.channel(`game:${roomId}:${profile.id}`).on('postgres_changes', { event: '*', schema: 'public', table: 'rooms', filter: `id=eq.${roomId}` }, () => void sync()).on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'game_messages', filter: `room_id=eq.${roomId}` }, () => void sync()).subscribe();
+    const local = !supabase ? localSocket(roomId, 'watch', () => void sync()) : null;
+    return () => { active = false; clearInterval(timer); if (channel && supabase) void supabase.removeChannel(channel); local?.close(); };
+  }, [roomId, online, profile.id]);
+  useEffect(() => { write(`${storageKey}:closed`, closed); }, [closed,storageKey]);
+  useEffect(() => { if (!roomId) write(`practice:${deckId}`, practice); }, [practice,roomId,deckId]);
+  useEffect(() => () => { voice.current?.stop(); if (botTimer.current) clearTimeout(botTimer.current); }, []);
+  useEffect(() => {
+    if (roomId && !view) return;
+    const initial = !chatInitialized.current; chatInitialized.current = true;
+    const latest = messages.at(-1);
+    if (!latest || latest.id === lastMessage.current) return;
+    lastMessage.current = latest.id;
+    const chat = chatScroll.current;
+    if (chat && (initial || latest.sender_id === profile.id || chat.scrollHeight - chat.scrollTop - chat.clientHeight < 100)) chat.scrollTop = chat.scrollHeight;
+    if (!initial && latest.sender_id !== profile.id) {
+      sound('message');
+      if (window.matchMedia('(max-width: 800px)').matches && !chatOpen) { setIncoming(latest); setUnread(count => count + 1); }
+    }
+  }, [messages,profile.id,chatOpen]);
+  useEffect(() => { if (!incoming) return; const timer = setTimeout(() => setIncoming(null),7000); return () => clearTimeout(timer); },[incoming]);
+  useEffect(() => {
+    if (!chatOpen) return;
+    setIncoming(null); setUnread(0);
+    if (chatScroll.current) chatScroll.current.scrollTop = chatScroll.current.scrollHeight;
+    const previous = document.body.style.overflow;
+    if (window.matchMedia('(max-width: 800px)').matches) document.body.style.overflow = 'hidden';
+    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setChatOpen(false); };
+    window.addEventListener('keydown',close);
+    return () => { document.body.style.overflow = previous; window.removeEventListener('keydown',close); };
+  },[chatOpen]);
+  useEffect(() => {
+    if (!result || handledResult.current) return;
+    handledResult.current = true; sound(result === 'win' ? 'win' : 'wrong'); voice.current?.stop(); setVoiceState('off');
+    if (roomId) void refresh();
+  }, [result,roomId,refresh]);
+  const botMessage = (body: string, sender = 'bot'): Message => ({ id: crypto.randomUUID(), sender_id: sender, username: sender === 'bot' ? t('Шерлок','Sherlock') : profile.username, body, created_at: new Date().toISOString() });
+  const finishPractice = (value: Practice, outcome: 'win' | 'loss') => {
+    const stats = read('practice-stats', { wins: 0, games: 0 }); write('practice-stats', { wins: stats.wins + (outcome === 'win' ? 1 : 0), games: stats.games + 1 });
+    setPractice({ ...value, result: outcome });
+  };
+  const choose = async (c: Character) => {
+    if (busy) return;
+    if (roomId) { setBusy(true); try { await rpc('select_secret', { p_room: roomId, p_character: c.id }); await load(); } catch { toast(t('Не удалось выбрать персонажа','Could not select character')); } finally { setBusy(false); } }
+    else { setPractice({ secret: c.id, target: randomCharacter(category.characters).id, messages: [botMessage(t('Я загадал персонажа. Задавай вопросы о внешности кнопками ниже. После вопроса закрывай неподходящие карты!', 'I picked a character. Ask about their appearance with the buttons below, then close the cards that don’t match!'))], asked: [], botAsked: [], botCandidates: category.characters.map(ch => ch.id), result: null }); setSecretVisible(true); }
+  };
+  const clickCard = (c: Character) => { if (result) return; if (selecting) { void choose(c); return; } if (guessMode && isPlaying && myTurn) { setGuess(c); return; } sound('flip'); setClosed(previous => toggleCard(previous,c.id)); };
+  const botTurn = (next: Practice) => {
+    setThinking(true);
+    botTimer.current = setTimeout(() => {
+      const myCharacter = category.characters.find(c => c.id === next.secret)!;
+      const available = questions.filter(q => !next.botAsked.includes(q.key));
+      if (next.botCandidates.length <= 2 || !available.length) {
+        const candidate = next.botCandidates[Math.floor(Math.random() * next.botCandidates.length)]; const guessed = category.characters.find(c => c.id === candidate)!;
+        const final = { ...next, messages: [...next.messages, botMessage(t(`Моя догадка: ${name(guessed)}!`, `My guess: ${name(guessed)}!`))] };
+        if (candidate === next.secret) finishPractice(final,'loss');
+        else setPractice({ ...final, botCandidates: next.botCandidates.filter(id => id !== candidate), messages: [...final.messages,botMessage(t('Не угадал. Закрываю карточку. Твой ход!','Wrong guess. Closing that card. Your turn!'))] });
+      } else {
+        const q = [...available].sort((a,b) => Math.abs(next.botCandidates.filter(id => category.characters.find(c => c.id === id)!.traits.includes(a.key)).length - next.botCandidates.length / 2) - Math.abs(next.botCandidates.filter(id => category.characters.find(c => c.id === id)!.traits.includes(b.key)).length - next.botCandidates.length / 2))[0];
+        const answer = myCharacter.traits.includes(q.key);
+        setPractice({ ...next, botAsked: [...next.botAsked,q.key], botCandidates: next.botCandidates.filter(id => category.characters.find(c => c.id === id)!.traits.includes(q.key) === answer), messages: [...next.messages,botMessage(t(`Мой вопрос: ${q.ru} Ответ: ${answer ? 'да' : 'нет'}. Твой ход!`, `My question: ${q.en} Answer: ${answer ? 'yes' : 'no'}. Your turn!`))] });
+      }
+      setThinking(false);
+    }, 1300);
+  };
+  const ask = async (question: typeof questions[number]) => {
+    if (roomId) { await send(t(question.ru,question.en)); return; }
+    if (!practice || thinking || result) return;
+    const target = category.characters.find(c => c.id === practice.target)!; const yes = target.traits.includes(question.key);
+    const next = { ...practice, asked: [...practice.asked,question.key], messages: [...practice.messages,botMessage(t(question.ru,question.en),profile.id),botMessage(yes ? t('Да!','Yes!') : t('Нет.','No.'))] };
+    setPractice(next); botTurn(next);
+  };
+  const send = async (body: string) => {
+    if (!body.trim() || busy) return;
+    if (!roomId) { toast(t('В тренировке используй вопросы под игровым полем','Use the question buttons below the board in practice')); return; }
+    setBusy(true); try { await rpc('send_message', { p_room: roomId, p_body: body.trim() }); setMessage(''); setReactionOpen(false); await load(); } catch { toast(t('Сообщение не отправлено. Подожди секунду и повтори.','Message not sent. Wait a moment and try again.')); } finally { setBusy(false); }
+  };
+  const submitGuess = async () => {
+    if (!guess || busy) return; setBusy(true);
+    try {
+      let correct = false;
+      if (roomId) { const answer = await rpc<{correct:boolean}>('guess_character', { p_room: roomId, p_character: guess.id }); correct = answer.correct; await load(); }
+      else if (practice) {
+        correct = practice.target === guess.id;
+        if (correct) finishPractice(practice,'win');
+        else { const next = { ...practice, messages: [...practice.messages,botMessage(t(`Моя догадка: ${name(guess)}.`, `My guess: ${name(guess)}.`),profile.id),botMessage(t('Нет, это другой персонаж. Теперь мой ход!','No, it is someone else. My turn!'))] }; setPractice(next); botTurn(next); }
+      }
+      if (!correct) { setClosed(previous => previous.includes(guess.id) ? previous : [...previous,guess.id]); sound('flip'); toast(t('Не угадал. Карточка закрыта, ход соперника.','Not this time. Card closed, opponent’s turn.')); }
+      setGuess(null); setGuessMode(false);
+    } catch { toast(t('Ход не принят. Обновляю состояние игры.','Move not accepted. Refreshing the game.')); await load(); } finally { setBusy(false); }
+  };
+  const startVoice = async () => {
+    if (voiceState !== 'off' && voiceState !== 'failed') { voice.current?.stop(); setVoiceState('off'); return; }
+    if (!roomId || !view?.room.guest_id) { toast(t('Голосовой чат доступен, когда в комнате два игрока','Voice chat is available when both players have joined')); return; }
+    voice.current?.stop(); setMuted(false); setVoiceState('connecting'); const instance = new VoiceChat(); voice.current = instance;
+    try { await instance.start(roomId, profile.id, view.room.host_id === profile.id, setVoiceState); } catch { instance.stop(); setVoiceState('off'); toast(t('Не удалось включить микрофон. Проверь разрешение браузера и сеть.','Could not enable voice. Check microphone permission and your connection.')); }
+  };
+  const restart = () => { setPractice(null); setClosed([]); setGuessMode(false); handledResult.current = false; setSecretVisible(false); };
+  const leave = async () => { if (roomId) { setBusy(true); try { await rpc('leave_room', { p_room: roomId }); } catch { toast(t('Не удалось выйти. Проверь подключение.','Could not leave. Check your connection.')); setBusy(false); return; } } voice.current?.stop(); navigate(roomId ? '/servers' : '/play'); };
+  if (roomId && !view) return <div className="empty-state"><Swords size={36}/><h2>{!online ? t('Нужно подключение к арене','Arena connection required') : t('Открываем комнату…','Opening your room…')}</h2><p>{error || (!online ? t('Проверь подключение в настройках','Check your connection in settings') : t('Загружаем игровое поле','Preparing the board'))}</p><button className="button" onClick={() => navigate('/servers')}>{t('К комнатам','Back to rooms')}</button></div>;
+  return <div className="game-page"><div className="game-heading"><button className="icon-button" onClick={() => setLeaving(true)} aria-label={t('Выйти из игры','Leave game')}><ArrowLeft/></button><div><span className="eyebrow">{roomId ? 'ONLINE DUEL' : t('ТРЕНИРОВКА С БОТОМ','BOT PRACTICE')}</span><h1>{t(category.title,category.titleEn)}</h1></div>{roomId && <button className="room-code" onClick={async () => { try { await navigator.clipboard.writeText(view!.room.code); toast(t('Код скопирован','Code copied')); } catch { toast(view!.room.code); } }}>{view!.room.code}<Copy size={15}/></button>}<button className="icon-button mobile-chat-toggle" onClick={() => setChatOpen(!chatOpen)} aria-label={t('Чат','Chat')}><MessageCircle/></button></div>
+    {error && <div className="connection-error" role="alert">{error}</div>}
+    {result && <div className={`result-banner ${result === 'win' ? 'won' : ''}`}><Trophy size={38}/><div><h2>{result === 'win' ? t('Дело раскрыто. Победа!','Case closed. You win!') : result === 'closed' ? t('Комната закрыта','Room closed') : t('В этот раз — соперник','This round goes to your opponent')}</h2><p>{roomId ? t('Результат матча сохранён. Баланс обновлён в профиле.','Match result saved. Your profile balance is up to date.') : t(`Загаданный персонаж: ${name(category.characters.find(c => c.id === practice!.target)!)}.`, `The secret character was ${name(category.characters.find(c => c.id === practice!.target)!)}.`)}</p></div><button className="button primary" onClick={() => roomId ? navigate('/servers') : restart()}>{t('Ещё раунд','Play again')}<ArrowRight size={17}/></button></div>}
+    {result && roomId && <div className="match-rating-result">{ratingChange !== undefined ? <><span>♜</span><strong>{ratingChange >= 0 ? '+' : ''}{ratingChange} Elo</strong><span>{t('Рейтинг обновлён','Rating updated')}</span></> : <span>{t('Короткий матч — рейтинг не меняется','Short match — rating unchanged')}</span>}</div>}<div className="match-layout"><section className="board-panel"><div className="match-status"><div className="player-mini"><Avatar name={profile.username} frame={profile.frame} src={profile.avatar}/><span>{profile.username}<small>{t(titleById(profile.title).ru,titleById(profile.title).en)} · {profile.rating ?? 1000} Elo</small></span></div><span className="versus">VS</span><div className="player-mini opponent"><span>{opponent || t('Ожидаем друга…','Waiting for a friend…')}<small>{thinking ? t('Думает…','Thinking…') : roomId ? view?.room.guest_id ? `${opponentProfile?.rating ?? 1000} Elo · ${t(titleById(opponentProfile?.title || 'rookie').ru,titleById(opponentProfile?.title || 'rookie').en)}` : t('Отправь код комнаты','Share your room code') : t('Бот-соперник','Bot opponent')}</small></span><Avatar name={opponent || '?'} src={opponentProfile?.avatar} frame={opponentProfile?.frame}/></div></div>
+      <div className={`turn-banner ${guessMode ? 'guess-active' : ''}`}><span className="status-dot"/>{result ? t('Раунд завершён','Round complete') : selecting ? t('Выбери секретного персонажа на поле','Choose your secret character on the board') : roomId && !isPlaying ? t('Ждём, пока соперник выберет персонажа','Waiting for your opponent to choose a secret') : guessMode ? t('Кто загаданный персонаж? Нажми на карточку.','Who is the secret character? Select a card.') : myTurn ? t('Твой ход. Хорошие вопросы ведут к победе.','Your turn. Great questions lead to victory.') : t('Ход соперника. Можно закрывать карточки.','Opponent’s turn. You can still close cards.')}</div>
+      <div className="board-toolbar"><span><strong>{category.characters.length - closed.length}</strong> / {category.characters.length} {t('на поле','remaining')}</span><div><div className="board-search"><Search size={15}/><input value={search} onChange={event => setSearch(event.target.value)} placeholder={t('Найти персонажа','Find a character')} aria-label={t('Найти персонажа','Find a character')}/></div><button className="icon-button" onClick={() => { setClosed([]); sound('flip'); }} aria-label={t('Открыть все карточки','Reset all cards')}><RotateCcw size={16}/></button></div></div>
+      <div className="character-grid">{category.characters.filter(c => `${c.name} ${c.nameEn}`.toLowerCase().includes(search.toLowerCase())).map(c => <button key={c.id} className={`character-card ${closed.includes(c.id) && !selecting ? 'closed' : ''} ${selecting ? 'selecting' : ''}`} onClick={() => clickCard(c)} disabled={busy || !!result} aria-label={`${name(c)}${closed.includes(c.id) ? t(', исключён', ', eliminated') : ''}`} aria-pressed={closed.includes(c.id)}><div className="character-image"><img src={c.img} alt="" loading="lazy" width="360" height="440"/>{closed.includes(c.id) && !selecting && <span className="closed-mark"><X size={24}/></span>}{selecting && <span className="select-mark"><Check size={18}/></span>}</div><span className="character-name">{name(c)}</span></button>)}</div>
+      {!category.characters.some(c => `${c.name} ${c.nameEn}`.toLowerCase().includes(search.toLowerCase())) && <p className="empty-search">{t('Таких персонажей нет','No characters found')}</p>}
+      <div className="board-actions">{selecting ? <button className="button primary" disabled={busy} onClick={() => void choose(randomCharacter(category.characters))}><Shuffle size={17}/>{t('Выбрать случайно','Choose randomly')}</button> : <><button className={`button ${guessMode ? 'danger' : 'primary'}`} disabled={!isPlaying || !myTurn || busy || !!result} onClick={() => setGuessMode(!guessMode)}><Target size={18}/>{guessMode ? t('Отменить догадку','Cancel guess') : t('Я знаю, кто это!','I know who it is!')}</button>{roomId && <button className="button" disabled={!isPlaying || !myTurn || busy || !!result} onClick={async () => { setBusy(true); try { await rpc('pass_turn', { p_room: roomId }); await load(); } catch { toast(t('Не удалось передать ход','Could not pass turn')); } finally { setBusy(false); } }}>{t('Передать ход','Pass turn')}<ArrowRight size={16}/></button>}</>}<span className="board-tip">{selecting ? t('Только ты увидишь эту карту','Only you can see this card') : t('Нажми на карточку, чтобы исключить','Click a card to eliminate')}</span></div>
+      {!result && !selecting && <div className="question-section"><span className="eyebrow">{t('ХОРОШИЙ ВОПРОС — ПОЛДЕЛА','A GOOD QUESTION IS HALF THE BATTLE')}</span><div className="question-chips">{questions.map(q => <button key={q.key} disabled={!isPlaying || !myTurn || busy || (!roomId && practice?.asked.includes(q.key))} onClick={() => void ask(q)}>{t(q.ru,q.en)}</button>)}</div></div>}
+    </section><aside className={`game-rail ${chatOpen ? 'chat-open' : ''}`} role={chatOpen ? 'dialog' : undefined} aria-modal={chatOpen || undefined} aria-label={t('Чат матча','Match chat')}><button className="chat-sheet-close icon-button" onClick={() => setChatOpen(false)} aria-label={t('Закрыть чат','Close chat')}><X/></button><section className="secret-panel"><div className="section-heading"><span className="eyebrow">{t('ТВОЙ СЕКРЕТ','YOUR SECRET')}</span><button className="icon-button" onClick={() => setSecretVisible(!secretVisible)} aria-label={secretVisible ? t('Скрыть персонажа','Hide character') : t('Показать персонажа','Show character')}>{secretVisible ? <Eye size={17}/> : <EyeOff size={17}/>}</button></div>{secret ? <div className={`secret-card ${secretVisible ? '' : 'veiled'}`}><img src={secret.img} alt={secretVisible ? name(secret) : ''}/><div><strong>{secretVisible ? name(secret) : '???'}</strong><small>{t('Соперник не видит эту карту','Your opponent cannot see this')}</small></div>{!secretVisible && <span className="secret-veil">?</span>}</div> : <div className="secret-empty"><span>?</span><p>{t('Выбери персонажа на поле','Choose a character on the board')}</p></div>}</section>
+    <section className="chat-panel"><div className="chat-heading"><h3><MessageCircle size={17}/>{t('Чат матча','Match chat')}</h3><span className="status-dot"/></div><div ref={chatScroll} className="chat-messages" aria-live="polite" role="log">{!messages.length && <p className="chat-welcome">{t('Поздоровайся и задай первый вопрос. Вопросы должны допускать ответ «да» или «нет».','Say hello and ask your first question. Questions should have a yes or no answer.')}</p>}{messages.map(m => <div className={`chat-message ${m.sender_id === profile.id ? 'mine' : ''}`} key={m.id}><div><strong>{m.sender_id === profile.id ? t('Ты','You') : m.username}</strong><time>{new Date(m.created_at).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' })}</time></div><p>{m.body}</p></div>)}</div>{roomId ? <><div className="chat-reactions">{['👍','👀','😂'].map(emoji => <button disabled={busy} key={emoji} onClick={() => void send(emoji)} aria-label={emoji}>{emoji}</button>)}<button className="reaction-picker-toggle" aria-label={t('Все реакции','All reactions')} aria-expanded={reactionOpen} onClick={() => setReactionOpen(!reactionOpen)}><Smile size={17}/></button><button className="quick-answer" disabled={busy} onClick={() => void send(t('Да','Yes'))}>{t('Да','Yes')}</button><button className="quick-answer" disabled={busy} onClick={() => void send(t('Нет','No'))}>{t('Нет','No')}</button></div>{reactionOpen && <div className="reaction-picker"><span>{t('ТВОИ РЕАКЦИИ','YOUR REACTIONS')}</span><div>{['👍','👀','😂','🤝','😎','😭','😅','🤔','👏','🙃','🎉','💪',...shopItems.filter(i=>i.type==='emoji' && profile.owned.includes(i.id)).map(i=>i.emoji!)].map(emoji=><button disabled={busy} key={emoji} onClick={()=>void send(emoji)} aria-label={emoji}>{emoji}</button>)}</div><button className="reaction-shop-link" onClick={()=>navigate('/shop')}>{t('Больше реакций в магазине','More reactions in the shop')} ↗</button></div>}<form className="chat-input" onSubmit={event => { event.preventDefault(); void send(message); }}><input aria-label={t('Сообщение','Message')} value={message} onChange={event => setMessage(event.target.value)} maxLength={300} placeholder={t('Твой вопрос…','Your question…')}/><button className="icon-button" disabled={busy || !message.trim()} aria-label={t('Отправить','Send')}><Send size={18}/></button></form></> : <div className="bot-chat-note">{t('Выбирай вопросы под игровым полем','Choose questions below the board')}</div>}</section>
+    {roomId && <section className="voice-panel"><div><span className={`voice-indicator ${voiceState === 'connected' ? 'connected' : ''}`}><Volume2 size={19}/></span><div><strong>{t('Голосовой чат','Voice chat')}</strong><small>{voiceState === 'off' ? t('Микрофон выключен','Microphone off') : voiceState === 'connected' ? t('На связи','Connected') : voiceState === 'failed' ? t('Ошибка сети · повторить','Network error · retry') : t('Ждём подключение…','Waiting for connection…')}</small></div></div><button className="icon-button" disabled={!!result} onClick={() => void startVoice()} aria-label={t('Подключить или отключить голос','Connect or disconnect voice')}>{voiceState === 'off' ? <MicOff size={19}/> : <Mic size={19}/>}</button>{voiceState !== 'off' && <button className={`button small full ${muted ? 'danger' : ''}`} onClick={() => { voice.current?.mute(!muted); setMuted(!muted); }}>{muted ? t('Включить микрофон','Unmute') : t('Заглушить микрофон','Mute')}</button>}{voiceState === 'tap' && <button className="button small" onClick={() => voice.current?.resume()}>{t('Включить звук','Play audio')}</button>}</section>}
+    <button className="leave-button" onClick={() => setLeaving(true)}><Flag size={15}/>{t('Покинуть игру','Leave game')}</button></aside></div>
+    {secret && <button className="mobile-secret-button" onClick={()=>setMobileSecret(true)}><Eye size={17}/>{t('Моя карта','My card')}</button>}
+    {mobileSecret && secret && <Modal title={t('Твой секрет','Your secret')} onClose={()=>setMobileSecret(false)}><div className="guess-preview"><img src={secret.img} alt={name(secret)}/><h3>{name(secret)}</h3></div><p className="muted">{t('Соперник не видит эту карту','Your opponent cannot see this card')}</p></Modal>}
+    <button className="chat-fab" onClick={() => setChatOpen(true)} aria-label={t('Открыть чат','Open chat')}><MessageCircle size={22}/>{unread > 0 && <span>{unread > 9 ? '9+' : unread}</span>}</button>
+    {chatOpen && <button className="chat-sheet-overlay" onClick={() => setChatOpen(false)} aria-label={t('Закрыть чат','Close chat')}/>}
+    {incoming && <div className="message-notice" role="status"><button className="message-notice-content" onClick={() => setChatOpen(true)}><span className="message-notice-icon"><MessageCircle size={20}/></span><span><strong>{incoming.username}<small>{t('Чат матча','Match chat')}</small></strong><span className="message-notice-body">{incoming.body}</span></span></button><button className="icon-button" onClick={() => setIncoming(null)} aria-label={t('Скрыть уведомление','Dismiss notification')}><X size={17}/></button></div>}
+    {guess && <Modal title={t('Последнее слово?','Your final answer?')} onClose={() => setGuess(null)}><div className="guess-preview"><img src={guess.img} alt={name(guess)}/><h3>{name(guess)}</h3></div><p className="muted">{t('Верная догадка принесёт победу. Если ошибёшься, карточка закроется и ход перейдёт сопернику.','A correct guess wins the match. A wrong guess closes the card and passes the turn.')}</p><button className="button primary full" disabled={busy} onClick={() => void submitGuess()}><Target size={17}/>{t('Это мой ответ','That’s my answer')}</button></Modal>}
+    {leaving && <Modal title={t('Покинуть матч?','Leave this match?')} onClose={() => setLeaving(false)}><p className="muted">{roomId ? t('Текущая онлайн-игра завершится. За выход монеты не начисляются.','The online match will end. Forfeits do not award coins.') : t('Тренировка сохранится. Можно вернуться позже.','Your practice is saved. You can return later.')}</p><div className="modal-actions"><button className="button" onClick={() => setLeaving(false)}>{t('Остаться','Stay')}</button><button className="button danger" disabled={busy} onClick={() => void leave()}>{t('Выйти','Leave')}</button></div></Modal>}
+  </div>;
+}

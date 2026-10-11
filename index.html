@@ -1,85 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#3a2212">
-    <title>Угадай кто?</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/game.css">
-    <link rel="stylesheet" href="css/responsive.css">
-  </head>
-  <body>
-    <div class="table" aria-hidden="true">
-      <svg class="ico t1"><use href="assets/icons.svg#i-tri"/></svg>
-      <svg class="ico t2"><use href="assets/icons.svg#i-cir"/></svg>
-      <svg class="ico t3"><use href="assets/icons.svg#i-crs"/></svg>
-      <svg class="ico t4"><use href="assets/icons.svg#i-sqr"/></svg>
-    </div>
-    <div class="root">
-      <section class="view" id="home">
-        <div class="app">
-          <header class="hero">
-            <div class="syms" aria-hidden="true">
-              <svg class="ico"><use href="assets/icons.svg#i-tri"/></svg>
-              <svg class="ico"><use href="assets/icons.svg#i-cir"/></svg>
-              <svg class="ico"><use href="assets/icons.svg#i-crs"/></svg>
-              <svg class="ico"><use href="assets/icons.svg#i-sqr"/></svg>
-            </div>
-            <h1>УГАДАЙ КТО?</h1>
-            <p class="micro">НАСТОЛЬНАЯ ИГРА · 2 ИГРОКА · 10+ · НЕРВЫ В КОМПЛЕКТ НЕ ВХОДЯТ</p>
-          </header>
-          <section class="shelf" aria-labelledby="decksT">
-            <h2 class="micro" id="decksT">ВЫБЕРИТЕ КОЛОДУ</h2>
-            <p class="micro notice" id="notice" role="alert" hidden>Не удалось загрузить data/characters.json. Запустите игру через локальный сервер: python serve.py</p>
-            <div class="decks" id="decks"></div>
-          </section>
-        </div>
-      </section>
-      <section class="view" id="game" hidden>
-        <div class="app">
-          <header class="head">
-            <button class="btn sec sm" id="menu" type="button"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-back"/></svg>МЕНЮ</button>
-            <h1>УГАДАЙ КТО?</h1>
-            <p class="micro" id="edition"></p>
-            <p class="win" id="win" role="status" aria-live="polite" hidden></p>
-          </header>
-          <main class="board wood">
-            <div class="felt">
-              <p class="hint" id="hint" aria-live="polite"></p>
-              <div class="grid" id="grid"></div>
-            </div>
-          </main>
-          <aside class="rail">
-            <section class="secret wood" id="secret" aria-label="Загаданный персонаж">
-              <p class="micro">ТОЛЬКО ДЛЯ ВАС</p>
-              <div class="stage">
-                <div class="empty"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-user"/></svg><span>ПЕРСОНАЖ ЕЩЁ НЕ ЗАГАДАН</span></div>
-                <div class="portrait" id="portrait"><img id="sImg" alt="" decoding="async" loading="eager"><span class="veil" aria-hidden="true">ПОКАЗАТЬ</span></div>
-              </div>
-              <p class="sname" id="sName"></p>
-              <button class="btn sec" id="peek" type="button" aria-pressed="false" disabled><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-eye"/></svg><span id="peekL">ПОКАЗАТЬ</span></button>
-            </section>
-            <section class="ctrl wood" aria-label="Управление">
-              <div class="dial" id="dial">
-                <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="44" pathLength="1"/><circle class="prog" cx="50" cy="50" r="44" pathLength="1"/></svg>
-                <div class="num" aria-live="polite" aria-atomic="true"><strong id="count">0</strong><span class="micro">ОСТАЛОСЬ</span></div>
-              </div>
-              <button class="btn" id="pick" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-pick"/></svg>ВЫБРАТЬ САМОМУ</button>
-              <button class="btn" id="roll" type="button"><svg class="ico die" id="die" aria-hidden="true"><use href="assets/icons.svg#i-die"/></svg>СЛУЧАЙНЫЙ</button>
-              <button class="btn sec" id="reset" type="button"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-reset"/></svg>ПОДНЯТЬ ВСЕ КАРТОЧКИ</button>
-              <button class="btn sec" id="photo" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-cam"/></svg>ЗАГРУЗИТЬ ФОТО</button>
-              <label class="sr" for="file">Выбрать изображение для карточки персонажа</label>
-              <input id="file" type="file" accept="image/*" hidden>
-            </section>
-            <p class="note micro">СКРОЙТЕ ПЕРСОНАЖА, ПРЕЖДЕ ЧЕМ ПЕРЕДАТЬ УСТРОЙСТВО СОПЕРНИКУ</p>
-          </aside>
-        </div>
-      </section>
-    </div>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="js/main.js"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#101114" />
+<meta name="description" content="GuessWho Arena — онлайн-дуэли, голосовой чат и четыре вселенные." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<title>GuessWho — Arena</title>
+</head>
+<body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body>
 </html>

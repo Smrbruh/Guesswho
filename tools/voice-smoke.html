@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Voice transport test</title><style>body{background:#101114;color:#d7fa62;font:16px system-ui;padding:32px}button{padding:16px}pre{white-space:pre-wrap}</style><h1>WebRTC audio transport test</h1><p>Uses synthesized audio. The microphone is never accessed.</p><button id="run">Run audio test</button><pre id="result">Ready</pre><script type="module">
+import { VoiceChat } from '/src/lib/voice.ts';
+const output = document.querySelector('#result');
+document.querySelector('#run').onclick = async () => {
+  document.querySelector('#run').disabled = true;
+  const saved = localStorage.getItem('gw:session');
+  const peers = []; const voices = []; const context = new AudioContext();
+  const OriginalPeer = window.RTCPeerConnection; const OriginalAudio = window.Audio;
+  const originalMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+  window.RTCPeerConnection = class extends OriginalPeer { constructor(config) { super(config); peers.push(this); } };
+  window.Audio = class extends OriginalAudio { constructor() { super(); this.muted = true; } };
+  navigator.mediaDevices.getUserMedia = async () => { const oscillator = context.createOscillator(); const destination = context.createMediaStreamDestination(); oscillator.frequency.value = 440; oscillator.connect(destination); oscillator.start(); return destination.stream; };
+  const post = async (path,body,token='') => { const response = await fetch('/api/local/'+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(body)}); const result = await response.json(); if (!response.ok) throw new Error(result.error); return result; };
+  let host; let room;
+  try {
+    await context.resume();
+    host = await post('session',{username:'Voice QA Host'}); const guest = await post('session',{username:'Voice QA Guest'});
+    room = await post('rpc',{fn:'create_room',args:{p_category:'naruto',p_public:false}},host.token);
+    await post('rpc',{fn:'join_room',args:{p_code:room.code}},guest.token);
+    const states = {};
+    for (const [label,player,isHost] of [['host',host,true],['guest',guest,false]]) {
+      localStorage.setItem('gw:session',JSON.stringify(player.token)); const voice = new VoiceChat(); voices.push(voice);
+      await voice.start(room.id,player.profile.id,isHost,state => { states[label] = state; output.textContent = JSON.stringify(states); });
+    }
+    const deadline = Date.now()+20000; let received = [];
+    while (Date.now()<deadline) {
+      received = await Promise.all(peers.map(async peer => { const stats = await peer.getStats(); let bytes = 0; stats.forEach(report => { if (report.type==='inbound-rtp' && report.kind==='audio') bytes += report.bytesReceived || 0; }); return bytes; }));
+      if (received.length===2 && received.every(bytes => bytes>1000)) break;
+      await new Promise(resolve => setTimeout(resolve,250));
+    }
+    if (!received.every(bytes=>bytes>1000) || received.length!==2) throw new Error('No bidirectional audio: '+JSON.stringify({states,received}));
+    voices[0].mute(true);
+    if (peers[0].getSenders().some(sender => sender.track?.enabled)) throw new Error('Mute failed');
+    voices[0].mute(false);
+    output.textContent = 'PASS: both peers connected, bidirectional audio packets received, mute/unmute works. Bytes: '+received.join(' / ');
+  } catch(error) { output.textContent = 'FAIL: '+error.message; }
+  finally {
+    voices.forEach(voice=>voice.stop()); await context.close();
+    window.RTCPeerConnection = OriginalPeer; window.Audio = OriginalAudio; navigator.mediaDevices.getUserMedia = originalMedia;
+    if (saved===null) localStorage.removeItem('gw:session'); else localStorage.setItem('gw:session',saved);
+    if (host && room) await post('rpc',{fn:'leave_room',args:{p_room:room.id}},host.token);
+    document.querySelector('#run').disabled = false;
+  }
+};
+</script></html>
