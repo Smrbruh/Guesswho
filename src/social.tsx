@@ -4,6 +4,7 @@ import {useApp} from './context';
 import {localSocket,rpc,supabase} from './lib/supabase';
 import {VoiceChat} from './lib/voice';
 import {sound} from './lib/audio';
+import {syncPush} from './lib/push';
 import {Avatar} from './components/ui';
 import type {PublicPlayer,DirectCall} from './types';
 
@@ -12,7 +13,8 @@ type SocialContext={unread:number;call:DirectCall|null;startCall:(player:PublicP
 const Context=createContext<SocialContext>(null!);
 export const useSocial=()=>useContext(Context);
 export function SocialProvider({children}:{children:ReactNode}){
-  const {profile,online,t,toast,navigate,path}=useApp();
+  const {profile,online,t,toast,navigate,path,lang}=useApp();
+  useEffect(()=>{if(online)void syncPush(lang).catch(()=>{});},[online,profile.id,lang]);
   const [state,setState]=useState<SocialState>({unread:0,latest:null,call:null});
   const [notice,setNotice]=useState<SocialState['latest']>(null);
   const [voiceState,setVoiceState]=useState('off');const [muted,setMuted]=useState(false);const [busy,setBusy]=useState(false);const [joining,setJoining]=useState<string|null>(null);

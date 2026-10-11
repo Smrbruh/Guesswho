@@ -6,11 +6,13 @@ import { WebSocketServer, WebSocket } from 'ws';
 import { createDatabase } from './database.mjs';
 import { createDatabaseViewer } from './db-viewer.mjs';
 import { networkInterfaces } from 'node:os';
+import {createPushService,loadPushKeys} from './push.mjs';
 
 try { process.loadEnvFile('.env'); } catch {}
 const port = Number(process.env.PORT || 3000);
-const root = resolve('dist');
+const root = resolve(process.env.STATIC_DIR || 'dist');
 const database = await createDatabase(resolve(process.env.DATA_DIR || 'server/.data'));
+const push = createPushService(database.db,await loadPushKeys(resolve(process.env.DATA_DIR || 'server/.data','push-vapid.json')));
 const viewer = createDatabaseViewer(database.db);
 if(process.env.DB_VIEWER_PORT!=='0') {
   const viewerPort=Number(process.env.DB_VIEWER_PORT || 3002);
@@ -59,6 +61,20 @@ const server = http.createServer(async (req,res) => {
         if (input.fn === 'join_room' && value?.id) broadcast(value.id,{type:'update'});
         return json(res,200,value ?? null);
       }
+      if (url.pathname.startsWith('/api/local/push/')) {
+        if(!requestUser)return json(res,401,{error:'UNAUTHORIZED'});
+        if(!allowed(`push:${requestUser}`,30,60000))return json(res,429,{error:'RATE_LIMIT'});
+        const action=url.pathname.slice('/api/local/push/'.length);
+        if(action==='config')return json(res,200,{publicKey:push.publicKey});
+        if(action==='subscribe')return json(res,200,await push.subscribe(requestUser,input));
+        if(action==='unsubscribe')return json(res,200,await push.unsubscribe(requestUser,input.endpoint));
+        if(action==='status')return json(res,200,await push.status(requestUser,input.endpoint));
+        if(action==='test'){
+          if(!allowed(`push-test:${requestUser}`,3,60000))return json(res,429,{error:'RATE_LIMIT'});
+          return json(res,200,await push.test(requestUser,input.endpoint));
+        }
+        return json(res,404,{error:'NOT_FOUND'});
+      }
       if (url.pathname === '/api/local/recovery-code') return json(res,200,{code:await database.createRecovery(await database.authenticate(token))});
       if (url.pathname === '/api/local/recover') {
         if (!allowed(`recovery:${ip}`,10,3600000)) return json(res,429,{error:'RATE_LIMIT'});
@@ -72,7 +88,7 @@ const server = http.createServer(async (req,res) => {
     if (path !== root && !path.startsWith(root + sep)) return json(res,403,{error:'FORBIDDEN'});
     if (url.pathname === '/' || !extname(path)) path = resolve(root,'index.html');
     let file; try { file = await readFile(path); } catch { return json(res,404,{error:'NOT_FOUND'}); }
-    const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.webp':'image/webp','.svg':'image/svg+xml','.json':'application/json','.woff2':'font/woff2'};
+    const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.webp':'image/webp','.png':'image/png','.webmanifest':'application/manifest+json','.svg':'image/svg+xml','.json':'application/json','.woff2':'font/woff2'};
     res.setHeader('Content-Type',types[extname(path)] || 'application/octet-stream');
     res.setHeader('Cache-Control',url.pathname.startsWith('/assets/') ? 'public,max-age=31536000,immutable' : url.pathname.startsWith('/images/') ? 'public,max-age=86400' : 'no-cache');
     res.setHeader('Content-Length',file.length); res.end(req.method === 'HEAD' ? undefined : file);
@@ -126,5 +142,5 @@ server.listen(port,'0.0.0.0',() => {
   for (const entries of Object.values(networkInterfaces())) for (const entry of entries || []) if (entry.family === 'IPv4' && !entry.internal) console.log(`LAN: http://${entry.address}:${port}`);
   console.log('Persistent database: ' + resolve(process.env.DATA_DIR || 'server/.data'));
 });
-async function stop() { clearInterval(sweep); clearInterval(heartbeat); clearInterval(presenceSweep); for (const ws of wss.clients) ws.close(); server.close(); viewer.close(); await database.close(); process.exit(0); }
+async function stop() { clearInterval(sweep); clearInterval(heartbeat); clearInterval(presenceSweep); for (const ws of wss.clients) ws.close(); server.close(); viewer.close(); await push.close(); await database.close(); process.exit(0); }
 process.on('SIGINT',stop); process.on('SIGTERM',stop);
