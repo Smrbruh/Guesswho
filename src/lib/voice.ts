@@ -48,8 +48,9 @@ export class VoiceChat {
     await new Promise<void>((resolve, reject) => {
       const timer = setTimeout(() => reject(new Error('VOICE_TIMEOUT')), 12000);
       const statusChanged = (status: string) => {
+        if (this.stopped) { clearTimeout(timer); resolve(); return; }
         if (status === 'SUBSCRIBED') { clearTimeout(timer); void send({ ready: true }); onState('waiting'); resolve(); }
-        if (status === 'CHANNEL_ERROR') { clearTimeout(timer); reject(new Error('VOICE_UNAVAILABLE')); }
+        if (status === 'CHANNEL_ERROR' || status === 'CLOSED') { clearTimeout(timer); this.stop(); onState('off'); reject(new Error('VOICE_UNAVAILABLE')); }
       };
       if (supabase) {
         this.channel = supabase.channel(`voice:${roomId}`, { config: { private: true, broadcast: { self: false } } });

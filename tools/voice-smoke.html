@@ -16,6 +16,8 @@ document.querySelector('#run').onclick = async () => {
   try {
     await context.resume();
     host = await post('session',{username:'Voice QA Host'}); const guest = await post('session',{username:'Voice QA Guest'});
+    await post('rpc',{fn:'request_friend',args:{p_code:guest.profile.friend_code}},host.token);
+    await post('rpc',{fn:'respond_friend',args:{p_user:host.profile.id,p_accept:true}},guest.token);
     room = await post('rpc',{fn:'create_room',args:{p_category:'naruto',p_public:false}},host.token);
     await post('rpc',{fn:'join_room',args:{p_code:room.code}},guest.token);
     await post('rpc',{fn:'select_secret',args:{p_room:room.id,p_character:'naruto-naruto-uzumaki'}},host.token);
@@ -64,7 +66,11 @@ document.querySelector('#run').onclick = async () => {
       socket.onmessage = event => { if (JSON.parse(event.data).type==='ready') { clearTimeout(timer); socket.close(); reject(new Error('Outsider admitted')); } };
       socket.onclose = event => { clearTimeout(timer); if (event.code===1008) resolve(); else reject(new Error('Unexpected outsider close')); };
     });
-    output.textContent = 'PASS: bidirectional audio before and after a draw, mute/unmute, reconnect after match, outsider rejected. Bytes before: '+received.join(' / ')+'. After: '+after.join(' / ')+'. Reconnected: '+reconnected.join(' / ');
+    await post('rpc',{fn:'remove_friend',args:{p_user:guest.profile.id}},host.token);
+    const revokeDeadline = Date.now()+18000;
+    while (Date.now()<revokeDeadline && peers.some(peer=>peer.connectionState!=='closed')) await new Promise(resolve=>setTimeout(resolve,250));
+    if (peers.some(peer=>peer.connectionState!=='closed')) throw new Error('Voice continued after friendship removed');
+    output.textContent = 'PASS: friend audio before and after a draw, mute/unmute, reconnect, outsider rejected, friendship removal closes both peers. Bytes before: '+received.join(' / ')+'. After: '+after.join(' / ')+'. Reconnected: '+reconnected.join(' / ');
   } catch(error) { output.textContent = 'FAIL: '+error.message; }
   finally {
     voices.forEach(voice=>voice.stop()); await context.close();

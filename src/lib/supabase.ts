@@ -40,5 +40,6 @@ export function localSocket(room: string, mode: 'watch' | 'voice', onMessage: (m
   socket.onopen = () => socket.send(JSON.stringify({ type: 'auth', token: localToken(), room, mode }));
   socket.onmessage = event => { try { const data = JSON.parse(event.data); if (data.type === 'ready') onStatus?.('SUBSCRIBED'); else if (data.type === 'error') onStatus?.('CHANNEL_ERROR'); else onMessage(data); } catch { return; } };
   socket.onerror = () => onStatus?.('CHANNEL_ERROR');
+  socket.onclose = () => onStatus?.('CLOSED');
   return socket;
 }

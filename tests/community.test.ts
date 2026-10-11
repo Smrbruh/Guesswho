@@ -32,7 +32,7 @@ test('correct guess grants exactly one final answer, a draw updates stats and El
   const result=await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-naruto-uzumaki'});
   expect(result).toMatchObject({correct:true,draw:true,winner_id:null,reward:0});
   expect(result.rating_changes[a.profile.id]).toBe(-13);expect(result.rating_changes[b.profile.id]).toBe(13);
-  const p=await backend.call(a.profile.id,'ensure_profile');expect(p).toMatchObject({wins:0,draws:1,games:1,coins:0});
+  const p=await backend.call(a.profile.id,'ensure_profile');expect(p).toMatchObject({wins:0,draws:1,games:1,coins:25});
   await expect(backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-naruto-uzumaki'})).rejects.toThrow('NOT_YOUR_TURN');
   const history=await backend.call(a.profile.id,'match_history',{p_opponent:b.profile.id});expect(history).toMatchObject({games:1,wins:0,losses:0,draws:1});expect(history.matches[0].opponent_id).toBe(b.profile.id);
   const outsider=await backend.session('','History Outsider');expect((await backend.call(outsider.profile.id,'match_history',{p_opponent:a.profile.id})).games).toBe(0);

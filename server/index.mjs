@@ -91,13 +91,14 @@ wss.on('connection',ws => {
         if (data.type !== 'auth' || !['watch','voice'].includes(data.mode)) return ws.close(1008);
         const id = await database.authenticate(data.token); if (!id) return ws.close(1008);
         await database.call(id,'get_game',{p_room:data.room});
+        if(data.mode==='voice' && !await database.call(id,'can_voice',{p_room:data.room}))return ws.close(1008,'Friends only');
         ws.user = id; ws.room = data.room; ws.mode = data.mode; ws.connection = randomUUID(); ws.alive = true; clearTimeout(timeout);
         if(ws.mode==='watch')await database.call(id,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true});
         ws.send(JSON.stringify({type:'ready'})); return;
       }
       if (!allowed(`ws:${ws.user}`,120,10000)) return ws.close(1008,'Rate limit');
       if (data.type === 'signal' && ws.mode === 'voice') {
-        await database.call(ws.user,'get_game',{p_room:ws.room});
+        if(!await database.call(ws.user,'can_voice',{p_room:ws.room}))return ws.close(1008,'Friends only');
         broadcast(ws.room,{type:'signal',payload:{...data.payload,from:ws.user}},ws);
       }
     } catch { ws.send(JSON.stringify({type:'error'})); ws.close(1008); }
@@ -107,7 +108,7 @@ wss.on('connection',ws => {
 });
 let presenceBusy=false;
 const presenceSweep=setInterval(async()=>{if(presenceBusy)return;presenceBusy=true;try{const expired=await database.db.query('select game_private.expire_rooms() as count');if(expired.rows[0].count)for(const ws of wss.clients)if(ws.mode==='watch'&&ws.readyState===WebSocket.OPEN)ws.send(JSON.stringify({type:'update'}));}catch(error){console.error('Room cleanup failed:',error.message);}finally{presenceBusy=false;}},5000);
-const heartbeat=setInterval(()=>{for(const ws of wss.clients){if(!ws.user)continue;if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},15000);
+const heartbeat=setInterval(()=>{for(const ws of wss.clients){if(!ws.user)continue;if(ws.mode==='voice')void database.call(ws.user,'can_voice',{p_room:ws.room}).then(allowed=>{if(!allowed)ws.close(1008,'Friends only');}).catch(()=>ws.close(1008));if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},15000);
 server.listen(port,'0.0.0.0',() => {
   console.log(`GuessWho Arena: http://localhost:${port}`);
   for (const entries of Object.values(networkInterfaces())) for (const entry of entries || []) if (entry.family === 'IPv4' && !entry.internal) console.log(`LAN: http://${entry.address}:${port}`);

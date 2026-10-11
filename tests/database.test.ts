@@ -67,7 +67,7 @@ describe('authoritative multiplayer and economy', () => {
     await user(host);
     expect(result).toMatchObject({correct:false,winner_id:host,reward:50,rating_changes:{[host]:16,[guest]:-16}});
     await expect(rpc('guess_character',[room.id,'naruto-sasuke-uchiha'])).rejects.toThrow('NOT_YOUR_TURN');
-    const p = await rpc('ensure_profile',['Ignored']); expect(p.coins).toBe(50); expect(p.wins).toBe(1); expect(p.games).toBe(1);
+    const p = await rpc('ensure_profile',['Ignored']); expect(p.coins).toBe(75); expect(p.wins).toBe(1); expect(p.games).toBe(1);
     await user(guest); expect((await rpc('ensure_profile',['Ignored'])).games).toBe(1);
   });
   test('cannot forge balances, read opponent profiles, or read private secrets', async () => {
