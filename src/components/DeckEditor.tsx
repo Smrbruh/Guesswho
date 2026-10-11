@@ -4,7 +4,7 @@ import { useApp } from '../context';
 import type { Category, Character, DeckRecord } from '../types';
 import { rpc } from '../lib/supabase';
 import { portraitFromFile } from '../lib/portraits';
-import { questions } from '../lib/game';
+import { questionsForDeck } from '../lib/game';
 import { PageHeading } from './ui';
 
 export function DeckEditor({ initial, onSaved, onClose }: { initial: DeckRecord | null; onSaved: (id: string) => void; onClose: () => void }) {
@@ -17,6 +17,7 @@ export function DeckEditor({ initial, onSaved, onClose }: { initial: DeckRecord 
   const photos = useRef<HTMLInputElement>(null);
   const editorPanel = useRef<HTMLElement>(null);
   useEffect(()=>{if(active && window.matchMedia('(max-width:600px)').matches)editorPanel.current?.scrollIntoView({behavior:'smooth',block:'start'});},[active]);
+  const questions = questionsForDeck(deck);
   const character = deck.characters.find(item => item.id === active);
   const patch = (id: string, change: Partial<Character>) => setDeck(previous => ({...previous,characters:previous.characters.map(item => item.id === id ? {...item,...change} : item)}));
   const add = () => { const id = crypto.randomUUID(); setDeck(previous => ({...previous,characters:[...previous.characters,{id,name:'',nameEn:'',img:'',traits:[]}]})); setActive(id); };

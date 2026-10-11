@@ -1,4 +1,5 @@
 import concurrent.futures
+import argparse
 import io
 import json
 import subprocess
@@ -23,7 +24,12 @@ def download(character):
     original = ImageOps.exif_transpose(original).convert('RGBA')
     background = Image.new('RGBA', original.size, (35, 40, 49, 255))
     background.alpha_composite(original)
-    portrait = ImageOps.fit(background.convert('RGB'), (360, 440), Image.Resampling.LANCZOS, centering=tuple(character['crop']))
+    if character.get('fit') == 'contain':
+        portrait = Image.new('RGB', (360, 440), (35, 40, 49))
+        fitted = ImageOps.contain(background.convert('RGB'), (336, 400), Image.Resampling.LANCZOS)
+        portrait.paste(fitted, ((360-fitted.width)//2, (440-fitted.height)//2))
+    else:
+        portrait = ImageOps.fit(background.convert('RGB'), (360, 440), Image.Resampling.LANCZOS, centering=tuple(character['crop']))
     path.parent.mkdir(parents=True, exist_ok=True)
     portrait.save(path, 'WEBP', quality=83, method=6)
     if path.stat().st_size >= 100000:
@@ -31,7 +37,11 @@ def download(character):
     return character['id']
 
 def main():
-    specs = json.loads(SPECS.read_text('utf-8'))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--spec', default=str(SPECS))
+    parser.add_argument('--migration', default='202610110022_expanded_universes.sql')
+    args = parser.parse_args()
+    specs = json.loads(Path(args.spec).read_text('utf-8'))
     jobs = [c for deck in specs for c in deck['characters']]
     failures = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
@@ -44,7 +54,7 @@ def main():
                 print('FAIL', error, flush=True)
     if failures:
         raise SystemExit(f'{len(failures)} portraits failed; catalog left unchanged')
-    expanded = [{**{key: value for key, value in deck.items() if key != 'characters'}, 'characters': [{key: value for key, value in c.items() if key not in ('source', 'sourcePage', 'crop')} for c in deck['characters']]} for deck in specs]
+    expanded = [{**{key: value for key, value in deck.items() if key != 'characters'}, 'characters': [{key: value for key, value in c.items() if key not in ('source', 'sourcePage', 'crop', 'fit')} for c in deck['characters']]} for deck in specs]
     ids = {d['id'] for d in expanded}
     catalog_path = ROOT / 'src/data/catalog.json'
     catalog = [d for d in json.loads(catalog_path.read_text('utf-8')) if d['id'] not in ids] + expanded
@@ -59,7 +69,7 @@ def main():
     sql = 'insert into game_private.characters(id,category) values\n' + rows + '\non conflict(id) do nothing;\n'
     for deck in expanded:
         sql += 'insert into public.decks(id,data,published) values(' + quote(deck['id']) + ',' + quote(json.dumps(deck, ensure_ascii=False)) + '::jsonb,true) on conflict(id) do update set data=excluded.data,published=true,updated_at=now() where public.decks.owner_id is null;\n'
-    (ROOT / 'supabase/migrations/202610110022_expanded_universes.sql').write_text(sql, 'utf-8')
+    (ROOT / 'supabase/migrations' / args.migration).write_text(sql, 'utf-8')
     print('Ready:', len(jobs), 'portraits in', len(expanded), 'packs')
 
 if __name__ == '__main__':

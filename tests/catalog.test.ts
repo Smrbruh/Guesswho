@@ -1,15 +1,18 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import catalog from '../src/data/catalog.json';
-import { toggleCard, checkGuess } from '../src/lib/game';
+import { toggleCard, checkGuess, questionsForDeck } from '../src/lib/game';
 describe('playable catalog', () => {
-  test('has seven complete packs with unique bilingual characters and local WebP portraits', () => {
-    expect(catalog).toHaveLength(7);
+  test('has fifteen complete packs with unique bilingual cards and local WebP images', () => {
+    expect(catalog).toHaveLength(15);
     const ids = catalog.flatMap(c => c.characters.map(ch => ch.id));
-    expect(new Set(ids).size).toBe(272);
+    expect(new Set(ids).size).toBe(656);
     for (const deck of catalog) {
-      expect(deck.characters).toHaveLength(['walking-dead','jojo','avatar-aang'].includes(deck.id) ? 48 : 32);
+      expect(deck.characters).toHaveLength(['attack-on-titan','naruto','harry-potter','avengers'].includes(deck.id) ? 32 : 48);
+      const keys = questionsForDeck(deck).map(question => question.key);
+      expect(new Set(keys).size).toBe(keys.length);
       for (const c of deck.characters) {
+        expect(c.traits.every(trait => keys.includes(trait)), c.id).toBe(true);
         expect(c.name).toMatch(/[А-Яа-я]/);
         expect(c.nameEn).toMatch(/[a-zA-Z]/);
         const file = `public${c.img}`;

@@ -1,14 +1,15 @@
-import type { Character } from '../types';
+import type { Category, Character, DeckQuestion } from '../types';
 export function toggleCard(closed: string[], id: string) { return closed.includes(id) ? closed.filter(item => item !== id) : [...closed, id]; }
 export function checkGuess(secret: string, guess: string) { return secret === guess; }
 export function randomCharacter(characters: Character[]) { return characters[crypto.getRandomValues(new Uint32Array(1))[0] % characters.length]; }
-export const questions = [
+export const questions: DeckQuestion[] = [
   { key: 'male', ru: 'Это мужчина?', en: 'Is your character male?' },
   { key: 'female', ru: 'Это женщина?', en: 'Is your character female?' },
   { key: 'dark', ru: 'У персонажа тёмные волосы?', en: 'Does your character have dark hair?' },
   { key: 'light', ru: 'У персонажа светлые волосы?', en: 'Does your character have light hair?' },
   { key: 'glasses', ru: 'Персонаж носит очки?', en: 'Does your character wear glasses?' },
 ];
+export function questionsForDeck(category: Pick<Category, 'questions'>): DeckQuestion[] { return category.questions?.length ? category.questions : questions; }
 export const shopItems = [
   { id: 'frame-lime', type: 'frame', ru: 'Кислотный неон', en: 'Acid neon', price: 150, color: '#d7fa62', rarity: 'rare' },
   { id: 'frame-violet', type: 'frame', ru: 'Космическая пыль', en: 'Cosmic dust', price: 250, color: '#b399ff', rarity: 'epic' },
