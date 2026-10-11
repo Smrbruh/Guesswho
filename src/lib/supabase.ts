@@ -6,7 +6,7 @@ const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const supabase = url && key ? createClient(url, key) : null;
 export const localToken = () => read<string>('session', '');
 async function localRequest<T>(path: string, body: unknown): Promise<T> {
-  const response = await fetch(`/api/local/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localToken()}` }, body: JSON.stringify(body), signal: AbortSignal.timeout(12000) });
+  const response = await fetch(`/api/local/${path}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localToken()}` }, body: JSON.stringify(body), signal: AbortSignal.timeout(path === 'rpc' && (body as {fn?:string}).fn === 'save_deck' ? 60000 : 12000) });
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || 'CONNECTION_ERROR');
   return data;

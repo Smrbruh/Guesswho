@@ -21,7 +21,9 @@ export async function createDatabase(directory) {
   await db.exec('create table if not exists game_private.sessions(hash text primary key, user_id uuid not null references auth.users(id), expires_at timestamptz not null default now() + interval \'90 days\'); create index if not exists sessions_user on game_private.sessions(user_id);');
   await db.exec('create table if not exists game_private.recovery_codes(user_id uuid primary key references auth.users(id), hash text unique not null);');
   const methods = {
-    list_my_rooms: [],
+    list_my_rooms: [], room_presence: [['p_room','uuid'],['p_connection','text'],['p_online','boolean',true]],
+    match_history: [['p_opponent','uuid',null]],
+    list_decks: [['p_search','text',''],['p_page','integer',0]], get_deck: [['p_id','text']], save_deck: [['p_id','text',null],['p_data','jsonb'],['p_published','boolean',false]], vote_deck: [['p_id','text'],['p_vote','integer']], get_room_deck: [['p_room','uuid']],
     leaderboard: [], equip_title: [['p_title','text']],
     update_avatar: [['p_avatar','text',null]],
     get_friends: [], request_friend: [['p_code','text']], respond_friend: [['p_user','uuid'],['p_accept','boolean']], remove_friend: [['p_user','uuid']], invite_friend: [['p_user','uuid'],['p_category','text']], accept_invite: [['p_invite','uuid']],
@@ -40,7 +42,7 @@ export async function createDatabase(directory) {
     const values = spec.map(([key,,fallback]) => {
       const value = args[key] === undefined ? fallback : args[key];
       if (value === undefined) throw new Error('INVALID_ARGUMENT');
-      return value;
+      return spec.find(entry => entry[0] === key)?.[1] === 'jsonb' ? JSON.stringify(value) : value;
     });
     return db.transaction(async tx => {
       await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[id]);

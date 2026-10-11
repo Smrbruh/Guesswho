@@ -18,7 +18,8 @@ async function duel(hostRating=1000,guestRating=1000){
 test('equal ratings exchange 16 points once and weaker players gain more for an upset',async()=>{
   for(const [own,other,expected] of [[1000,1000,16],[1000,1400,29],[1400,1000,3]]){
     const {a,b,room}=await duel(own,other);
-    const result=await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-sasuke-uchiha'});
+    await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-sasuke-uchiha'});
+    const result=await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-itachi-uchiha'});
     expect(result.rating_changes[a.profile.id]).toBe(expected);expect(result.rating_changes[b.profile.id]).toBe(-expected);
     expect((await backend.call(a.profile.id,'ensure_profile')).rating).toBe(own+expected);
     await expect(backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-sasuke-uchiha'})).rejects.toThrow('NOT_YOUR_TURN');
@@ -31,10 +32,11 @@ test('a wrong guess cannot change rating, balance, wins or settle the game',asyn
   const game=await backend.call(b.profile.id,'get_game',{p_room:room.id});expect(game.room.status).toBe('playing');expect(game.room.turn_id).toBe(b.profile.id);
 });
 test('five anime wins unlock Senpai and unearned titles cannot be forged',async()=>{
-  const {a,room}=await duel();
+  const {a,b,room}=await duel();
   await expect(backend.call(a.profile.id,'equip_title',{p_title:'senpai'})).rejects.toThrow('NOT_OWNED');
   await backend.db.query('update public.profiles set category_wins=$1 where id=$2',[JSON.stringify({'naruto':2,'attack-on-titan':2}),a.profile.id]);
   await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-sasuke-uchiha'});
+  await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-itachi-uchiha'});
   const p=await backend.call(a.profile.id,'equip_title',{p_title:'senpai'});expect(p.title).toBe('senpai');expect(p.category_wins.naruto).toBe(3);
   await expect(backend.call(a.profile.id,'equip_title',{p_title:'wizard'})).rejects.toThrow('NOT_OWNED');
 });
@@ -54,6 +56,6 @@ test('avatars accept WebP and reject spoofed content and oversized data',async()
 test('leaderboard exposes only ranked public identity fields',async()=>{
   const a=await backend.session('','New Player');const entries=await backend.call(a.profile.id,'leaderboard');expect(entries.length).toBeGreaterThan(0);
   expect(entries.some(p=>p.id===a.profile.id)).toBe(false);
-  expect(Object.keys(entries[0]).sort()).toEqual(['avatar','frame','id','rated_games','rating','title','username','wins'].sort());
+  expect(Object.keys(entries[0]).sort()).toEqual(['staff_badge','avatar','frame','id','rated_games','rating','title','username','wins'].sort());
   expect(entries[0].rating).toBeGreaterThanOrEqual(entries.at(-1).rating);
 });

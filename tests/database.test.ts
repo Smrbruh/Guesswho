@@ -62,8 +62,10 @@ describe('authoritative multiplayer and economy', () => {
     await user(host); await rpc('pass_turn',[room.id]);
     await user(guest); await rpc('pass_turn',[room.id]);
     await db.query("update public.rooms set started_at = now() - interval '1 minute' where id=$1", [room.id]);
-    await user(host); const result = await rpc('guess_character',[room.id,'naruto-sasuke-uchiha']);
-    expect(result).toMatchObject({correct:true,winner_id:host,reward:50,rating_changes:{[host]:16,[guest]:-16}});
+    await user(host); await rpc('guess_character',[room.id,'naruto-sasuke-uchiha']);
+    await user(guest); const result = await rpc('guess_character',[room.id,'naruto-itachi-uchiha']);
+    await user(host);
+    expect(result).toMatchObject({correct:false,winner_id:host,reward:50,rating_changes:{[host]:16,[guest]:-16}});
     await expect(rpc('guess_character',[room.id,'naruto-sasuke-uchiha'])).rejects.toThrow('NOT_YOUR_TURN');
     const p = await rpc('ensure_profile',['Ignored']); expect(p.coins).toBe(50); expect(p.wins).toBe(1); expect(p.games).toBe(1);
     await user(guest); expect((await rpc('ensure_profile',['Ignored'])).games).toBe(1);
@@ -90,7 +92,7 @@ describe('authoritative multiplayer and economy', () => {
     await rpc('select_secret',[r.id,'naruto-naruto-uzumaki']);
     await user(guest); await rpc('join_room',[r.code,null]); await rpc('select_secret',[r.id,'naruto-sasuke-uchiha']);
     await user(host); const result = await rpc('guess_character',[r.id,'naruto-itachi-uchiha']);
-    expect(result).toEqual({correct:false,winner_id:null,reward:0});
+    expect(result).toMatchObject({correct:false,winner_id:null,reward:0});
     const state = await rpc('get_game',[r.id]);
     expect(state.room.status).toBe('playing'); expect(state.room.turn_id).toBe(guest); expect(state.room.winner_id).toBe(null);
     await expect(rpc('guess_character',[r.id,'naruto-sasuke-uchiha'])).rejects.toThrow('NOT_YOUR_TURN');

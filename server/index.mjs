@@ -1,4 +1,5 @@
 import http from 'node:http';
+import {randomUUID} from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { WebSocketServer, WebSocket } from 'ws';
@@ -35,7 +36,8 @@ const server = http.createServer(async (req,res) => {
       if (req.method !== 'POST') return json(res,405,{error:'METHOD_NOT_ALLOWED'});
       if (req.headers.origin && new URL(req.headers.origin).host !== req.headers.host && !['localhost:5173','127.0.0.1:5173'].includes(new URL(req.headers.origin).host)) return json(res,403,{error:'ORIGIN_NOT_ALLOWED'});
       if (!allowed(`ip:${ip}`,240,60000)) return json(res,429,{error:'RATE_LIMIT'});
-      let body = ''; for await (const chunk of req) { body += chunk; if (body.length > 120000) return json(res,413,{error:'BODY_TOO_LARGE'}); }
+      const chunks=[]; let bytes=0; for await (const chunk of req) { bytes+=chunk.length; if (bytes>6500000) return json(res,413,{error:'BODY_TOO_LARGE'}); chunks.push(chunk); }
+      const body=Buffer.concat(chunks).toString('utf8');
       let input; try { input = JSON.parse(body); } catch { return json(res,400,{error:'INVALID_JSON'}); }
       if (url.pathname === '/api/local/session') {
         if (!await database.authenticate(token) && !allowed(`session:${ip}`,20,3600000)) return json(res,429,{error:'RATE_LIMIT'});
@@ -44,7 +46,7 @@ const server = http.createServer(async (req,res) => {
       if (url.pathname === '/api/local/rpc') {
         const id = await database.authenticate(token); if (!id) return json(res,401,{error:'UNAUTHORIZED'});
         const value = await database.call(id,input.fn,input.args);
-        if (input.args?.p_room && !['get_game'].includes(input.fn)) broadcast(input.args.p_room,{type:'update'});
+        if (input.args?.p_room && !['get_game','get_room_deck','room_presence'].includes(input.fn)) broadcast(input.args.p_room,{type:'update'});
         if (input.fn === 'join_room' && value?.id) broadcast(value.id,{type:'update'});
         return json(res,200,value ?? null);
       }
@@ -66,7 +68,7 @@ const server = http.createServer(async (req,res) => {
     res.setHeader('Cache-Control',url.pathname.startsWith('/assets/') ? 'public,max-age=31536000,immutable' : url.pathname.startsWith('/images/') ? 'public,max-age=86400' : 'no-cache');
     res.setHeader('Content-Length',file.length); res.end(req.method === 'HEAD' ? undefined : file);
   } catch (error) {
-    const known = /^(UNAUTHORIZED|INVALID_[A-Z_]+|UNKNOWN_METHOD|ROOM_[A-Z_]+|NOT_YOUR_TURN|NOT_OWNED|INSUFFICIENT_COINS|RATE_LIMIT)$/;
+    const known = /^(UNAUTHORIZED|INVALID_[A-Z_]+|UNKNOWN_METHOD|ROOM_[A-Z_]+|NOT_YOUR_TURN|NOT_OWNED|INSUFFICIENT_COINS|RATE_LIMIT|USERNAME_TAKEN|FINAL_GUESS_REQUIRED|DECK_LIMIT|DECK_NOT_FOUND)$/;
     const message = known.test(error.message) ? error.message : 'REQUEST_FAILED';
     if (message === 'REQUEST_FAILED') console.error('Request failed:',error.message);
     json(res,message === 'UNAUTHORIZED' ? 401 : 400,{error:message});
@@ -90,7 +92,8 @@ wss.on('connection',ws => {
         const id = await database.authenticate(data.token); if (!id) return ws.close(1008);
         const game = await database.call(id,'get_game',{p_room:data.room});
         if (data.mode === 'voice' && game.room.status === 'finished') return ws.close(1008);
-        ws.user = id; ws.room = data.room; ws.mode = data.mode; clearTimeout(timeout);
+        ws.user = id; ws.room = data.room; ws.mode = data.mode; ws.connection = randomUUID(); ws.alive = true; clearTimeout(timeout);
+        if(ws.mode==='watch')await database.call(id,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true});
         ws.send(JSON.stringify({type:'ready'})); return;
       }
       if (!allowed(`ws:${ws.user}`,120,10000)) return ws.close(1008,'Rate limit');
@@ -101,12 +104,16 @@ wss.on('connection',ws => {
       }
     } catch { ws.send(JSON.stringify({type:'error'})); ws.close(1008); }
   });
-  ws.on('close',() => { clearTimeout(timeout); if (ws.mode === 'voice') broadcast(ws.room,{type:'signal',payload:{left:true,from:ws.user}},ws); });
+  ws.on('pong',()=>{ws.alive=true;if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true}).catch(()=>{});});
+  ws.on('close',() => { clearTimeout(timeout); if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:false}).then(()=>broadcast(ws.room,{type:'update'})).catch(()=>{}); if (ws.mode === 'voice') broadcast(ws.room,{type:'signal',payload:{left:true,from:ws.user}},ws); });
 });
+let presenceBusy=false;
+const presenceSweep=setInterval(async()=>{if(presenceBusy)return;presenceBusy=true;try{const expired=await database.db.query('select game_private.expire_rooms() as count');if(expired.rows[0].count)for(const ws of wss.clients)if(ws.mode==='watch'&&ws.readyState===WebSocket.OPEN)ws.send(JSON.stringify({type:'update'}));}catch(error){console.error('Room cleanup failed:',error.message);}finally{presenceBusy=false;}},5000);
+const heartbeat=setInterval(()=>{for(const ws of wss.clients){if(!ws.user)continue;if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},15000);
 server.listen(port,'0.0.0.0',() => {
   console.log(`GuessWho Arena: http://localhost:${port}`);
   for (const entries of Object.values(networkInterfaces())) for (const entry of entries || []) if (entry.family === 'IPv4' && !entry.internal) console.log(`LAN: http://${entry.address}:${port}`);
   console.log('Persistent database: ' + resolve(process.env.DATA_DIR || 'server/.data'));
 });
-async function stop() { clearInterval(sweep); for (const ws of wss.clients) ws.close(); server.close(); await database.close(); process.exit(0); }
+async function stop() { clearInterval(sweep); clearInterval(heartbeat); clearInterval(presenceSweep); for (const ws of wss.clients) ws.close(); server.close(); await database.close(); process.exit(0); }
 process.on('SIGINT',stop); process.on('SIGTERM',stop);
