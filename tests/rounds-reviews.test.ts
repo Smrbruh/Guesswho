@@ -1,0 +1,113 @@
+import {beforeAll,afterAll,test,expect} from 'vitest';
+import {createDatabase} from '../server/database.mjs';
+import catalog from '../src/data/catalog.json';
+let backend:Awaited<ReturnType<typeof createDatabase>>;
+const deck=catalog.find(d=>d.id==='naruto')!;
+beforeAll(async()=>{backend=await createDatabase('memory://');},30000);
+afterAll(()=>backend.close());
+async function match(start=true){
+  const a=await backend.session('','Round Host'),b=await backend.session('','Round Guest');
+  const room=await backend.call(a.profile.id,'create_room',{p_category:deck.id,p_ranked:false});
+  await backend.call(b.profile.id,'join_room',{p_code:room.code});
+  if(start){await backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:deck.characters[0].id});await backend.call(b.profile.id,'select_secret',{p_room:room.id,p_character:deck.characters[1].id});}
+  return {a,b,room};
+}
+test('closing the opponent secret reveals nothing and undo does not unlock guessing within the turn',async()=>{
+  const {a,b,room}=await match();
+  const closed=[deck.characters[1].id];
+  expect(await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:closed})).toEqual({closed,version:1});
+  let view=await backend.call(a.profile.id,'get_game',{p_room:room.id});
+  expect(view.room.status).toBe('playing');expect(view.guess_locked).toBe(true);
+  await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:[]});
+  await expect(backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[1].id})).rejects.toThrow('INVALID_GUESS_AFTER_CLOSE');
+  await expect(backend.call(b.profile.id,'set_board',{p_room:room.id,p_closed:closed})).rejects.toThrow('NOT_YOUR_TURN');
+  await backend.call(a.profile.id,'pass_turn',{p_room:room.id});await backend.call(b.profile.id,'pass_turn',{p_room:room.id});
+  view=await backend.call(a.profile.id,'get_game',{p_room:room.id});expect(view.guess_locked).toBe(false);
+  expect((await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[1].id})).last_chance).toBe(true);
+});
+test('last remaining correct card automatically guesses and keeps the reply chance even if the reply card was closed',async()=>{
+  const {a,b,room}=await match();
+  await backend.call(a.profile.id,'pass_turn',{p_room:room.id});
+  await backend.call(b.profile.id,'set_board',{p_room:room.id,p_closed:[deck.characters[0].id]});
+  await backend.call(b.profile.id,'pass_turn',{p_room:room.id});
+  const answer=await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:deck.characters.filter((_,i)=>i!==1).map(c=>c.id)});
+  expect(answer.automatic_guess).toMatchObject({correct:true,last_chance:true});
+  expect((await backend.call(b.profile.id,'get_game',{p_room:room.id})).room).toMatchObject({status:'playing',pending_winner:a.profile.id,turn_id:b.profile.id});
+  await expect(backend.call(b.profile.id,'set_board',{p_room:room.id,p_closed:[]})).rejects.toThrow('FINAL_GUESS_REQUIRED');
+  expect((await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[0].id})).draw).toBe(true);
+});
+test('wrong last card closes without a loss and all closed cards can be restored next turn',async()=>{
+  const {a,b,room}=await match();
+  const result=await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:deck.characters.filter((_,i)=>i!==3).map(c=>c.id)});
+  expect(result.automatic_guess).toMatchObject({correct:false,last_chance:false});expect(result.closed).toHaveLength(32);
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id})).room).toMatchObject({status:'playing',turn_id:b.profile.id,pending_winner:null});
+  await backend.call(b.profile.id,'pass_turn',{p_room:room.id});
+  const restored=await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:deck.characters.filter((_,i)=>i!==1).map(c=>c.id)});
+  expect(restored.automatic_guess).toBeUndefined();
+  expect((await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[1].id})).correct).toBe(true);
+});
+test('changing a deck resets secrets for both players and is prohibited during play and to guests',async()=>{
+  const {a,b,room}=await match(false);const next=catalog.find(d=>d.id==='countries')!;
+  await backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:deck.characters[0].id});
+  await expect(backend.call(b.profile.id,'change_room_deck',{p_room:room.id,p_category:next.id})).rejects.toThrow('ROOM_NOT_FOUND');
+  await backend.call(a.profile.id,'change_room_deck',{p_room:room.id,p_category:next.id});
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id}))).toMatchObject({secret:null,room:{category:next.id,host_ready:false,guest_ready:false,deck_revision:1}});
+  expect(await backend.call(b.profile.id,'get_room_deck',{p_room:room.id})).toEqual(next);
+  await expect(backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:deck.characters[0].id})).rejects.toThrow('INVALID_CHARACTER');
+  await backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[0].id});await backend.call(b.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[1].id});
+  await expect(backend.call(a.profile.id,'change_room_deck',{p_room:room.id,p_category:deck.id})).rejects.toThrow('INVALID_STATE');
+});
+test('rematches need both players, alternate starters and retain each result and friendship voice',async()=>{
+  const {a,b,room}=await match();
+  await backend.call(a.profile.id,'request_friend',{p_code:b.profile.friend_code});await backend.call(b.profile.id,'respond_friend',{p_user:a.profile.id,p_accept:true});
+  await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[1].id});await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:deck.characters[0].id});
+  await backend.call(a.profile.id,'request_rematch',{p_room:room.id});await backend.call(a.profile.id,'request_rematch',{p_room:room.id});
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id})).room).toMatchObject({status:'finished',round_number:1,host_rematch:true,guest_rematch:false});
+  const next=catalog.find(d=>d.id==='countries')!;
+  await backend.call(a.profile.id,'change_room_deck',{p_room:room.id,p_category:next.id});
+  await backend.call(b.profile.id,'request_rematch',{p_room:room.id});
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id})).room.status).toBe('finished');
+  await backend.call(a.profile.id,'request_rematch',{p_room:room.id});
+  const view=await backend.call(a.profile.id,'get_game',{p_room:room.id});
+  expect(view).toMatchObject({secret:null,own_closed:null,voice_allowed:true,room:{round_number:2,status:'selecting',category:next.id}});
+  expect((await backend.call(a.profile.id,'match_history')).matches[0].category).toBe(deck.id);
+  await backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[0].id});await backend.call(b.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[1].id});
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id})).room.turn_id).toBe(b.profile.id);
+  await backend.call(b.profile.id,'guess_character',{p_room:room.id,p_character:next.characters[0].id});await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:next.characters[1].id});
+  const history=await backend.call(a.profile.id,'match_history',{p_opponent:b.profile.id});expect(history).toMatchObject({games:2,draws:2});expect(new Set(history.matches.map(m=>m.id)).size).toBe(2);
+  expect((await backend.call(a.profile.id,'ensure_profile')).games).toBe(2);
+  await backend.call(a.profile.id,'request_rematch',{p_room:room.id});await backend.call(b.profile.id,'request_rematch',{p_room:room.id});
+  await backend.call(a.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[0].id});await backend.call(b.profile.id,'select_secret',{p_room:room.id,p_character:next.characters[1].id});
+  expect((await backend.call(a.profile.id,'get_game',{p_room:room.id})).room).toMatchObject({turn_id:a.profile.id,round_number:3});
+});
+test('reviews require a developer, cannot be self-approved and grant exactly 750 once',async()=>{
+  const author=await backend.session('','Pack Author'),reviewer=await backend.session('','Pack Reviewer'),other=await backend.session('','Pack Outsider');
+  await backend.db.query("update public.profiles set special_titles=array['developer']::text[] where id=$1",[reviewer.profile.id]);
+  const id=await backend.call(author.profile.id,'save_deck',{p_data:deck,p_published:false});
+  await backend.call(author.profile.id,'submit_deck_review',{p_id:id});
+  expect((await backend.call(reviewer.profile.id,'list_deck_reviews',{p_queue:true})).find(r=>r.deck_id===id).status).toBe('pending');
+  for(const user of [author,other])await expect(backend.call(user.profile.id,'review_deck',{p_id:id,p_approve:true})).rejects.toThrow('UNAUTHORIZED');
+  await expect(backend.call(other.profile.id,'list_deck_reviews',{p_queue:true})).rejects.toThrow('UNAUTHORIZED');
+  await expect(backend.call(other.profile.id,'get_deck_review',{p_id:id})).rejects.toThrow('UNAUTHORIZED');
+  await expect(backend.call(reviewer.profile.id,'review_deck',{p_id:id,p_approve:false})).rejects.toThrow('INVALID_REVIEW_NOTE');
+  await backend.call(reviewer.profile.id,'review_deck',{p_id:id,p_approve:false,p_note:'Добавить оригинальные карточки'});
+  expect((await backend.call(author.profile.id,'list_deck_reviews'))[0].status).toBe('rejected');
+  await backend.call(author.profile.id,'submit_deck_review',{p_id:id});
+  await backend.call(reviewer.profile.id,'review_deck',{p_id:id,p_approve:true});
+  expect((await backend.call(author.profile.id,'ensure_profile')).coins).toBe(author.profile.coins+750);
+  await expect(backend.call(reviewer.profile.id,'review_deck',{p_id:id,p_approve:true})).rejects.toThrow('INVALID_REVIEW_STATE');
+  await expect(backend.call(author.profile.id,'submit_deck_review',{p_id:id})).rejects.toThrow('INVALID_REVIEW_STATE');
+  const own=await backend.call(reviewer.profile.id,'save_deck',{p_data:deck});await backend.call(reviewer.profile.id,'submit_deck_review',{p_id:own});
+  await expect(backend.call(reviewer.profile.id,'review_deck',{p_id:own,p_approve:true})).rejects.toThrow('INVALID_REVIEW_STATE');
+  expect((await backend.call(author.profile.id,'get_deck',{p_id:id})).published).toBe(false);
+});
+test('edits invalidate pending reviews; small packs cannot enter the queue',async()=>{
+  const a=await backend.session('','Edit Review');const id=await backend.call(a.profile.id,'save_deck',{p_data:deck});
+  await backend.call(a.profile.id,'submit_deck_review',{p_id:id});
+  await backend.call(a.profile.id,'save_deck',{p_id:id,p_data:{...deck,title:'Changed deck'}});
+  expect((await backend.call(a.profile.id,'list_deck_reviews'))[0].status).toBe('changed');
+  await backend.call(a.profile.id,'submit_deck_review',{p_id:id});
+  expect((await backend.call(a.profile.id,'get_deck_review',{p_id:id})).snapshot.title).toBe('Changed deck');
+  const small=await backend.call(a.profile.id,'save_deck',{p_data:{...deck,characters:deck.characters.slice(0,6)}});
+  await expect(backend.call(a.profile.id,'submit_deck_review',{p_id:small})).rejects.toThrow('INVALID_REVIEW_SIZE');
+});

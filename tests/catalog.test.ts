@@ -6,9 +6,9 @@ describe('playable catalog', () => {
   test('has fifteen complete packs with unique bilingual cards and local WebP images', () => {
     expect(catalog).toHaveLength(15);
     const ids = catalog.flatMap(c => c.characters.map(ch => ch.id));
-    expect(new Set(ids).size).toBe(656);
+    expect(new Set(ids).size).toBe(640);
     for (const deck of catalog) {
-      expect(deck.characters).toHaveLength(['attack-on-titan','naruto','harry-potter','avengers'].includes(deck.id) ? 32 : 48);
+      expect(deck.characters).toHaveLength(['attack-on-titan','naruto','harry-potter','avengers','avatar-aang'].includes(deck.id) ? 32 : 48);
       const keys = questionsForDeck(deck).map(question => question.key);
       expect(new Set(keys).size).toBe(keys.length);
       for (const c of deck.characters) {

@@ -53,6 +53,9 @@ test('board updates share only card states, isolate players and validate the roo
   await expect(backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:['not-in-deck']})).rejects.toThrow('INVALID_CHARACTER');
   await backend.call(a.profile.id,'set_board',{p_room:room.id,p_closed:[]});
   expect((await backend.call(b.profile.id,'get_game',{p_room:room.id})).opponent_closed).toEqual([]);
+  await expect(backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-itachi-uchiha'})).rejects.toThrow('INVALID_GUESS_AFTER_CLOSE');
+  await backend.call(a.profile.id,'pass_turn',{p_room:room.id});
+  await backend.call(b.profile.id,'pass_turn',{p_room:room.id});
   await backend.call(a.profile.id,'guess_character',{p_room:room.id,p_character:'naruto-itachi-uchiha'});
   expect((await backend.call(b.profile.id,'get_game',{p_room:room.id})).opponent_closed).toEqual(['naruto-itachi-uchiha']);
   await backend.call(a.profile.id,'leave_room',{p_room:room.id});

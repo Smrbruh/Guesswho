@@ -798,9 +798,9 @@
   {
     "id": "walking-dead-glenn-rhee",
     "name": "Glenn Rhee",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111991.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/10765/the-walking-dead-glenn-rhee",
-    "file": "/images/walking-dead/glenn-rhee.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/a/a2/Season_six_glenn_rhee.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Glenn_Rhee_(TV_Series)",
+    "file": "/images/walking-dead/glenn-rhee-color.webp"
   },
   {
     "id": "walking-dead-maggie-greene",
@@ -812,16 +812,16 @@
   {
     "id": "walking-dead-negan",
     "name": "Negan",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204644.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/267824/the-walking-dead-negan",
-    "file": "/images/walking-dead/negan.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/5/5e/Season_three_negan_smith.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Negan_Smith_(TV_Universe)",
+    "file": "/images/walking-dead/negan-color.webp"
   },
   {
     "id": "walking-dead-carl-grimes",
     "name": "Carl Grimes",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111990.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/10767/the-walking-dead-carl-grimes",
-    "file": "/images/walking-dead/carl-grimes.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/6/67/Season_eight_carl_grimes.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Carl_Grimes_(TV_Series)",
+    "file": "/images/walking-dead/carl-grimes-color.webp"
   },
   {
     "id": "walking-dead-judith-grimes",
@@ -847,9 +847,9 @@
   {
     "id": "walking-dead-morgan-jones",
     "name": "Morgan Jones",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112018.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/10793/the-walking-dead-morgan-jones",
-    "file": "/images/walking-dead/morgan-jones.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/3/36/Season_eight_morgan_jones_fear.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Morgan_Jones_(TV_Universe)",
+    "file": "/images/walking-dead/morgan-jones-color.webp"
   },
   {
     "id": "walking-dead-hershel-greene",
@@ -910,16 +910,16 @@
   {
     "id": "walking-dead-sasha-williams",
     "name": "Sasha Williams",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112000.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/58932/the-walking-dead-sasha-williams",
-    "file": "/images/walking-dead/sasha-williams.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/1/1c/Season_seven_sasha_williams.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Sasha_Williams_(TV_Series)",
+    "file": "/images/walking-dead/sasha-williams-color.webp"
   },
   {
     "id": "walking-dead-sgt-abraham-ford",
     "name": "Abraham Ford",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112007.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/102304/the-walking-dead-sgt-abraham-ford",
-    "file": "/images/walking-dead/sgt-abraham-ford.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/e/ee/Season_six_abraham_ford.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Abraham_Ford_(TV_Series)",
+    "file": "/images/walking-dead/sgt-abraham-ford-color.webp"
   },
   {
     "id": "walking-dead-rosita-espinosa",
@@ -987,9 +987,9 @@
   {
     "id": "walking-dead-dwight",
     "name": "Dwight",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204643.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/203872/the-walking-dead-dwight",
-    "file": "/images/walking-dead/dwight.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/9/98/Season_eight_dwight_fear.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Dwight_(TV_Universe)",
+    "file": "/images/walking-dead/dwight-color.webp"
   },
   {
     "id": "walking-dead-simon",
@@ -1085,9 +1085,9 @@
   {
     "id": "walking-dead-deanna-monroe",
     "name": "Deanna Monroe",
-    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112015.jpg",
-    "sourcePage": "https://www.tvmaze.com/characters/100991/the-walking-dead-deanna-monroe",
-    "file": "/images/walking-dead/deanna-monroe.webp"
+    "source": "https://static.wikia.nocookie.net/walkingdead/images/c/ce/Season_six_deanna_monroe.png",
+    "sourcePage": "https://walkingdead.fandom.com/wiki/Deanna_Monroe_(TV_Series)",
+    "file": "/images/walking-dead/deanna-monroe-color.webp"
   },
   {
     "id": "walking-dead-sophia-peletier",

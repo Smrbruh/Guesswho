@@ -80,9 +80,9 @@
           "male",
           "dark"
         ],
-        "img": "/images/walking-dead/glenn-rhee.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111991.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/10765/the-walking-dead-glenn-rhee",
+        "img": "/images/walking-dead/glenn-rhee-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/a/a2/Season_six_glenn_rhee.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Glenn_Rhee_(TV_Series)",
         "crop": [
           0.5,
           0.2
@@ -112,9 +112,9 @@
           "male",
           "dark"
         ],
-        "img": "/images/walking-dead/negan.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204644.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/267824/the-walking-dead-negan",
+        "img": "/images/walking-dead/negan-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/5/5e/Season_three_negan_smith.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Negan_Smith_(TV_Universe)",
         "crop": [
           0.5,
           0.2
@@ -128,9 +128,9 @@
           "male",
           "dark"
         ],
-        "img": "/images/walking-dead/carl-grimes.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111990.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/10767/the-walking-dead-carl-grimes",
+        "img": "/images/walking-dead/carl-grimes-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/6/67/Season_eight_carl_grimes.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Carl_Grimes_(TV_Series)",
         "crop": [
           0.5,
           0.2
@@ -191,9 +191,9 @@
         "traits": [
           "male"
         ],
-        "img": "/images/walking-dead/morgan-jones.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112018.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/10793/the-walking-dead-morgan-jones",
+        "img": "/images/walking-dead/morgan-jones-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/3/36/Season_eight_morgan_jones_fear.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Morgan_Jones_(TV_Universe)",
         "crop": [
           0.5,
           0.2
@@ -333,9 +333,9 @@
           "female",
           "dark"
         ],
-        "img": "/images/walking-dead/sasha-williams.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112000.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/58932/the-walking-dead-sasha-williams",
+        "img": "/images/walking-dead/sasha-williams-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/1/1c/Season_seven_sasha_williams.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Sasha_Williams_(TV_Series)",
         "crop": [
           0.5,
           0.2
@@ -348,9 +348,9 @@
         "traits": [
           "male"
         ],
-        "img": "/images/walking-dead/sgt-abraham-ford.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112007.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/102304/the-walking-dead-sgt-abraham-ford",
+        "img": "/images/walking-dead/sgt-abraham-ford-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/e/ee/Season_six_abraham_ford.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Abraham_Ford_(TV_Series)",
         "crop": [
           0.5,
           0.2
@@ -507,9 +507,9 @@
           "male",
           "light"
         ],
-        "img": "/images/walking-dead/dwight.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204643.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/203872/the-walking-dead-dwight",
+        "img": "/images/walking-dead/dwight-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/9/98/Season_eight_dwight_fear.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Dwight_(TV_Universe)",
         "crop": [
           0.5,
           0.2
@@ -729,9 +729,9 @@
           "female",
           "dark"
         ],
-        "img": "/images/walking-dead/deanna-monroe.webp",
-        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112015.jpg",
-        "sourcePage": "https://www.tvmaze.com/characters/100991/the-walking-dead-deanna-monroe",
+        "img": "/images/walking-dead/deanna-monroe-color.webp",
+        "source": "https://static.wikia.nocookie.net/walkingdead/images/c/ce/Season_six_deanna_monroe.png",
+        "sourcePage": "https://walkingdead.fandom.com/wiki/Deanna_Monroe_(TV_Series)",
         "crop": [
           0.5,
           0.2
@@ -1546,8 +1546,8 @@
     "id": "avatar-aang",
     "title": "Аватар: Легенда об Аанге",
     "titleEn": "Avatar: The Last Airbender",
-    "subtitle": "48 героев мира четырёх стихий",
-    "subtitleEn": "48 characters. Four nations. One Avatar.",
+    "subtitle": "32 знакомых героя: команда Аватара, союзники и главные противники",
+    "subtitleEn": "32 familiar faces: Team Avatar, allies and major rivals",
     "color": "#78cdbb",
     "symbol": "气",
     "characters": [
@@ -1801,38 +1801,6 @@
         ]
       },
       {
-        "id": "avatar-aang-kuruk",
-        "name": "Курук",
-        "nameEn": "Kuruk",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/kuruk.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/d/d1/Kuruk.png/revision/latest?cb=20081225191014",
-        "sourcePage": "https://avatar.fandom.com/wiki/Kuruk",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-yangchen",
-        "name": "Янгчен",
-        "nameEn": "Yangchen",
-        "traits": [
-          "female",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/yangchen.webp",
-        "source": "https://wikimultia.org/images/thumb/7/74/3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg/350px-3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg",
-        "sourcePage": "https://wikimultia.org/wiki/%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
         "id": "avatar-aang-gyatso",
         "name": "Гьяцо",
         "nameEn": "Gyatso",
@@ -1945,54 +1913,6 @@
         ]
       },
       {
-        "id": "avatar-aang-kya-nonbender",
-        "name": "Кая",
-        "nameEn": "Kya",
-        "traits": [
-          "female",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/kya-nonbender.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/b/b5/Kya_%28nonbender%29.png/revision/latest?cb=20170523213135",
-        "sourcePage": "https://avatar.fandom.com/wiki/Kya_(nonbender)",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-kanna",
-        "name": "Канна",
-        "nameEn": "Kanna",
-        "traits": [
-          "female",
-          "light"
-        ],
-        "img": "/images/avatar-aang/kanna.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/4/47/Kanna.png/revision/latest?cb=20130822224809",
-        "sourcePage": "https://avatar.fandom.com/wiki/Kanna",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-bato",
-        "name": "Бато",
-        "nameEn": "Bato",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/bato.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/e/e3/Bato_smiling.png/revision/latest?cb=20130626122901",
-        "sourcePage": "https://avatar.fandom.com/wiki/Bato",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
         "id": "avatar-aang-yue",
         "name": "Юи",
         "nameEn": "Yue",
@@ -2025,22 +1945,6 @@
         ]
       },
       {
-        "id": "avatar-aang-tyro",
-        "name": "Тиро",
-        "nameEn": "Tyro",
-        "traits": [
-          "male",
-          "light"
-        ],
-        "img": "/images/avatar-aang/tyro.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/8/88/Tyro_during_the_invasion.png/revision/latest?cb=20130609164844",
-        "sourcePage": "https://avatar.fandom.com/wiki/Tyro",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
         "id": "avatar-aang-jet",
         "name": "Джет",
         "nameEn": "Jet",
@@ -2057,38 +1961,6 @@
         ]
       },
       {
-        "id": "avatar-aang-smellerbee",
-        "name": "Смеллерби",
-        "nameEn": "Smellerbee",
-        "traits": [
-          "female",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/smellerbee.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/3/3a/Smellerbee.png/revision/latest?cb=20140413234450",
-        "sourcePage": "https://avatar.fandom.com/wiki/Smellerbee",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-longshot",
-        "name": "Лонгшот",
-        "nameEn": "Longshot",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/longshot.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/e/e7/Longshot.png/revision/latest?cb=20140413233811",
-        "sourcePage": "https://avatar.fandom.com/wiki/Longshot",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
         "id": "avatar-aang-long-feng",
         "name": "Лонг Фенг",
         "nameEn": "Long Feng",
@@ -2099,55 +1971,6 @@
         "img": "/images/avatar-aang/long-feng.webp",
         "source": "https://static.wikia.nocookie.net/avatar/images/8/8d/Long_Feng_scheming.png/revision/latest?cb=20140510202422",
         "sourcePage": "https://avatar.fandom.com/wiki/Long_Feng",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-kuei",
-        "name": "Царь Куэй",
-        "nameEn": "Kuei",
-        "traits": [
-          "male",
-          "dark",
-          "glasses"
-        ],
-        "img": "/images/avatar-aang/kuei.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/5/5e/Kuei.png/revision/latest?cb=20130627084042",
-        "sourcePage": "https://avatar.fandom.com/wiki/Kuei",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-xin-fu",
-        "name": "Синь Фу",
-        "nameEn": "Xin Fu",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/xin-fu.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/0/02/Xin_Fu.png/revision/latest?cb=20140317211615",
-        "sourcePage": "https://avatar.fandom.com/wiki/Xin_Fu",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-yu",
-        "name": "Мастер Ю",
-        "nameEn": "Yu",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/yu.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/e/e2/Yu.png/revision/latest?cb=20140317211616",
-        "sourcePage": "https://avatar.fandom.com/wiki/Yu",
         "crop": [
           0.5,
           0.25
@@ -2195,86 +2018,6 @@
         "img": "/images/avatar-aang/combustion-man.webp",
         "source": "https://static.wikia.nocookie.net/avatar/images/f/fc/Combustion_Man.png/revision/latest?cb=20140908141111",
         "sourcePage": "https://avatar.fandom.com/wiki/Combustion_Man",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-teo",
-        "name": "Тео",
-        "nameEn": "Teo",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/teo.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/7/77/Teo.png/revision/latest?cb=20140118125457",
-        "sourcePage": "https://avatar.fandom.com/wiki/Teo",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-mechanist",
-        "name": "Механик",
-        "nameEn": "Mechanist",
-        "traits": [
-          "male",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/mechanist.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/b/b7/Mechanist.png/revision/latest?cb=20140118124602",
-        "sourcePage": "https://avatar.fandom.com/wiki/Mechanist",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-pathik",
-        "name": "Гуру Патик",
-        "nameEn": "Pathik",
-        "traits": [
-          "male",
-          "light"
-        ],
-        "img": "/images/avatar-aang/pathik.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/9/91/Guru_Pathik.png/revision/latest?cb=20140510202641",
-        "sourcePage": "https://avatar.fandom.com/wiki/Pathik",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-wu-fortuneteller",
-        "name": "Тётушка Ву",
-        "nameEn": "Aunt Wu",
-        "traits": [
-          "female",
-          "light"
-        ],
-        "img": "/images/avatar-aang/wu-fortuneteller.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/c/c9/Aunt_Wu.png/revision/latest?cb=20130626124117",
-        "sourcePage": "https://avatar.fandom.com/wiki/Wu_(fortuneteller)",
-        "crop": [
-          0.5,
-          0.25
-        ]
-      },
-      {
-        "id": "avatar-aang-meng",
-        "name": "Мэнг",
-        "nameEn": "Meng",
-        "traits": [
-          "female",
-          "dark"
-        ],
-        "img": "/images/avatar-aang/meng.webp",
-        "source": "https://static.wikia.nocookie.net/avatar/images/4/42/Meng.png/revision/latest?cb=20130814090639",
-        "sourcePage": "https://avatar.fandom.com/wiki/Meng",
         "crop": [
           0.5,
           0.25

@@ -7,7 +7,12 @@ beforeAll(async()=>{
   backend=await createDatabase('memory://');
   const a=await backend.session('','Viewer Rich'),b=await backend.session('','Viewer Other');
   await backend.db.query('update public.profiles set coins=1000000 where id=$1',[a.profile.id]);
-  await backend.call(a.profile.id,'create_room',{p_category:'naruto',p_public:false});
+  const room=await backend.call(a.profile.id,'create_room',{p_category:'naruto',p_public:false});
+  await backend.call(b.profile.id,'join_room',{p_code:room.code});
+  await backend.db.query("update public.rooms set status='finished',outcome='draw',finished_at=now() where id=$1",[room.id]);
+  const deck=await backend.call(b.profile.id,'get_deck',{p_id:'naruto'});
+  const id=await backend.call(b.profile.id,'save_deck',{p_data:deck.data});
+  await backend.call(b.profile.id,'submit_deck_review',{p_id:id});
   await backend.call(a.profile.id,'request_friend',{p_code:b.profile.friend_code});
   const ticket=await backend.call(b.profile.id,'start_practice_streak',{p_category:'naruto'});
   await backend.call(b.profile.id,'finish_practice_streak',{p_ticket:ticket,p_outcome:'win'});

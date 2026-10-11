@@ -21,6 +21,8 @@ export async function createDatabase(directory) {
   await db.exec('create table if not exists game_private.sessions(hash text primary key, user_id uuid not null references auth.users(id), expires_at timestamptz not null default now() + interval \'90 days\'); create index if not exists sessions_user on game_private.sessions(user_id);');
   await db.exec('create table if not exists game_private.recovery_codes(user_id uuid primary key references auth.users(id), hash text unique not null);');
   const methods = {
+    submit_deck_review: [['p_id','text']], list_deck_reviews: [['p_queue','boolean',false]], get_deck_review: [['p_id','text']], review_deck: [['p_id','text'],['p_approve','boolean'],['p_note','text','']],
+    change_room_deck: [['p_room','uuid'],['p_category','text']], request_rematch: [['p_room','uuid']],
     streak_status: [], start_practice_streak: [['p_category','text']], finish_practice_streak: [['p_ticket','uuid'],['p_outcome','text']], request_match_friend: [['p_room','uuid']], can_voice: [['p_room','uuid']], set_board: [['p_room','uuid'],['p_closed','jsonb']], list_my_rooms: [], room_presence: [['p_room','uuid'],['p_connection','text'],['p_online','boolean',true]],
     match_history: [['p_opponent','uuid',null]],
     list_decks: [['p_search','text',''],['p_page','integer',0],['p_scope','text','all'],['p_sort','text','newest']], get_deck: [['p_id','text']], save_deck: [['p_id','text',null],['p_data','jsonb'],['p_published','boolean',false]], vote_deck: [['p_id','text'],['p_vote','integer']], get_room_deck: [['p_room','uuid']],
