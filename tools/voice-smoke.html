@@ -18,6 +18,8 @@ document.querySelector('#run').onclick = async () => {
     host = await post('session',{username:'Voice QA Host'}); const guest = await post('session',{username:'Voice QA Guest'});
     room = await post('rpc',{fn:'create_room',args:{p_category:'naruto',p_public:false}},host.token);
     await post('rpc',{fn:'join_room',args:{p_code:room.code}},guest.token);
+    await post('rpc',{fn:'select_secret',args:{p_room:room.id,p_character:'naruto-naruto-uzumaki'}},host.token);
+    await post('rpc',{fn:'select_secret',args:{p_room:room.id,p_character:'naruto-sasuke-uchiha'}},guest.token);
     const states = {};
     for (const [label,player,isHost] of [['host',host,true],['guest',guest,false]]) {
       localStorage.setItem('gw:session',JSON.stringify(player.token)); const voice = new VoiceChat(); voices.push(voice);
@@ -33,7 +35,36 @@ document.querySelector('#run').onclick = async () => {
     voices[0].mute(true);
     if (peers[0].getSenders().some(sender => sender.track?.enabled)) throw new Error('Mute failed');
     voices[0].mute(false);
-    output.textContent = 'PASS: both peers connected, bidirectional audio packets received, mute/unmute works. Bytes: '+received.join(' / ');
+    await post('rpc',{fn:'guess_character',args:{p_room:room.id,p_character:'naruto-sasuke-uchiha'}},host.token);
+    await post('rpc',{fn:'guess_character',args:{p_room:room.id,p_character:'naruto-naruto-uzumaki'}},guest.token);
+    const finished = await post('rpc',{fn:'get_game',args:{p_room:room.id}},host.token);
+    if (finished.room.status !== 'finished' || finished.room.outcome !== 'draw') throw new Error('Match did not finish');
+    const audioBytes = async () => Promise.all(peers.map(async peer => { let bytes = 0; (await peer.getStats()).forEach(report => { if (report.type==='inbound-rtp' && report.kind==='audio') bytes += report.bytesReceived || 0; }); return bytes; }));
+    await new Promise(resolve => setTimeout(resolve,1000));
+    const after = await audioBytes();
+    if (after.some((bytes,index) => bytes <= received[index]) || peers.some(peer => peer.connectionState !== 'connected')) throw new Error('Audio stopped after result');
+    voices.forEach(voice => voice.stop()); peers.length = 0; voices.length = 0;
+    for (const [player,isHost] of [[host,true],[guest,false]]) {
+      localStorage.setItem('gw:session',JSON.stringify(player.token)); const voice = new VoiceChat(); voices.push(voice);
+      await voice.start(room.id,player.profile.id,isHost,() => {});
+    }
+    const reconnectDeadline = Date.now()+20000;
+    let reconnected = [];
+    while (Date.now()<reconnectDeadline) {
+      reconnected = await audioBytes();
+      if (reconnected.length===2 && reconnected.every(bytes=>bytes>1000)) break;
+      await new Promise(resolve => setTimeout(resolve,250));
+    }
+    if (reconnected.length!==2 || !reconnected.every(bytes=>bytes>1000)) throw new Error('Cannot reconnect after match');
+    const outsider = await post('session',{username:'Voice QA Outsider'});
+    await new Promise((resolve,reject) => {
+      const socket = new WebSocket(`${location.protocol==='https:'?'wss:':'ws:'}//${location.host}/api/local/events`);
+      const timer = setTimeout(() => { socket.close(); reject(new Error('Outsider check timeout')); },5000);
+      socket.onopen = () => socket.send(JSON.stringify({type:'auth',mode:'voice',room:room.id,token:outsider.token}));
+      socket.onmessage = event => { if (JSON.parse(event.data).type==='ready') { clearTimeout(timer); socket.close(); reject(new Error('Outsider admitted')); } };
+      socket.onclose = event => { clearTimeout(timer); if (event.code===1008) resolve(); else reject(new Error('Unexpected outsider close')); };
+    });
+    output.textContent = 'PASS: bidirectional audio before and after a draw, mute/unmute, reconnect after match, outsider rejected. Bytes before: '+received.join(' / ')+'. After: '+after.join(' / ')+'. Reconnected: '+reconnected.join(' / ');
   } catch(error) { output.textContent = 'FAIL: '+error.message; }
   finally {
     voices.forEach(voice=>voice.stop()); await context.close();

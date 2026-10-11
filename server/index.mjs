@@ -90,16 +90,14 @@ wss.on('connection',ws => {
         ws.authenticating = true;
         if (data.type !== 'auth' || !['watch','voice'].includes(data.mode)) return ws.close(1008);
         const id = await database.authenticate(data.token); if (!id) return ws.close(1008);
-        const game = await database.call(id,'get_game',{p_room:data.room});
-        if (data.mode === 'voice' && game.room.status === 'finished') return ws.close(1008);
+        await database.call(id,'get_game',{p_room:data.room});
         ws.user = id; ws.room = data.room; ws.mode = data.mode; ws.connection = randomUUID(); ws.alive = true; clearTimeout(timeout);
         if(ws.mode==='watch')await database.call(id,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true});
         ws.send(JSON.stringify({type:'ready'})); return;
       }
       if (!allowed(`ws:${ws.user}`,120,10000)) return ws.close(1008,'Rate limit');
       if (data.type === 'signal' && ws.mode === 'voice') {
-        const game = await database.call(ws.user,'get_game',{p_room:ws.room});
-        if (game.room.status === 'finished') return ws.close(1008);
+        await database.call(ws.user,'get_game',{p_room:ws.room});
         broadcast(ws.room,{type:'signal',payload:{...data.payload,from:ws.user}},ws);
       }
     } catch { ws.send(JSON.stringify({type:'error'})); ws.close(1008); }
