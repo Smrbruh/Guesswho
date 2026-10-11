@@ -11,6 +11,7 @@ export const questions: DeckQuestion[] = [
 ];
 export function questionsForDeck(category: Pick<Category, 'questions'>): DeckQuestion[] { return category.questions?.length ? category.questions : questions; }
 export const shopItems = [
+  { id: 'emoji-67', type: 'emoji', ru: '67 · Сикс-севен', en: '67 · Six seven', price: 167, color: '#8ef0e0', emoji: '6️⃣7️⃣', rarity: 'epic' },
   { id: 'frame-lime', type: 'frame', ru: 'Кислотный неон', en: 'Acid neon', price: 150, color: '#d7fa62', rarity: 'rare' },
   { id: 'frame-violet', type: 'frame', ru: 'Космическая пыль', en: 'Cosmic dust', price: 250, color: '#b399ff', rarity: 'epic' },
   { id: 'frame-gold', type: 'frame', ru: 'Чемпион', en: 'Champion', price: 500, color: '#f6c563', rarity: 'legendary' },

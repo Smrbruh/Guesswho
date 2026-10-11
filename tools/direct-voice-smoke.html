@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Direct voice test</title><style>body{background:#101114;color:#d7fa62;font:16px system-ui;padding:32px}button{padding:16px}pre{white-space:pre-wrap}</style><h1>Private WebRTC audio test</h1><p>Run only against an isolated test database. Uses synthesized audio without accessing a microphone.</p><button id="run">Run audio test</button><pre id="result">Ready</pre><script type="module">
+import {VoiceChat} from '/src/lib/voice.ts';
+const output=document.querySelector('#result');
+document.querySelector('#run').onclick=async()=>{
+  document.querySelector('#run').disabled=true;
+  const saved=localStorage.getItem('gw:session'),peers=[],voices=[],context=new AudioContext();
+  const OriginalPeer=window.RTCPeerConnection,OriginalAudio=window.Audio,originalMedia=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+  window.RTCPeerConnection=class extends OriginalPeer{constructor(config){super(config);peers.push(this);}};
+  window.Audio=class extends OriginalAudio{constructor(){super();this.muted=true;}};
+  navigator.mediaDevices.getUserMedia=async()=>{const oscillator=context.createOscillator(),destination=context.createMediaStreamDestination();oscillator.connect(destination);oscillator.start();return destination.stream;};
+  const post=async(path,body,token='')=>{const response=await fetch('/api/local/'+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(body)});const result=await response.json();if(!response.ok)throw Error(result.error);return result;};
+  let host,call;
+  try{
+    await context.resume();const suffix=Date.now().toString(36);host=await post('session',{username:'VoiceHost'+suffix});const guest=await post('session',{username:'VoiceGuest'+suffix});
+    await post('rpc',{fn:'request_player_friend',args:{p_user:guest.profile.id}},host.token);
+    await post('rpc',{fn:'respond_friend',args:{p_user:host.profile.id,p_accept:true}},guest.token);
+    call=await post('rpc',{fn:'start_direct_call',args:{p_user:guest.profile.id}},host.token);
+    await post('rpc',{fn:'answer_direct_call',args:{p_call:call.id,p_accept:true}},guest.token);
+    const states={};
+    for(const [name,player,caller] of [['host',host,true],['guest',guest,false]]){localStorage.setItem('gw:session',JSON.stringify(player.token));const voice=new VoiceChat();voices.push(voice);await voice.start(call.id,player.profile.id,caller,state=>{states[name]=state;output.textContent=JSON.stringify(states);},'direct_voice');}
+    const bytes=()=>Promise.all(peers.map(async peer=>{let value=0;(await peer.getStats()).forEach(report=>{if(report.type==='inbound-rtp'&&report.kind==='audio')value+=report.bytesReceived||0;});return value;}));
+    let received=[];const deadline=Date.now()+20000;
+    while(Date.now()<deadline){received=await bytes();if(received.length===2&&received.every(value=>value>1000))break;await new Promise(resolve=>setTimeout(resolve,250));}
+    if(received.length!==2||!received.every(value=>value>1000))throw Error('No bidirectional audio: '+JSON.stringify({states,received}));
+    voices[0].mute(true);if(peers[0].getSenders().some(sender=>sender.track?.enabled))throw Error('Mute failed');voices[0].mute(false);
+    await post('rpc',{fn:'end_direct_call',args:{p_call:call.id}},host.token);
+    const endDeadline=Date.now()+18000;while(Date.now()<endDeadline&&peers.some(peer=>peer.connectionState!=='closed'))await new Promise(resolve=>setTimeout(resolve,250));
+    if(peers.some(peer=>peer.connectionState!=='closed'))throw Error('Audio continued after call ended');
+    output.textContent='PASS: friend call accepted, bidirectional audio, mute/unmute, server termination closes both peers. Received bytes: '+received.join(' / ');
+  }catch(error){output.textContent='FAIL: '+error.message;}
+  finally{voices.forEach(voice=>voice.stop());await context.close();window.RTCPeerConnection=OriginalPeer;window.Audio=OriginalAudio;navigator.mediaDevices.getUserMedia=originalMedia;if(saved===null)localStorage.removeItem('gw:session');else localStorage.setItem('gw:session',saved);if(host&&call)await post('rpc',{fn:'end_direct_call',args:{p_call:call.id}},host.token);document.querySelector('#run').disabled=false;}
+};
+</script></html>

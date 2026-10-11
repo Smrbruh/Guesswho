@@ -35,7 +35,7 @@ export async function restoreProfile(code: string) {
 }
 export const getRooms = () => rpc<Room[]>('list_rooms');
 export const getGame = (id: string) => rpc<GameView>('get_game', { p_room: id });
-export function localSocket(room: string, mode: 'watch' | 'voice', onMessage: (message: Record<string, any>) => void, onStatus?: (status: string) => void) {
+export function localSocket(room: string, mode: 'watch' | 'voice' | 'social' | 'direct_voice', onMessage: (message: Record<string, any>) => void, onStatus?: (status: string) => void) {
   const socket = new WebSocket(`${location.protocol === 'https:' ? 'wss:' : 'ws:'}//${location.host}/api/local/events`);
   socket.onopen = () => socket.send(JSON.stringify({ type: 'auth', token: localToken(), room, mode }));
   socket.onmessage = event => { try { const data = JSON.parse(event.data); if (data.type === 'ready') onStatus?.('SUBSCRIBED'); else if (data.type === 'error') onStatus?.('CHANNEL_ERROR'); else onMessage(data); } catch { return; } };

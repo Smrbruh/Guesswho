@@ -17,6 +17,7 @@ function appearance(id: string): CSSProperties {
 
 export function CollectionReaction({ item }: { item: CollectionItem }) {
   const { t } = useApp();
+  if(item.id==='emoji-67')return <div className="premium-reaction six-seven-reaction" style={appearance(item.id)} aria-label={t('Реакция из коллекции: 67 · Сикс-севен','Collection reaction: 67 · Six seven')}><span className="premium-reaction-spark" aria-hidden="true">✦</span><span className="six-seven-stage" aria-hidden="true"><span><b>6</b><i>🫴</i></span><span><b>7</b><i>🫴</i></span></span><span className="premium-reaction-caption"><Sparkles size={11}/>SIX SEVEN</span></div>;
   return <div className={`premium-reaction ${item.id === 'emoji-ez' ? 'word-reaction' : ''}`} data-motion={reactionMotion(item.id)} style={appearance(item.id)} aria-label={t(`Реакция из коллекции: ${item.ru}`, `Collection reaction: ${item.en}`)}><span className="premium-reaction-spark" aria-hidden="true">✦</span><span className="premium-reaction-glyph" aria-hidden="true">{item.emoji}</span><span className="premium-reaction-caption"><Sparkles size={11}/>{t(item.ru,item.en)}</span></div>;
 }
 

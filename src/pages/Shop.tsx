@@ -7,7 +7,7 @@ import { shopItems } from '../lib/game';
 import { rpc } from '../lib/supabase';
 import type { Profile } from '../types';
 
-const newItems = new Set(['frame-aurora','frame-rose','frame-inferno','emoji-love','emoji-mindblown','emoji-party','emoji-melt','emoji-shock','emoji-spy']);
+const newItems = new Set(['emoji-67','frame-aurora','frame-rose','frame-inferno','emoji-love','emoji-mindblown','emoji-party','emoji-melt','emoji-shock','emoji-spy']);
 const emotions = new Set(['emoji-love','emoji-mindblown','emoji-party','emoji-melt','emoji-shock','emoji-cry','emoji-rage','emoji-yawn','emoji-smirk','emoji-sus']);
 
 export default function Shop() {
@@ -24,7 +24,7 @@ export default function Shop() {
   const visible = shopItems.filter(i => filter === 'all' || i.type === filter || (filter === 'owned' && profile.owned.includes(i.id)) || (filter === 'new' && newItems.has(i.id)) || (filter === 'emotion' && emotions.has(i.id)));
   return <>
     <PageHeading eyebrow="THE STYLE LAB" title={t('Покажи характер.', 'Show your personality.')} text={t('Живые эмоции, выразительные реакции и рамки, которые заметят.', 'Animated emotions, expressive reactions and frames that stand out.')}><div className="balance-pill"><span>{t('Твой баланс', 'Your balance')}</span><Coin amount={profile.coins}/></div></PageHeading>
-    <div className="shop-banner emotion-banner"><div><span className="eyebrow"><Sparkles size={14}/> {t('НОВАЯ КОЛЛЕКЦИЯ · MOOD', 'NEW COLLECTION · MOOD')}</span><h2>{t('Один стикер. Тысяча эмоций.', 'One sticker. A thousand feelings.')}</h2><p>{t('6 новых реакций и 3 новые рамки. Посмотри анимацию перед покупкой.', '6 new reactions and 3 new frames. Preview the animation before buying.')}</p><button className="button primary small" onClick={()=>setFilter('new')}>{t('Смотреть новинки','Explore new items')}<ArrowRight size={16}/></button></div><div className="shop-mood-display" aria-hidden="true"><span>🤯</span><span>🥰</span><span>🥳</span></div></div>
+    <div className="shop-banner emotion-banner"><div><span className="eyebrow"><Sparkles size={14}/> {t('НОВАЯ КОЛЛЕКЦИЯ · MOOD', 'NEW COLLECTION · MOOD')}</span><h2>{t('Один стикер. Тысяча эмоций.', 'One sticker. A thousand feelings.')}</h2><p>{t('7 новых реакций и 3 новые рамки. Посмотри анимацию перед покупкой.', '7 new reactions and 3 new frames. Preview the animation before buying.')}</p><button className="button primary small" onClick={()=>setFilter('new')}>{t('Смотреть новинки','Explore new items')}<ArrowRight size={16}/></button></div><div className="shop-mood-display" aria-hidden="true"><span>🤯</span><span>🥰</span><span>🥳</span></div></div>
     <div className="list-toolbar shop-toolbar"><div className="tabs">{[['all','Всё','All items'],['new','Новинки','New'],['emotion','Эмоции','Emotions'],['frame','Рамки','Frames'],['emoji','Все реакции','All reactions'],['owned','Моя коллекция','My collection']].map(([id,ru,en]) => <button key={id} className={filter === id ? 'selected' : ''} aria-pressed={filter===id} onClick={() => setFilter(id)}>{t(ru,en)}</button>)}</div><span className="subtle-label"><Shield size={14}/>{t('Только косметика. Честная игра.', 'Just cosmetics. Always fair.')}</span></div>
     <div className="shop-grid">{visible.map(i => {
       const owned = profile.owned.includes(i.id), equipped = profile.frame === i.id;

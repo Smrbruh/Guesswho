@@ -42,7 +42,8 @@ const server = http.createServer(async (req,res) => {
     if (url.pathname.startsWith('/api/local/')) {
       if (req.method !== 'POST') return json(res,405,{error:'METHOD_NOT_ALLOWED'});
       if (req.headers.origin && new URL(req.headers.origin).host !== req.headers.host && !['localhost:5173','127.0.0.1:5173'].includes(new URL(req.headers.origin).host)) return json(res,403,{error:'ORIGIN_NOT_ALLOWED'});
-      if (!allowed(`ip:${ip}`,240,60000)) return json(res,429,{error:'RATE_LIMIT'});
+      const requestUser = await database.authenticate(token);
+      if (!allowed(requestUser ? `user:${requestUser}` : `ip:${ip}`,400,60000)) return json(res,429,{error:'RATE_LIMIT'});
       const chunks=[]; let bytes=0; for await (const chunk of req) { bytes+=chunk.length; if (bytes>6500000) return json(res,413,{error:'BODY_TOO_LARGE'}); chunks.push(chunk); }
       const body=Buffer.concat(chunks).toString('utf8');
       let input; try { input = JSON.parse(body); } catch { return json(res,400,{error:'INVALID_JSON'}); }
@@ -51,9 +52,10 @@ const server = http.createServer(async (req,res) => {
         return json(res,200,await database.session(token,input.username));
       }
       if (url.pathname === '/api/local/rpc') {
-        const id = await database.authenticate(token); if (!id) return json(res,401,{error:'UNAUTHORIZED'});
+        const id = requestUser; if (!id) return json(res,401,{error:'UNAUTHORIZED'});
         const value = await database.call(id,input.fn,input.args);
         if (input.args?.p_room && !['get_game','get_room_deck','room_presence'].includes(input.fn)) broadcast(input.args.p_room,{type:'update'});
+        if (['send_direct_message','request_player_friend','respond_friend','remove_friend','start_direct_call','answer_direct_call','end_direct_call','set_presence_privacy'].includes(input.fn)) notifySocial();
         if (input.fn === 'join_room' && value?.id) broadcast(value.id,{type:'update'});
         return json(res,200,value ?? null);
       }
@@ -86,7 +88,8 @@ server.on('upgrade',(req,socket,head) => {
   if (req.url !== '/api/local/events' || (req.headers.origin && new URL(req.headers.origin).host !== req.headers.host && !['localhost:5173','127.0.0.1:5173'].includes(new URL(req.headers.origin).host))) return socket.destroy();
   wss.handleUpgrade(req,socket,head,ws => wss.emit('connection',ws,req));
 });
-function broadcast(room,payload,except) { for (const ws of wss.clients) if (ws !== except && ws.room === room && ws.readyState === WebSocket.OPEN && (payload.type !== 'signal' || ws.mode === 'voice')) ws.send(JSON.stringify(payload)); }
+function broadcast(room,payload,except) { for (const ws of wss.clients) if (ws !== except && ws.room === room && ws.readyState === WebSocket.OPEN && (payload.type !== 'signal' || ['voice','direct_voice'].includes(ws.mode))) ws.send(JSON.stringify(payload)); }
+function notifySocial(){for(const client of wss.clients)if(client.mode==='social'&&client.readyState===WebSocket.OPEN)client.send(JSON.stringify({type:'social'}));}
 wss.on('connection',ws => {
   const timeout = setTimeout(() => ws.close(1008,'Authentication required'),10000);
   ws.on('message',async raw => {
@@ -95,27 +98,29 @@ wss.on('connection',ws => {
       if (!ws.user) {
         if (ws.authenticating) return;
         ws.authenticating = true;
-        if (data.type !== 'auth' || !['watch','voice'].includes(data.mode)) return ws.close(1008);
+        if (data.type !== 'auth' || !['watch','voice','social','direct_voice'].includes(data.mode)) return ws.close(1008);
         const id = await database.authenticate(data.token); if (!id) return ws.close(1008);
-        await database.call(id,'get_game',{p_room:data.room});
+        if(['watch','voice'].includes(data.mode))await database.call(id,'get_game',{p_room:data.room});
+        if(data.mode==='direct_voice' && !await database.call(id,'can_direct_voice',{p_call:data.room}))return ws.close(1008,'Call unavailable');
         if(data.mode==='voice' && !await database.call(id,'can_voice',{p_room:data.room}))return ws.close(1008,'Friends only');
-        ws.user = id; ws.room = data.room; ws.mode = data.mode; ws.connection = randomUUID(); ws.alive = true; clearTimeout(timeout);
+        ws.user = id; ws.call = data.mode==='direct_voice'?data.room:null; ws.room = data.mode==='direct_voice'?`direct:${data.room}`:data.room; ws.mode = data.mode; ws.connection = randomUUID(); ws.alive = true; clearTimeout(timeout);
+        if(ws.mode==='social'){await database.call(id,'player_presence',{p_connection:ws.connection,p_online:true});notifySocial();}
         if(ws.mode==='watch')await database.call(id,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true});
         ws.send(JSON.stringify({type:'ready'})); return;
       }
       if (!allowed(`ws:${ws.user}`,120,10000)) return ws.close(1008,'Rate limit');
-      if (data.type === 'signal' && ws.mode === 'voice') {
-        if(!await database.call(ws.user,'can_voice',{p_room:ws.room}))return ws.close(1008,'Friends only');
+      if (data.type === 'signal' && ['voice','direct_voice'].includes(ws.mode)) {
+        if(!await database.call(ws.user,ws.mode==='direct_voice'?'can_direct_voice':'can_voice',ws.mode==='direct_voice'?{p_call:ws.call}:{p_room:ws.room}))return ws.close(1008,'Friends only');
         broadcast(ws.room,{type:'signal',payload:{...data.payload,from:ws.user}},ws);
       }
     } catch { ws.send(JSON.stringify({type:'error'})); ws.close(1008); }
   });
-  ws.on('pong',()=>{ws.alive=true;if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true}).catch(()=>{});});
-  ws.on('close',() => { clearTimeout(timeout); if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:false}).then(()=>broadcast(ws.room,{type:'update'})).catch(()=>{}); if (ws.mode === 'voice') broadcast(ws.room,{type:'signal',payload:{left:true,from:ws.user}},ws); });
+  ws.on('pong',()=>{ws.alive=true;if(ws.mode==='direct_voice')void database.call(ws.user,'social_state').catch(()=>{});if(ws.mode==='social')void database.call(ws.user,'player_presence',{p_connection:ws.connection,p_online:true}).catch(()=>{});if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:true}).catch(()=>{});});
+  ws.on('close',() => { clearTimeout(timeout); if(ws.mode==='social')void database.call(ws.user,'player_presence',{p_connection:ws.connection,p_online:false}).then(notifySocial).catch(()=>{}); if(ws.mode==='watch')void database.call(ws.user,'room_presence',{p_room:ws.room,p_connection:ws.connection,p_online:false}).then(()=>broadcast(ws.room,{type:'update'})).catch(()=>{}); if (['voice','direct_voice'].includes(ws.mode)) broadcast(ws.room,{type:'signal',payload:{left:true,from:ws.user}},ws); });
 });
 let presenceBusy=false;
 const presenceSweep=setInterval(async()=>{if(presenceBusy)return;presenceBusy=true;try{const expired=await database.db.query('select game_private.expire_rooms() as count');if(expired.rows[0].count)for(const ws of wss.clients)if(ws.mode==='watch'&&ws.readyState===WebSocket.OPEN)ws.send(JSON.stringify({type:'update'}));}catch(error){console.error('Room cleanup failed:',error.message);}finally{presenceBusy=false;}},5000);
-const heartbeat=setInterval(()=>{for(const ws of wss.clients){if(!ws.user)continue;if(ws.mode==='voice')void database.call(ws.user,'can_voice',{p_room:ws.room}).then(allowed=>{if(!allowed)ws.close(1008,'Friends only');}).catch(()=>ws.close(1008));if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},15000);
+const heartbeat=setInterval(()=>{for(const ws of wss.clients){if(!ws.user)continue;if(['voice','direct_voice'].includes(ws.mode))void database.call(ws.user,ws.mode==='direct_voice'?'can_direct_voice':'can_voice',ws.mode==='direct_voice'?{p_call:ws.call}:{p_room:ws.room}).then(allowed=>{if(!allowed)ws.close(1008,'Friends only');}).catch(()=>ws.close(1008));if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},15000);
 server.listen(port,'0.0.0.0',() => {
   console.log(`GuessWho Arena: http://localhost:${port}`);
   for (const entries of Object.values(networkInterfaces())) for (const entry of entries || []) if (entry.family === 'IPv4' && !entry.internal) console.log(`LAN: http://${entry.address}:${port}`);

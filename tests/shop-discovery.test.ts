@@ -7,6 +7,23 @@ beforeAll(async()=>{backend=await createDatabase('memory://');},30000);
 afterAll(()=>backend.close());
 const pack=(title:string)=>({...catalog[0],title,titleEn:title,characters:catalog[0].characters.slice(0,6)});
 
+test('six seven costs 167 once and requires ownership in both chat types',async()=>{
+  const a=await backend.session('','SixSeven Collector'),b=await backend.session('','SixSeven Friend');
+  await backend.db.query('update public.profiles set coins=1000 where id=$1',[a.profile.id]);
+  await backend.call(a.profile.id,'request_player_friend',{p_user:b.profile.id});
+  await backend.call(b.profile.id,'respond_friend',{p_user:a.profile.id,p_accept:true});
+  const room=await backend.call(a.profile.id,'create_room',{p_category:'naruto',p_public:false});
+  await backend.call(b.profile.id,'join_room',{p_code:room.code});
+  await expect(backend.call(a.profile.id,'send_message',{p_room:room.id,p_body:'6️⃣7️⃣'})).rejects.toThrow('NOT_OWNED');
+  await expect(backend.call(a.profile.id,'send_direct_message',{p_user:b.profile.id,p_body:'6️⃣7️⃣',p_nonce:crypto.randomUUID()})).rejects.toThrow('NOT_OWNED');
+  expect((await backend.call(a.profile.id,'buy_item',{p_item:'emoji-67'})).coins).toBe(833);
+  expect((await backend.call(a.profile.id,'buy_item',{p_item:'emoji-67'})).coins).toBe(833);
+  await backend.call(a.profile.id,'send_message',{p_room:room.id,p_body:'6️⃣7️⃣'});
+  const message=await backend.call(a.profile.id,'send_direct_message',{p_user:b.profile.id,p_body:'6️⃣7️⃣',p_nonce:crypto.randomUUID()});
+  expect(message.body).toBe('6️⃣7️⃣');
+  expect((await backend.call(b.profile.id,'get_game',{p_room:room.id})).messages.at(-1).body).toBe('6️⃣7️⃣');
+});
+
 test('shop catalog agrees with prices and new frames require ownership',async()=>{
   const {profile}=await backend.session('','Shop Collector');
   await backend.db.query('update public.profiles set coins=10000 where id=$1',[profile.id]);

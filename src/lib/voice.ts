@@ -8,7 +8,7 @@ export class VoiceChat {
   private audio = new Audio();
   private stopped = false;
   private socket: WebSocket | null = null;
-  async start(roomId: string, userId: string, isHost: boolean, onState: (state: string) => void) {
+  async start(roomId: string, userId: string, isHost: boolean, onState: (state: string) => void, mode: 'voice' | 'direct_voice' = 'voice') {
     if (!navigator.mediaDevices) throw new Error('VOICE_UNAVAILABLE');
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true }, video: false });
     if (this.stopped) { this.stream.getTracks().forEach(track => track.stop()); return; }
@@ -53,9 +53,9 @@ export class VoiceChat {
         if (status === 'CHANNEL_ERROR' || status === 'CLOSED') { clearTimeout(timer); this.stop(); onState('off'); reject(new Error('VOICE_UNAVAILABLE')); }
       };
       if (supabase) {
-        this.channel = supabase.channel(`voice:${roomId}`, { config: { private: true, broadcast: { self: false } } });
+        this.channel = supabase.channel(`${mode === 'direct_voice' ? 'direct' : 'voice'}:${roomId}`, { config: { private: true, broadcast: { self: false } } });
         this.channel.on('broadcast', { event:'signal' }, ({payload}) => void signal(payload)).subscribe(statusChanged);
-      } else this.socket = localSocket(roomId,'voice', data => { if (data.type === 'signal') void signal(data.payload); },statusChanged);
+      } else this.socket = localSocket(roomId,mode, data => { if (data.type === 'signal') void signal(data.payload); },statusChanged);
     });
   }
   mute(muted: boolean) { this.stream?.getAudioTracks().forEach(track => { track.enabled = !muted; }); }
