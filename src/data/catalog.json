@@ -1300,5 +1300,1456 @@
         ]
       }
     ]
+  },
+  {
+    "id": "walking-dead",
+    "title": "Ходячие мертвецы",
+    "titleEn": "The Walking Dead",
+    "subtitle": "48 выживших. Кому ты доверишься?",
+    "subtitleEn": "48 survivors. Who can you trust?",
+    "color": "#ae8e69",
+    "symbol": "TWD",
+    "characters": [
+      {
+        "id": "walking-dead-rick-grimes",
+        "name": "Рик Граймс",
+        "nameEn": "Rick Grimes",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/rick-grimes.webp"
+      },
+      {
+        "id": "walking-dead-daryl-dixon",
+        "name": "Дэрил Диксон",
+        "nameEn": "Daryl Dixon",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/daryl-dixon.webp"
+      },
+      {
+        "id": "walking-dead-michonne-hawthorne",
+        "name": "Мишонн",
+        "nameEn": "Michonne Hawthorne",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/michonne-hawthorne.webp"
+      },
+      {
+        "id": "walking-dead-carol-peletier",
+        "name": "Кэрол Пелетье",
+        "nameEn": "Carol Peletier",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/carol-peletier.webp"
+      },
+      {
+        "id": "walking-dead-glenn-rhee",
+        "name": "Гленн Ри",
+        "nameEn": "Glenn Rhee",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/glenn-rhee.webp"
+      },
+      {
+        "id": "walking-dead-maggie-greene",
+        "name": "Мэгги Грин",
+        "nameEn": "Maggie Greene",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/maggie-greene.webp"
+      },
+      {
+        "id": "walking-dead-negan",
+        "name": "Ниган",
+        "nameEn": "Negan",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/negan.webp"
+      },
+      {
+        "id": "walking-dead-carl-grimes",
+        "name": "Карл Граймс",
+        "nameEn": "Carl Grimes",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/carl-grimes.webp"
+      },
+      {
+        "id": "walking-dead-judith-grimes",
+        "name": "Джудит Граймс",
+        "nameEn": "Judith Grimes",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/judith-grimes.webp"
+      },
+      {
+        "id": "walking-dead-shane-walsh",
+        "name": "Шейн Уолш",
+        "nameEn": "Shane Walsh",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/shane-walsh.webp"
+      },
+      {
+        "id": "walking-dead-lori-grimes",
+        "name": "Лори Граймс",
+        "nameEn": "Lori Grimes",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/lori-grimes.webp"
+      },
+      {
+        "id": "walking-dead-morgan-jones",
+        "name": "Морган Джонс",
+        "nameEn": "Morgan Jones",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/morgan-jones.webp"
+      },
+      {
+        "id": "walking-dead-hershel-greene",
+        "name": "Хершел Грин",
+        "nameEn": "Hershel Greene",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/hershel-greene.webp"
+      },
+      {
+        "id": "walking-dead-beth-greene",
+        "name": "Бет Грин",
+        "nameEn": "Beth Greene",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/beth-greene.webp"
+      },
+      {
+        "id": "walking-dead-andrea",
+        "name": "Андреа",
+        "nameEn": "Andrea",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/andrea.webp"
+      },
+      {
+        "id": "walking-dead-dale-horvath",
+        "name": "Дейл Хорват",
+        "nameEn": "Dale Horvath",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/dale-horvath.webp"
+      },
+      {
+        "id": "walking-dead-t-dog",
+        "name": "Ти-Дог",
+        "nameEn": "T-Dog",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/t-dog.webp"
+      },
+      {
+        "id": "walking-dead-merle-dixon",
+        "name": "Мерл Диксон",
+        "nameEn": "Merle Dixon",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/merle-dixon.webp"
+      },
+      {
+        "id": "walking-dead-governor-phillip-blake",
+        "name": "Губернатор",
+        "nameEn": "The Governor",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/governor-phillip-blake.webp"
+      },
+      {
+        "id": "walking-dead-tyreese-williams",
+        "name": "Тайриз Уильямс",
+        "nameEn": "Tyreese Williams",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/tyreese-williams.webp"
+      },
+      {
+        "id": "walking-dead-sasha-williams",
+        "name": "Саша Уильямс",
+        "nameEn": "Sasha Williams",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/sasha-williams.webp"
+      },
+      {
+        "id": "walking-dead-sgt-abraham-ford",
+        "name": "Абрахам Форд",
+        "nameEn": "Abraham Ford",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/sgt-abraham-ford.webp"
+      },
+      {
+        "id": "walking-dead-rosita-espinosa",
+        "name": "Розита Эспиноса",
+        "nameEn": "Rosita Espinosa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/rosita-espinosa.webp"
+      },
+      {
+        "id": "walking-dead-eugene-porter",
+        "name": "Юджин Портер",
+        "nameEn": "Eugene Porter",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/eugene-porter.webp"
+      },
+      {
+        "id": "walking-dead-father-gabriel-stokes",
+        "name": "Отец Габриэль",
+        "nameEn": "Gabriel Stokes",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/father-gabriel-stokes.webp"
+      },
+      {
+        "id": "walking-dead-aaron",
+        "name": "Аарон",
+        "nameEn": "Aaron",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/aaron.webp"
+      },
+      {
+        "id": "walking-dead-tara-chambler",
+        "name": "Тара Чамблер",
+        "nameEn": "Tara Chambler",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/tara-chambler.webp"
+      },
+      {
+        "id": "walking-dead-paul-jesus-rovia",
+        "name": "Пол «Иисус» Ровиа",
+        "nameEn": "Paul \"Jesus\" Rovia",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/paul-jesus-rovia.webp"
+      },
+      {
+        "id": "walking-dead-ezekiel",
+        "name": "Иезекииль",
+        "nameEn": "Ezekiel",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/ezekiel.webp"
+      },
+      {
+        "id": "walking-dead-jerry",
+        "name": "Джерри",
+        "nameEn": "Jerry",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/jerry.webp"
+      },
+      {
+        "id": "walking-dead-enid",
+        "name": "Энид",
+        "nameEn": "Enid",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/enid.webp"
+      },
+      {
+        "id": "walking-dead-dwight",
+        "name": "Дуайт",
+        "nameEn": "Dwight",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/dwight.webp"
+      },
+      {
+        "id": "walking-dead-simon",
+        "name": "Саймон",
+        "nameEn": "Simon",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/simon.webp"
+      },
+      {
+        "id": "walking-dead-gregory",
+        "name": "Грегори",
+        "nameEn": "Gregory",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/gregory.webp"
+      },
+      {
+        "id": "walking-dead-jadis-anne",
+        "name": "Джадис",
+        "nameEn": "Jadis",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/jadis-anne.webp"
+      },
+      {
+        "id": "walking-dead-alpha",
+        "name": "Альфа",
+        "nameEn": "Alpha",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/walking-dead/alpha.webp"
+      },
+      {
+        "id": "walking-dead-beta",
+        "name": "Бета",
+        "nameEn": "Beta",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/beta.webp"
+      },
+      {
+        "id": "walking-dead-lydia",
+        "name": "Лидия",
+        "nameEn": "Lydia",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/lydia.webp"
+      },
+      {
+        "id": "walking-dead-connie",
+        "name": "Конни",
+        "nameEn": "Connie",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/connie.webp"
+      },
+      {
+        "id": "walking-dead-magna",
+        "name": "Магна",
+        "nameEn": "Magna",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/magna.webp"
+      },
+      {
+        "id": "walking-dead-siddiq",
+        "name": "Сиддик",
+        "nameEn": "Siddiq",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/siddiq.webp"
+      },
+      {
+        "id": "walking-dead-bob-stookey",
+        "name": "Боб Стуки",
+        "nameEn": "Bob Stookey",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/bob-stookey.webp"
+      },
+      {
+        "id": "walking-dead-juanita-sanchez-princess",
+        "name": "Принцесса",
+        "nameEn": "Princess",
+        "traits": [
+          "female",
+          "dark",
+          "glasses"
+        ],
+        "img": "/images/walking-dead/juanita-sanchez-princess.webp"
+      },
+      {
+        "id": "walking-dead-michael-mercer",
+        "name": "Мерсер",
+        "nameEn": "Michael Mercer",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/michael-mercer.webp"
+      },
+      {
+        "id": "walking-dead-pamela-milton",
+        "name": "Памела Милтон",
+        "nameEn": "Pamela Milton",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/pamela-milton.webp"
+      },
+      {
+        "id": "walking-dead-deanna-monroe",
+        "name": "Диана Монро",
+        "nameEn": "Deanna Monroe",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/deanna-monroe.webp"
+      },
+      {
+        "id": "walking-dead-sophia-peletier",
+        "name": "София Пелетье",
+        "nameEn": "Sophia Peletier",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/sophia-peletier.webp"
+      },
+      {
+        "id": "walking-dead-gareth",
+        "name": "Гарет",
+        "nameEn": "Gareth",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/gareth.webp"
+      }
+    ]
+  },
+  {
+    "id": "jojo",
+    "title": "Невероятные приключения ДжоДжо",
+    "titleEn": "JoJo’s Bizarre Adventure",
+    "subtitle": "48 персонажей из частей 1–6",
+    "subtitleEn": "48 characters from Parts 1–6",
+    "color": "#b892ee",
+    "symbol": "JOJO",
+    "characters": [
+      {
+        "id": "jojo-jonathan-joestar",
+        "name": "Джонатан Джостар",
+        "nameEn": "Jonathan Joestar",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/jonathan-joestar.webp"
+      },
+      {
+        "id": "jojo-joseph-joestar",
+        "name": "Джозеф Джостар",
+        "nameEn": "Joseph Joestar",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/joseph-joestar.webp"
+      },
+      {
+        "id": "jojo-jotaro-kujo",
+        "name": "Джотаро Куджо",
+        "nameEn": "Jotaro Kujo",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/jotaro-kujo.webp"
+      },
+      {
+        "id": "jojo-josuke-higashikata",
+        "name": "Джоске Хигашиката",
+        "nameEn": "Josuke Higashikata",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/josuke-higashikata.webp"
+      },
+      {
+        "id": "jojo-giorno-giovanna",
+        "name": "Джорно Джованна",
+        "nameEn": "Giorno Giovanna",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/giorno-giovanna.webp"
+      },
+      {
+        "id": "jojo-jolyne-cujoh",
+        "name": "Джолин Куджо",
+        "nameEn": "Jolyne Cujoh",
+        "traits": [
+          "female",
+          "dark",
+          "light"
+        ],
+        "img": "/images/jojo/jolyne-cujoh.webp"
+      },
+      {
+        "id": "jojo-dio-brando",
+        "name": "Дио Брандо",
+        "nameEn": "Dio Brando",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/dio-brando.webp"
+      },
+      {
+        "id": "jojo-robert-e-o-speedwagon",
+        "name": "Роберт Спидвагон",
+        "nameEn": "Robert E. O. Speedwagon",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/robert-e-o-speedwagon.webp"
+      },
+      {
+        "id": "jojo-will-anthonio-zeppeli",
+        "name": "Уилл Антонио Цеппели",
+        "nameEn": "Will Anthonio Zeppeli",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/will-anthonio-zeppeli.webp"
+      },
+      {
+        "id": "jojo-erina-pendleton",
+        "name": "Эрина Пендлтон",
+        "nameEn": "Erina Pendleton",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/jojo/erina-pendleton.webp"
+      },
+      {
+        "id": "jojo-caesar-anthonio-zeppeli",
+        "name": "Цезарь Антонио Цеппели",
+        "nameEn": "Caesar Anthonio Zeppeli",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/caesar-anthonio-zeppeli.webp"
+      },
+      {
+        "id": "jojo-lisa-lisa",
+        "name": "Лиза Лиза",
+        "nameEn": "Lisa Lisa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/lisa-lisa.webp"
+      },
+      {
+        "id": "jojo-kars",
+        "name": "Карс",
+        "nameEn": "Kars",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/kars.webp"
+      },
+      {
+        "id": "jojo-wamuu",
+        "name": "Вамуу",
+        "nameEn": "Wamuu",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/wamuu.webp"
+      },
+      {
+        "id": "jojo-esidisi",
+        "name": "Эйсидиси",
+        "nameEn": "Esidisi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/esidisi.webp"
+      },
+      {
+        "id": "jojo-muhammad-avdol",
+        "name": "Мохаммед Авдол",
+        "nameEn": "Muhammad Avdol",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/muhammad-avdol.webp"
+      },
+      {
+        "id": "jojo-noriaki-kakyoin",
+        "name": "Нориаки Какёин",
+        "nameEn": "Noriaki Kakyoin",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/noriaki-kakyoin.webp"
+      },
+      {
+        "id": "jojo-jean-pierre-polnareff",
+        "name": "Жан-Пьер Польнарефф",
+        "nameEn": "Jean Pierre Polnareff",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/jean-pierre-polnareff.webp"
+      },
+      {
+        "id": "jojo-iggy",
+        "name": "Игги",
+        "nameEn": "Iggy",
+        "traits": [],
+        "img": "/images/jojo/iggy.webp"
+      },
+      {
+        "id": "jojo-hol-horse",
+        "name": "Хол Хорс",
+        "nameEn": "Hol Horse",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/hol-horse.webp"
+      },
+      {
+        "id": "jojo-enya-the-hag",
+        "name": "Старуха Эния",
+        "nameEn": "Enya the Hag",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/jojo/enya-the-hag.webp"
+      },
+      {
+        "id": "jojo-n-doul",
+        "name": "Н’Дул",
+        "nameEn": "N'Doul",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/n-doul.webp"
+      },
+      {
+        "id": "jojo-daniel-j-d-arby",
+        "name": "Дэниел Джей Д’Арби",
+        "nameEn": "Daniel J. D'Arby",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/daniel-j-d-arby.webp"
+      },
+      {
+        "id": "jojo-vanilla-ice",
+        "name": "Ванилла Айс",
+        "nameEn": "Vanilla Ice",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/vanilla-ice.webp"
+      },
+      {
+        "id": "jojo-koichi-hirose",
+        "name": "Коичи Хиросэ",
+        "nameEn": "Koichi Hirose",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/koichi-hirose.webp"
+      },
+      {
+        "id": "jojo-okuyasu-nijimura",
+        "name": "Окуясу Ниджимура",
+        "nameEn": "Okuyasu Nijimura",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/okuyasu-nijimura.webp"
+      },
+      {
+        "id": "jojo-rohan-kishibe",
+        "name": "Рохан Кишибэ",
+        "nameEn": "Rohan Kishibe",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/rohan-kishibe.webp"
+      },
+      {
+        "id": "jojo-yukako-yamagishi",
+        "name": "Юкако Ямагиси",
+        "nameEn": "Yukako Yamagishi",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/yukako-yamagishi.webp"
+      },
+      {
+        "id": "jojo-yoshikage-kira",
+        "name": "Ёсикагэ Кира",
+        "nameEn": "Yoshikage Kira",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/yoshikage-kira.webp"
+      },
+      {
+        "id": "jojo-akira-otoishi",
+        "name": "Акира Отоиси",
+        "nameEn": "Akira Otoishi",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/akira-otoishi.webp"
+      },
+      {
+        "id": "jojo-shigekiyo-shigechi-yangu",
+        "name": "Сигэти Янгу",
+        "nameEn": "Shigechi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/shigekiyo-shigechi-yangu.webp"
+      },
+      {
+        "id": "jojo-tonio-trussardi",
+        "name": "Тонио Труссарди",
+        "nameEn": "Tonio Trussardi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/tonio-trussardi.webp"
+      },
+      {
+        "id": "jojo-bruno-bucciarati",
+        "name": "Бруно Буччеллати",
+        "nameEn": "Bruno Bucciarati",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/bruno-bucciarati.webp"
+      },
+      {
+        "id": "jojo-leone-abbacchio",
+        "name": "Леоне Аббаккьо",
+        "nameEn": "Leone Abbacchio",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/leone-abbacchio.webp"
+      },
+      {
+        "id": "jojo-guido-mista",
+        "name": "Гвидо Миста",
+        "nameEn": "Guido Mista",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/guido-mista.webp"
+      },
+      {
+        "id": "jojo-narancia-ghirga",
+        "name": "Наранча Гирга",
+        "nameEn": "Narancia Ghirga",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/narancia-ghirga.webp"
+      },
+      {
+        "id": "jojo-pannacotta-fugo",
+        "name": "Паннакотта Фуго",
+        "nameEn": "Pannacotta Fugo",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/pannacotta-fugo.webp"
+      },
+      {
+        "id": "jojo-trish-una",
+        "name": "Триш Уна",
+        "nameEn": "Trish Una",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/jojo/trish-una.webp"
+      },
+      {
+        "id": "jojo-diavolo",
+        "name": "Дьяволо",
+        "nameEn": "Diavolo",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/diavolo.webp"
+      },
+      {
+        "id": "jojo-vinegar-doppio",
+        "name": "Винегар Доппио",
+        "nameEn": "Vinegar Doppio",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/vinegar-doppio.webp"
+      },
+      {
+        "id": "jojo-risotto-nero",
+        "name": "Ризотто Неро",
+        "nameEn": "Risotto Nero",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/risotto-nero.webp"
+      },
+      {
+        "id": "jojo-ghiaccio",
+        "name": "Гьяччо",
+        "nameEn": "Ghiaccio",
+        "traits": [
+          "male",
+          "glasses"
+        ],
+        "img": "/images/jojo/ghiaccio.webp"
+      },
+      {
+        "id": "jojo-ermes-costello",
+        "name": "Эрмес Костелло",
+        "nameEn": "Ermes Costello",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/ermes-costello.webp"
+      },
+      {
+        "id": "jojo-f-f",
+        "name": "Фу Файтерс",
+        "nameEn": "Foo Fighters",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/jojo/f-f.webp"
+      },
+      {
+        "id": "jojo-weather-report",
+        "name": "Везер Репорт",
+        "nameEn": "Weather Report",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/weather-report.webp"
+      },
+      {
+        "id": "jojo-narciso-anasui",
+        "name": "Нарцисо Анасуй",
+        "nameEn": "Narciso Anasui",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/narciso-anasui.webp"
+      },
+      {
+        "id": "jojo-enrico-pucci",
+        "name": "Энрико Пуччи",
+        "nameEn": "Enrico Pucci",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/enrico-pucci.webp"
+      },
+      {
+        "id": "jojo-emporio-alnino",
+        "name": "Эмпорио Альниньо",
+        "nameEn": "Emporio Alnino",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/emporio-alnino.webp"
+      }
+    ]
+  },
+  {
+    "id": "avatar-aang",
+    "title": "Аватар: Легенда об Аанге",
+    "titleEn": "Avatar: The Last Airbender",
+    "subtitle": "48 героев мира четырёх стихий",
+    "subtitleEn": "48 characters. Four nations. One Avatar.",
+    "color": "#78cdbb",
+    "symbol": "气",
+    "characters": [
+      {
+        "id": "avatar-aang-aang",
+        "name": "Аанг",
+        "nameEn": "Aang",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/avatar-aang/aang.webp"
+      },
+      {
+        "id": "avatar-aang-katara",
+        "name": "Катара",
+        "nameEn": "Katara",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/katara.webp"
+      },
+      {
+        "id": "avatar-aang-sokka",
+        "name": "Сокка",
+        "nameEn": "Sokka",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/sokka.webp"
+      },
+      {
+        "id": "avatar-aang-toph-beifong",
+        "name": "Тоф Бейфонг",
+        "nameEn": "Toph Beifong",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/toph-beifong.webp"
+      },
+      {
+        "id": "avatar-aang-zuko",
+        "name": "Зуко",
+        "nameEn": "Zuko",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/zuko.webp"
+      },
+      {
+        "id": "avatar-aang-iroh",
+        "name": "Айро",
+        "nameEn": "Iroh",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/iroh.webp"
+      },
+      {
+        "id": "avatar-aang-azula",
+        "name": "Азула",
+        "nameEn": "Azula",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/azula.webp"
+      },
+      {
+        "id": "avatar-aang-mai",
+        "name": "Мэй",
+        "nameEn": "Mai",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/mai.webp"
+      },
+      {
+        "id": "avatar-aang-ty-lee",
+        "name": "Тай Ли",
+        "nameEn": "Ty Lee",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ty-lee.webp"
+      },
+      {
+        "id": "avatar-aang-suki",
+        "name": "Суюки",
+        "nameEn": "Suki",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/suki.webp"
+      },
+      {
+        "id": "avatar-aang-appa",
+        "name": "Аппа",
+        "nameEn": "Appa",
+        "traits": [],
+        "img": "/images/avatar-aang/appa.webp"
+      },
+      {
+        "id": "avatar-aang-momo",
+        "name": "Момо",
+        "nameEn": "Momo",
+        "traits": [],
+        "img": "/images/avatar-aang/momo.webp"
+      },
+      {
+        "id": "avatar-aang-ozai",
+        "name": "Озай",
+        "nameEn": "Ozai",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ozai.webp"
+      },
+      {
+        "id": "avatar-aang-zhao",
+        "name": "Джао",
+        "nameEn": "Zhao",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/zhao.webp"
+      },
+      {
+        "id": "avatar-aang-roku",
+        "name": "Року",
+        "nameEn": "Roku",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/roku.webp"
+      },
+      {
+        "id": "avatar-aang-kyoshi",
+        "name": "Киоши",
+        "nameEn": "Kyoshi",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kyoshi.webp"
+      },
+      {
+        "id": "avatar-aang-kuruk",
+        "name": "Курук",
+        "nameEn": "Kuruk",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kuruk.webp"
+      },
+      {
+        "id": "avatar-aang-yangchen",
+        "name": "Янгчен",
+        "nameEn": "Yangchen",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/yangchen.webp"
+      },
+      {
+        "id": "avatar-aang-gyatso",
+        "name": "Гьяцо",
+        "nameEn": "Gyatso",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/gyatso.webp"
+      },
+      {
+        "id": "avatar-aang-bumi-king-of-omashu",
+        "name": "Царь Буми",
+        "nameEn": "King Bumi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/bumi-king-of-omashu.webp"
+      },
+      {
+        "id": "avatar-aang-pakku",
+        "name": "Пакку",
+        "nameEn": "Pakku",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/pakku.webp"
+      },
+      {
+        "id": "avatar-aang-jeong-jeong",
+        "name": "Джонг Джонг",
+        "nameEn": "Jeong Jeong",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/jeong-jeong.webp"
+      },
+      {
+        "id": "avatar-aang-piandao",
+        "name": "Пиандао",
+        "nameEn": "Piandao",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/piandao.webp"
+      },
+      {
+        "id": "avatar-aang-hama",
+        "name": "Хама",
+        "nameEn": "Hama",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/hama.webp"
+      },
+      {
+        "id": "avatar-aang-hakoda",
+        "name": "Хакода",
+        "nameEn": "Hakoda",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/hakoda.webp"
+      },
+      {
+        "id": "avatar-aang-kya-nonbender",
+        "name": "Кая",
+        "nameEn": "Kya",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kya-nonbender.webp"
+      },
+      {
+        "id": "avatar-aang-kanna",
+        "name": "Канна",
+        "nameEn": "Kanna",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/kanna.webp"
+      },
+      {
+        "id": "avatar-aang-bato",
+        "name": "Бато",
+        "nameEn": "Bato",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/bato.webp"
+      },
+      {
+        "id": "avatar-aang-yue",
+        "name": "Юи",
+        "nameEn": "Yue",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/yue.webp"
+      },
+      {
+        "id": "avatar-aang-haru",
+        "name": "Хару",
+        "nameEn": "Haru",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/haru.webp"
+      },
+      {
+        "id": "avatar-aang-tyro",
+        "name": "Тиро",
+        "nameEn": "Tyro",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/tyro.webp"
+      },
+      {
+        "id": "avatar-aang-jet",
+        "name": "Джет",
+        "nameEn": "Jet",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/jet.webp"
+      },
+      {
+        "id": "avatar-aang-smellerbee",
+        "name": "Смеллерби",
+        "nameEn": "Smellerbee",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/smellerbee.webp"
+      },
+      {
+        "id": "avatar-aang-longshot",
+        "name": "Лонгшот",
+        "nameEn": "Longshot",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/longshot.webp"
+      },
+      {
+        "id": "avatar-aang-long-feng",
+        "name": "Лонг Фенг",
+        "nameEn": "Long Feng",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/long-feng.webp"
+      },
+      {
+        "id": "avatar-aang-kuei",
+        "name": "Царь Куэй",
+        "nameEn": "Kuei",
+        "traits": [
+          "male",
+          "dark",
+          "glasses"
+        ],
+        "img": "/images/avatar-aang/kuei.webp"
+      },
+      {
+        "id": "avatar-aang-xin-fu",
+        "name": "Синь Фу",
+        "nameEn": "Xin Fu",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/xin-fu.webp"
+      },
+      {
+        "id": "avatar-aang-yu",
+        "name": "Мастер Ю",
+        "nameEn": "Yu",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/yu.webp"
+      },
+      {
+        "id": "avatar-aang-the-boulder",
+        "name": "Глыба",
+        "nameEn": "The Boulder",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/the-boulder.webp"
+      },
+      {
+        "id": "avatar-aang-june",
+        "name": "Джун",
+        "nameEn": "June",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/june.webp"
+      },
+      {
+        "id": "avatar-aang-combustion-man",
+        "name": "Человек-Взрыв",
+        "nameEn": "Combustion Man",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/avatar-aang/combustion-man.webp"
+      },
+      {
+        "id": "avatar-aang-teo",
+        "name": "Тео",
+        "nameEn": "Teo",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/teo.webp"
+      },
+      {
+        "id": "avatar-aang-mechanist",
+        "name": "Механик",
+        "nameEn": "Mechanist",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/mechanist.webp"
+      },
+      {
+        "id": "avatar-aang-pathik",
+        "name": "Гуру Патик",
+        "nameEn": "Pathik",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/pathik.webp"
+      },
+      {
+        "id": "avatar-aang-wu-fortuneteller",
+        "name": "Тётушка Ву",
+        "nameEn": "Aunt Wu",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/wu-fortuneteller.webp"
+      },
+      {
+        "id": "avatar-aang-meng",
+        "name": "Мэнг",
+        "nameEn": "Meng",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/meng.webp"
+      },
+      {
+        "id": "avatar-aang-ursa",
+        "name": "Урса",
+        "nameEn": "Ursa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ursa.webp"
+      },
+      {
+        "id": "avatar-aang-cabbage-merchant",
+        "name": "Продавец капусты",
+        "nameEn": "Cabbage merchant",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/cabbage-merchant.webp"
+      }
+    ]
   }
 ]

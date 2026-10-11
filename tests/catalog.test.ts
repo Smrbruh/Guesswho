@@ -3,12 +3,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import catalog from '../src/data/catalog.json';
 import { toggleCard, checkGuess } from '../src/lib/game';
 describe('playable catalog', () => {
-  test('has four complete decks with 32 unique bilingual characters', () => {
-    expect(catalog).toHaveLength(4);
+  test('has seven complete packs with unique bilingual characters and local WebP portraits', () => {
+    expect(catalog).toHaveLength(7);
     const ids = catalog.flatMap(c => c.characters.map(ch => ch.id));
-    expect(new Set(ids).size).toBe(128);
+    expect(new Set(ids).size).toBe(272);
     for (const deck of catalog) {
-      expect(deck.characters).toHaveLength(32);
+      expect(deck.characters).toHaveLength(['walking-dead','jojo','avatar-aang'].includes(deck.id) ? 48 : 32);
       for (const c of deck.characters) {
         expect(c.name).toMatch(/[А-Яа-я]/);
         expect(c.nameEn).toMatch(/[a-zA-Z]/);

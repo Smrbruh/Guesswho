@@ -1,0 +1,2317 @@
+[
+  {
+    "id": "walking-dead",
+    "title": "Ходячие мертвецы",
+    "titleEn": "The Walking Dead",
+    "subtitle": "48 выживших. Кому ты доверишься?",
+    "subtitleEn": "48 survivors. Who can you trust?",
+    "color": "#ae8e69",
+    "symbol": "TWD",
+    "characters": [
+      {
+        "id": "walking-dead-rick-grimes",
+        "name": "Рик Граймс",
+        "nameEn": "Rick Grimes",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/rick-grimes.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417473.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10763/the-walking-dead-rick-grimes",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-daryl-dixon",
+        "name": "Дэрил Диксон",
+        "nameEn": "Daryl Dixon",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/daryl-dixon.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417474.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10764/the-walking-dead-daryl-dixon",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-michonne-hawthorne",
+        "name": "Мишонн",
+        "nameEn": "Michonne Hawthorne",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/michonne-hawthorne.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417476.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10768/the-walking-dead-michonne-hawthorne",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-carol-peletier",
+        "name": "Кэрол Пелетье",
+        "nameEn": "Carol Peletier",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/carol-peletier.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417477.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10769/the-walking-dead-carol-peletier",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-glenn-rhee",
+        "name": "Гленн Ри",
+        "nameEn": "Glenn Rhee",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/glenn-rhee.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111991.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10765/the-walking-dead-glenn-rhee",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-maggie-greene",
+        "name": "Мэгги Грин",
+        "nameEn": "Maggie Greene",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/maggie-greene.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417475.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10766/the-walking-dead-maggie-greene",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-negan",
+        "name": "Ниган",
+        "nameEn": "Negan",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/negan.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204644.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/267824/the-walking-dead-negan",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-carl-grimes",
+        "name": "Карл Граймс",
+        "nameEn": "Carl Grimes",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/carl-grimes.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111990.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10767/the-walking-dead-carl-grimes",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-judith-grimes",
+        "name": "Джудит Граймс",
+        "nameEn": "Judith Grimes",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/judith-grimes.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/184/460929.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10936/the-walking-dead-judith-grimes",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-shane-walsh",
+        "name": "Шейн Уолш",
+        "nameEn": "Shane Walsh",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/shane-walsh.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/524.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10774/the-walking-dead-shane-walsh",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-lori-grimes",
+        "name": "Лори Граймс",
+        "nameEn": "Lori Grimes",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/lori-grimes.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/525.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10776/the-walking-dead-lori-grimes",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-morgan-jones",
+        "name": "Морган Джонс",
+        "nameEn": "Morgan Jones",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/morgan-jones.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112018.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10793/the-walking-dead-morgan-jones",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-hershel-greene",
+        "name": "Хершел Грин",
+        "nameEn": "Hershel Greene",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/hershel-greene.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/518.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10770/the-walking-dead-hershel-greene",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-beth-greene",
+        "name": "Бет Грин",
+        "nameEn": "Beth Greene",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/beth-greene.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/517.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10843/the-walking-dead-beth-greene",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-andrea",
+        "name": "Андреа",
+        "nameEn": "Andrea",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/andrea.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/523.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10775/the-walking-dead-andrea",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-dale-horvath",
+        "name": "Дейл Хорват",
+        "nameEn": "Dale Horvath",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/dale-horvath.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/1117.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10773/the-walking-dead-dale-horvath",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-t-dog",
+        "name": "Ти-Дог",
+        "nameEn": "T-Dog",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/t-dog.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/519.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10800/the-walking-dead-t-dog",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-merle-dixon",
+        "name": "Мерл Диксон",
+        "nameEn": "Merle Dixon",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/merle-dixon.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/516.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10771/the-walking-dead-merle-dixon",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-governor-phillip-blake",
+        "name": "Губернатор",
+        "nameEn": "The Governor",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/governor-phillip-blake.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/1116.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/73211/the-walking-dead-governor-phillip-blake",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-tyreese-williams",
+        "name": "Тайриз Уильямс",
+        "nameEn": "Tyreese Williams",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/tyreese-williams.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/2/7124.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/58931/the-walking-dead-tyreese-williams",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-sasha-williams",
+        "name": "Саша Уильямс",
+        "nameEn": "Sasha Williams",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/sasha-williams.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112000.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/58932/the-walking-dead-sasha-williams",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-sgt-abraham-ford",
+        "name": "Абрахам Форд",
+        "nameEn": "Abraham Ford",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/sgt-abraham-ford.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112007.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/102304/the-walking-dead-sgt-abraham-ford",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-rosita-espinosa",
+        "name": "Розита Эспиноса",
+        "nameEn": "Rosita Espinosa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/rosita-espinosa.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417478.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10981/the-walking-dead-rosita-espinosa",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-eugene-porter",
+        "name": "Юджин Портер",
+        "nameEn": "Eugene Porter",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/eugene-porter.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417480.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/53369/the-walking-dead-eugene-porter",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-father-gabriel-stokes",
+        "name": "Отец Габриэль",
+        "nameEn": "Gabriel Stokes",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/father-gabriel-stokes.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417481.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/53373/the-walking-dead-father-gabriel-stokes",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-aaron",
+        "name": "Аарон",
+        "nameEn": "Aaron",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/aaron.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417482.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/100420/the-walking-dead-aaron",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-tara-chambler",
+        "name": "Тара Чамблер",
+        "nameEn": "Tara Chambler",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/tara-chambler.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417479.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10963/the-walking-dead-tara-chambler",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-paul-jesus-rovia",
+        "name": "Пол «Иисус» Ровиа",
+        "nameEn": "Paul \"Jesus\" Rovia",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/paul-jesus-rovia.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417484.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/252768/the-walking-dead-paul-jesus-rovia",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-ezekiel",
+        "name": "Иезекииль",
+        "nameEn": "Ezekiel",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/ezekiel.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417485.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/342036/the-walking-dead-ezekiel",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-jerry",
+        "name": "Джерри",
+        "nameEn": "Jerry",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/jerry.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417488.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/342232/the-walking-dead-jerry",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-enid",
+        "name": "Энид",
+        "nameEn": "Enid",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/enid.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417483.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/100995/the-walking-dead-enid",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-dwight",
+        "name": "Дуайт",
+        "nameEn": "Dwight",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/dwight.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204643.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/203872/the-walking-dead-dwight",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-simon",
+        "name": "Саймон",
+        "nameEn": "Simon",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/simon.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/85/214140.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/267833/the-walking-dead-simon",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-gregory",
+        "name": "Грегори",
+        "nameEn": "Gregory",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/walking-dead/gregory.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/85/214134.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/251754/the-walking-dead-gregory",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-jadis-anne",
+        "name": "Джадис",
+        "nameEn": "Jadis",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/jadis-anne.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417486.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/384093/the-walking-dead-jadis-anne",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-alpha",
+        "name": "Альфа",
+        "nameEn": "Alpha",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/walking-dead/alpha.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/177/444594.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/579725/the-walking-dead-alpha",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-beta",
+        "name": "Бета",
+        "nameEn": "Beta",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/beta.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/186/466516.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/604922/the-walking-dead-beta",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-lydia",
+        "name": "Лидия",
+        "nameEn": "Lydia",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/lydia.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/185/463752.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/593882/the-walking-dead-lydia",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-connie",
+        "name": "Конни",
+        "nameEn": "Connie",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/connie.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/174/436295.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/570068/the-walking-dead-connie",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-magna",
+        "name": "Магна",
+        "nameEn": "Magna",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/magna.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/174/436292.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/570067/the-walking-dead-magna",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-siddiq",
+        "name": "Сиддик",
+        "nameEn": "Siddiq",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/siddiq.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/136/341679.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/472666/the-walking-dead-siddiq",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-bob-stookey",
+        "name": "Боб Стуки",
+        "nameEn": "Bob Stookey",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/bob-stookey.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/247/619263.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/11016/the-walking-dead-bob-stookey",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-juanita-sanchez-princess",
+        "name": "Принцесса",
+        "nameEn": "Princess",
+        "traits": [
+          "female",
+          "dark",
+          "glasses"
+        ],
+        "img": "/images/walking-dead/juanita-sanchez-princess.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/249/623032.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/711217/the-walking-dead-juanita-sanchez-princess",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-michael-mercer",
+        "name": "Мерсер",
+        "nameEn": "Michael Mercer",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/walking-dead/michael-mercer.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/350/877078.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/845775/the-walking-dead-michael-mercer",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-pamela-milton",
+        "name": "Памела Милтон",
+        "nameEn": "Pamela Milton",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/pamela-milton.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/350/876249.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/893035/the-walking-dead-pamela-milton",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-deanna-monroe",
+        "name": "Диана Монро",
+        "nameEn": "Deanna Monroe",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/walking-dead/deanna-monroe.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112015.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/100991/the-walking-dead-deanna-monroe",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-sophia-peletier",
+        "name": "София Пелетье",
+        "nameEn": "Sophia Peletier",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/walking-dead/sophia-peletier.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/247/618765.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/10805/the-walking-dead-sophia-peletier",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      },
+      {
+        "id": "walking-dead-gareth",
+        "name": "Гарет",
+        "nameEn": "Gareth",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/walking-dead/gareth.webp",
+        "source": "https://static.tvmaze.com/uploads/images/original_untouched/2/7118.jpg",
+        "sourcePage": "https://www.tvmaze.com/characters/11047/the-walking-dead-gareth",
+        "crop": [
+          0.5,
+          0.2
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jojo",
+    "title": "Невероятные приключения ДжоДжо",
+    "titleEn": "JoJo’s Bizarre Adventure",
+    "subtitle": "48 персонажей из частей 1–6",
+    "subtitleEn": "48 characters from Parts 1–6",
+    "color": "#b892ee",
+    "symbol": "JOJO",
+    "characters": [
+      {
+        "id": "jojo-jonathan-joestar",
+        "name": "Джонатан Джостар",
+        "nameEn": "Jonathan Joestar",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/jonathan-joestar.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/34/latest/20200604060940/Jonathan_Infobox_Anime.png/400px-Jonathan_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Jonathan_Joestar",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-joseph-joestar",
+        "name": "Джозеф Джостар",
+        "nameEn": "Joseph Joestar",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/joseph-joestar.webp",
+        "source": "https://static.jojowiki.com/images/thumb/6/6e/latest/20210313174003/Joseph_young_BT_Infobox_Anime.png/400px-Joseph_young_BT_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Joseph_Joestar",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-jotaro-kujo",
+        "name": "Джотаро Куджо",
+        "nameEn": "Jotaro Kujo",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/jotaro-kujo.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/3a/latest/20210430072039/Jotaro_SC_Infobox_Anime.png/400px-Jotaro_SC_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Jotaro_Kujo",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-josuke-higashikata",
+        "name": "Джоске Хигашиката",
+        "nameEn": "Josuke Higashikata",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/josuke-higashikata.webp",
+        "source": "https://static.jojowiki.com/images/thumb/4/49/latest/20211117015857/Josuke_DU_Infobox_Anime.png/400px-Josuke_DU_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Josuke_Higashikata",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-giorno-giovanna",
+        "name": "Джорно Джованна",
+        "nameEn": "Giorno Giovanna",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/giorno-giovanna.webp",
+        "source": "https://static.jojowiki.com/images/thumb/4/4a/latest/20210422070411/Giorno_Giovanna_Infobox_Anime.png/400px-Giorno_Giovanna_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Giorno_Giovanna",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-jolyne-cujoh",
+        "name": "Джолин Куджо",
+        "nameEn": "Jolyne Cujoh",
+        "traits": [
+          "female",
+          "dark",
+          "light"
+        ],
+        "img": "/images/jojo/jolyne-cujoh.webp",
+        "source": "https://static.jojowiki.com/images/0/03/latest/20220111002807/Jolyne_Cujoh_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Jolyne_Cujoh",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-dio-brando",
+        "name": "Дио Брандо",
+        "nameEn": "Dio Brando",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/dio-brando.webp",
+        "source": "https://static.jojowiki.com/images/3/37/latest/20210315113740/Dio_PB_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Dio_Brando",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-robert-e-o-speedwagon",
+        "name": "Роберт Спидвагон",
+        "nameEn": "Robert E. O. Speedwagon",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/robert-e-o-speedwagon.webp",
+        "source": "https://static.jojowiki.com/images/thumb/e/e7/latest/20211009200001/SPW_PB_Infobox_Anime.png/400px-SPW_PB_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Robert_E._O._Speedwagon",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-will-anthonio-zeppeli",
+        "name": "Уилл Антонио Цеппели",
+        "nameEn": "Will Anthonio Zeppeli",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/will-anthonio-zeppeli.webp",
+        "source": "https://static.jojowiki.com/images/thumb/0/0e/latest/20210501153511/Will_Zeppeli_Infobox_Anime.png/400px-Will_Zeppeli_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Will_Anthonio_Zeppeli",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-erina-pendleton",
+        "name": "Эрина Пендлтон",
+        "nameEn": "Erina Pendleton",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/jojo/erina-pendleton.webp",
+        "source": "https://static.jojowiki.com/images/thumb/0/08/latest/20220108061329/Erina_PB_Infobox_Anime.png/400px-Erina_PB_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Erina_Pendleton",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-caesar-anthonio-zeppeli",
+        "name": "Цезарь Антонио Цеппели",
+        "nameEn": "Caesar Anthonio Zeppeli",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/caesar-anthonio-zeppeli.webp",
+        "source": "https://static.jojowiki.com/images/thumb/2/23/latest/20210117024501/Caesar_Infobox_Anime.png/400px-Caesar_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Caesar_Anthonio_Zeppeli",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-lisa-lisa",
+        "name": "Лиза Лиза",
+        "nameEn": "Lisa Lisa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/lisa-lisa.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/35/latest/20260719221826/Lisa_Lisa_Infobox_Anime.png/400px-Lisa_Lisa_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Lisa_Lisa",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-kars",
+        "name": "Карс",
+        "nameEn": "Kars",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/kars.webp",
+        "source": "https://static.jojowiki.com/images/thumb/5/51/latest/20230317144721/Kars_Infobox_Anime.png/400px-Kars_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Kars",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-wamuu",
+        "name": "Вамуу",
+        "nameEn": "Wamuu",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/wamuu.webp",
+        "source": "https://static.jojowiki.com/images/thumb/5/5f/latest/20210723005737/Wamuu_Infobox_Anime.png/400px-Wamuu_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Wamuu",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-esidisi",
+        "name": "Эйсидиси",
+        "nameEn": "Esidisi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/esidisi.webp",
+        "source": "https://static.jojowiki.com/images/thumb/4/45/latest/20210420214216/Esidisi_Infobox_Anime.png/400px-Esidisi_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Esidisi",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-muhammad-avdol",
+        "name": "Мохаммед Авдол",
+        "nameEn": "Muhammad Avdol",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/muhammad-avdol.webp",
+        "source": "https://static.jojowiki.com/images/thumb/8/80/latest/20210430075909/Avdol_Infobox_Anime.png/400px-Avdol_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Muhammad_Avdol",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-noriaki-kakyoin",
+        "name": "Нориаки Какёин",
+        "nameEn": "Noriaki Kakyoin",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/noriaki-kakyoin.webp",
+        "source": "https://static.jojowiki.com/images/thumb/9/9f/latest/20210507202834/Kakyoin_Infobox_Anime.png/400px-Kakyoin_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Noriaki_Kakyoin",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-jean-pierre-polnareff",
+        "name": "Жан-Пьер Польнарефф",
+        "nameEn": "Jean Pierre Polnareff",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/jean-pierre-polnareff.webp",
+        "source": "https://static.jojowiki.com/images/thumb/b/ba/latest/20211013051059/Polnareff_SC_Infobox_Anime.png/400px-Polnareff_SC_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Jean_Pierre_Polnareff",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-iggy",
+        "name": "Игги",
+        "nameEn": "Iggy",
+        "traits": [],
+        "img": "/images/jojo/iggy.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/31/latest/20201220221635/Iggy_Infobox_Anime.png/400px-Iggy_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Iggy",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-hol-horse",
+        "name": "Хол Хорс",
+        "nameEn": "Hol Horse",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/hol-horse.webp",
+        "source": "https://static.jojowiki.com/images/thumb/6/64/latest/20210530063641/Hol_Horse_Infobox_Anime.png/400px-Hol_Horse_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Hol_Horse",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-enya-the-hag",
+        "name": "Старуха Эния",
+        "nameEn": "Enya the Hag",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/jojo/enya-the-hag.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/3a/latest/20211012020828/Enya_Infobox_Anime.png/400px-Enya_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Enya_the_Hag",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-n-doul",
+        "name": "Н’Дул",
+        "nameEn": "N'Doul",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/n-doul.webp",
+        "source": "https://static.jojowiki.com/images/thumb/7/78/latest/20210223013506/N%27Doul_Infobox_Anime.png/400px-N%27Doul_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/N'Doul",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-daniel-j-d-arby",
+        "name": "Дэниел Джей Д’Арби",
+        "nameEn": "Daniel J. D'Arby",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/daniel-j-d-arby.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/39/latest/20210324152622/Daniel_J._D%27Arby_Infobox_Anime.png/400px-Daniel_J._D%27Arby_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Daniel_J._D'Arby",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-vanilla-ice",
+        "name": "Ванилла Айс",
+        "nameEn": "Vanilla Ice",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/vanilla-ice.webp",
+        "source": "https://static.jojowiki.com/images/thumb/a/a8/latest/20210530021831/Vanilla_Ice_Infobox_Anime.png/400px-Vanilla_Ice_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Vanilla_Ice",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-koichi-hirose",
+        "name": "Коичи Хиросэ",
+        "nameEn": "Koichi Hirose",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/koichi-hirose.webp",
+        "source": "https://static.jojowiki.com/images/thumb/9/9b/latest/20211012034402/Koichi_Hirose_Infobox_Anime.png/400px-Koichi_Hirose_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Koichi_Hirose",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-okuyasu-nijimura",
+        "name": "Окуясу Ниджимура",
+        "nameEn": "Okuyasu Nijimura",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/okuyasu-nijimura.webp",
+        "source": "https://static.jojowiki.com/images/thumb/8/80/latest/20210907213301/Okuyasu_Nijimura_Infobox_Anime.png/400px-Okuyasu_Nijimura_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Okuyasu_Nijimura",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-rohan-kishibe",
+        "name": "Рохан Кишибэ",
+        "nameEn": "Rohan Kishibe",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/rohan-kishibe.webp",
+        "source": "https://static.jojowiki.com/images/thumb/9/9e/latest/20210314044358/Rohan_Kishibe_Infobox_Anime.png/400px-Rohan_Kishibe_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Rohan_Kishibe",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-yukako-yamagishi",
+        "name": "Юкако Ямагиси",
+        "nameEn": "Yukako Yamagishi",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/yukako-yamagishi.webp",
+        "source": "https://static.jojowiki.com/images/thumb/d/d3/latest/20211012030548/Yukako_Yamagishi_Infobox_Anime.png/400px-Yukako_Yamagishi_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Yukako_Yamagishi",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-yoshikage-kira",
+        "name": "Ёсикагэ Кира",
+        "nameEn": "Yoshikage Kira",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/yoshikage-kira.webp",
+        "source": "https://static.jojowiki.com/images/1/10/latest/20210220231052/Yoshikage_Kira_Original_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Yoshikage_Kira",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-akira-otoishi",
+        "name": "Акира Отоиси",
+        "nameEn": "Akira Otoishi",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/akira-otoishi.webp",
+        "source": "https://static.jojowiki.com/images/thumb/3/31/latest/20211213170342/Akira_Otoishi_Infobox_Anime.png/400px-Akira_Otoishi_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Akira_Otoishi",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-shigekiyo-shigechi-yangu",
+        "name": "Сигэти Янгу",
+        "nameEn": "Shigechi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/shigekiyo-shigechi-yangu.webp",
+        "source": "https://static.jojowiki.com/images/thumb/f/fe/latest/20220525233647/Shigechi_Infobox_Anime.png/400px-Shigechi_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Shigekiyo_\"Shigechi\"_Yangu",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-tonio-trussardi",
+        "name": "Тонио Труссарди",
+        "nameEn": "Tonio Trussardi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/tonio-trussardi.webp",
+        "source": "https://static.jojowiki.com/images/thumb/8/87/latest/20220112144423/Tonio_Trussardi_Infobox_Anime.png/400px-Tonio_Trussardi_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Tonio_Trussardi",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-bruno-bucciarati",
+        "name": "Бруно Буччеллати",
+        "nameEn": "Bruno Bucciarati",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/bruno-bucciarati.webp",
+        "source": "https://static.jojowiki.com/images/thumb/a/a2/latest/20210513091755/Bruno_Bucciarati_Infobox_Anime.png/400px-Bruno_Bucciarati_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Bruno_Bucciarati",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-leone-abbacchio",
+        "name": "Леоне Аббаккьо",
+        "nameEn": "Leone Abbacchio",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/leone-abbacchio.webp",
+        "source": "https://static.jojowiki.com/images/thumb/e/ee/latest/20210827060558/Leone_Abbacchio_Infobox_Anime.png/400px-Leone_Abbacchio_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Leone_Abbacchio",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-guido-mista",
+        "name": "Гвидо Миста",
+        "nameEn": "Guido Mista",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/guido-mista.webp",
+        "source": "https://static.jojowiki.com/images/thumb/c/c6/latest/20210827063749/Guido_Mista_Infobox_Anime.png/400px-Guido_Mista_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Guido_Mista",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-narancia-ghirga",
+        "name": "Наранча Гирга",
+        "nameEn": "Narancia Ghirga",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/jojo/narancia-ghirga.webp",
+        "source": "https://static.jojowiki.com/images/thumb/4/44/latest/20201126091532/Narancia_Ghirga_Infobox_Anime.png/400px-Narancia_Ghirga_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Narancia_Ghirga",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-pannacotta-fugo",
+        "name": "Паннакотта Фуго",
+        "nameEn": "Pannacotta Fugo",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/pannacotta-fugo.webp",
+        "source": "https://static.jojowiki.com/images/thumb/f/f7/latest/20201126081211/Pannacotta_Fugo_Infobox_Anime.png/400px-Pannacotta_Fugo_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Pannacotta_Fugo",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-trish-una",
+        "name": "Триш Уна",
+        "nameEn": "Trish Una",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/jojo/trish-una.webp",
+        "source": "https://static.jojowiki.com/images/thumb/f/fc/latest/20210609202738/Trish_Una_Infobox_Anime.png/400px-Trish_Una_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Trish_Una",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-diavolo",
+        "name": "Дьяволо",
+        "nameEn": "Diavolo",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/diavolo.webp",
+        "source": "https://static.jojowiki.com/images/thumb/2/21/latest/20201208003715/Diavolo_Revealed_Infobox_Anime.png/400px-Diavolo_Revealed_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Diavolo",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-vinegar-doppio",
+        "name": "Винегар Доппио",
+        "nameEn": "Vinegar Doppio",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/vinegar-doppio.webp",
+        "source": "https://static.jojowiki.com/images/thumb/7/7b/latest/20210612004324/Vinegar_Doppio_Infobox_Anime.png/400px-Vinegar_Doppio_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Vinegar_Doppio",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-risotto-nero",
+        "name": "Ризотто Неро",
+        "nameEn": "Risotto Nero",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/risotto-nero.webp",
+        "source": "https://static.jojowiki.com/images/thumb/2/2a/latest/20210806010338/Risotto_Nero_Infobox_Anime.png/400px-Risotto_Nero_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Risotto_Nero",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-ghiaccio",
+        "name": "Гьяччо",
+        "nameEn": "Ghiaccio",
+        "traits": [
+          "male",
+          "glasses"
+        ],
+        "img": "/images/jojo/ghiaccio.webp",
+        "source": "https://static.jojowiki.com/images/thumb/5/5d/latest/20220115115447/Ghiaccio_Infobox_Anime.png/400px-Ghiaccio_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Ghiaccio",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-ermes-costello",
+        "name": "Эрмес Костелло",
+        "nameEn": "Ermes Costello",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/jojo/ermes-costello.webp",
+        "source": "https://static.jojowiki.com/images/thumb/1/1f/latest/20220304040153/Ermes_Costello_Infobox_Anime.png/400px-Ermes_Costello_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Ermes_Costello",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-f-f",
+        "name": "Фу Файтерс",
+        "nameEn": "Foo Fighters",
+        "traits": [
+          "female"
+        ],
+        "img": "/images/jojo/f-f.webp",
+        "source": "https://static.jojowiki.com/images/d/de/latest/20211204055511/F.F._Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/F.F.",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-weather-report",
+        "name": "Везер Репорт",
+        "nameEn": "Weather Report",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/weather-report.webp",
+        "source": "https://static.jojowiki.com/images/thumb/8/8e/latest/20220307143604/Weather_Report_Infobox_Anime.png/400px-Weather_Report_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Weather_Report",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-narciso-anasui",
+        "name": "Нарцисо Анасуй",
+        "nameEn": "Narciso Anasui",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/jojo/narciso-anasui.webp",
+        "source": "https://static.jojowiki.com/images/thumb/d/d7/latest/20220304035149/Narciso_Anasui_Infobox_Anime.png/400px-Narciso_Anasui_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Narciso_Anasui",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-enrico-pucci",
+        "name": "Энрико Пуччи",
+        "nameEn": "Enrico Pucci",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/enrico-pucci.webp",
+        "source": "https://static.jojowiki.com/images/thumb/2/2b/latest/20220708032949/Pucci_Infobox_Anime.png/400px-Pucci_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Enrico_Pucci",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      },
+      {
+        "id": "jojo-emporio-alnino",
+        "name": "Эмпорио Альниньо",
+        "nameEn": "Emporio Alnino",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/jojo/emporio-alnino.webp",
+        "source": "https://static.jojowiki.com/images/2/26/latest/20220107162048/Emporio_Alnino_Infobox_Anime.png",
+        "sourcePage": "https://jojowiki.com/Emporio_Alnino",
+        "crop": [
+          0.5,
+          0.02
+        ]
+      }
+    ]
+  },
+  {
+    "id": "avatar-aang",
+    "title": "Аватар: Легенда об Аанге",
+    "titleEn": "Avatar: The Last Airbender",
+    "subtitle": "48 героев мира четырёх стихий",
+    "subtitleEn": "48 characters. Four nations. One Avatar.",
+    "color": "#78cdbb",
+    "symbol": "气",
+    "characters": [
+      {
+        "id": "avatar-aang-aang",
+        "name": "Аанг",
+        "nameEn": "Aang",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/avatar-aang/aang.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003",
+        "sourcePage": "https://avatar.fandom.com/wiki/Aang",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-katara",
+        "name": "Катара",
+        "nameEn": "Katara",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/katara.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/7/7a/Katara_smiles_at_coronation.png/revision/latest?cb=20150104171449",
+        "sourcePage": "https://avatar.fandom.com/wiki/Katara",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-sokka",
+        "name": "Сокка",
+        "nameEn": "Sokka",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/sokka.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/c/cc/Sokka.png/revision/latest?cb=20140905085428",
+        "sourcePage": "https://avatar.fandom.com/wiki/Sokka",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-toph-beifong",
+        "name": "Тоф Бейфонг",
+        "nameEn": "Toph Beifong",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/toph-beifong.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/46/Toph_Beifong.png/revision/latest?cb=20131230122047",
+        "sourcePage": "https://avatar.fandom.com/wiki/Toph_Beifong",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-zuko",
+        "name": "Зуко",
+        "nameEn": "Zuko",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/zuko.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/4b/Zuko.png/revision/latest?cb=20180630112142",
+        "sourcePage": "https://avatar.fandom.com/wiki/Zuko",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-iroh",
+        "name": "Айро",
+        "nameEn": "Iroh",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/iroh.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/c/c1/Iroh_smiling.png/revision/latest?cb=20130626131914",
+        "sourcePage": "https://avatar.fandom.com/wiki/Iroh",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-azula",
+        "name": "Азула",
+        "nameEn": "Azula",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/azula.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/1/12/Azula.png/revision/latest?cb=20140905084941",
+        "sourcePage": "https://avatar.fandom.com/wiki/Azula",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-mai",
+        "name": "Мэй",
+        "nameEn": "Mai",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/mai.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/40/Mai.png/revision/latest?cb=20090406114652",
+        "sourcePage": "https://avatar.fandom.com/wiki/Mai",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-ty-lee",
+        "name": "Тай Ли",
+        "nameEn": "Ty Lee",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ty-lee.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/6/6d/Ty_Lee.png/revision/latest?cb=20140905083814",
+        "sourcePage": "https://avatar.fandom.com/wiki/Ty_Lee",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-suki",
+        "name": "Суюки",
+        "nameEn": "Suki",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/suki.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/1/14/Suki.png/revision/latest?cb=20130819094354",
+        "sourcePage": "https://avatar.fandom.com/wiki/Suki",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-appa",
+        "name": "Аппа",
+        "nameEn": "Appa",
+        "traits": [],
+        "img": "/images/avatar-aang/appa.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/6/65/Appa_flying.png/revision/latest?cb=20140517110636",
+        "sourcePage": "https://avatar.fandom.com/wiki/Appa",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-momo",
+        "name": "Момо",
+        "nameEn": "Momo",
+        "traits": [],
+        "img": "/images/avatar-aang/momo.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/43/Inquisitive_Momo.png/revision/latest?cb=20081225191217",
+        "sourcePage": "https://avatar.fandom.com/wiki/Momo",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-ozai",
+        "name": "Озай",
+        "nameEn": "Ozai",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ozai.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/4a/Ozai.png/revision/latest?cb=20130612170743",
+        "sourcePage": "https://avatar.fandom.com/wiki/Ozai",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-zhao",
+        "name": "Джао",
+        "nameEn": "Zhao",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/zhao.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e1/Commander_Zhao.png/revision/latest?cb=20140103180854",
+        "sourcePage": "https://avatar.fandom.com/wiki/Zhao",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-roku",
+        "name": "Року",
+        "nameEn": "Roku",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/roku.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/f/f6/Roku.png/revision/latest?cb=20120601014953",
+        "sourcePage": "https://avatar.fandom.com/wiki/Roku",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-kyoshi",
+        "name": "Киоши",
+        "nameEn": "Kyoshi",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kyoshi.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/0/07/Avatar_Kyoshi.png/revision/latest?cb=20140215111846",
+        "sourcePage": "https://avatar.fandom.com/wiki/Kyoshi",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-kuruk",
+        "name": "Курук",
+        "nameEn": "Kuruk",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kuruk.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/d/d1/Kuruk.png/revision/latest?cb=20081225191014",
+        "sourcePage": "https://avatar.fandom.com/wiki/Kuruk",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-yangchen",
+        "name": "Янгчен",
+        "nameEn": "Yangchen",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/yangchen.webp",
+        "source": "https://wikimultia.org/images/thumb/7/74/3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg/350px-3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg",
+        "sourcePage": "https://wikimultia.org/wiki/%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-gyatso",
+        "name": "Гьяцо",
+        "nameEn": "Gyatso",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/gyatso.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/a/a4/Monk_Gyatso.png/revision/latest?cb=20140103203807",
+        "sourcePage": "https://avatar.fandom.com/wiki/Gyatso",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-bumi-king-of-omashu",
+        "name": "Царь Буми",
+        "nameEn": "King Bumi",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/bumi-king-of-omashu.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e8/King_Bumi.png/revision/latest?cb=20140106141303",
+        "sourcePage": "https://avatar.fandom.com/wiki/Bumi_(King_of_Omashu)",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-pakku",
+        "name": "Пакку",
+        "nameEn": "Pakku",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/pakku.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/b/bb/Pakku_looking_smug.png/revision/latest?cb=20140119164142",
+        "sourcePage": "https://avatar.fandom.com/wiki/Pakku",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-jeong-jeong",
+        "name": "Джонг Джонг",
+        "nameEn": "Jeong Jeong",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/jeong-jeong.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/a/a7/Jeong_Jeong_serious.png/revision/latest?cb=20140116113256",
+        "sourcePage": "https://avatar.fandom.com/wiki/Jeong_Jeong",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-piandao",
+        "name": "Пиандао",
+        "nameEn": "Piandao",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/piandao.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e1/Piandao.png/revision/latest?cb=20140905225031",
+        "sourcePage": "https://avatar.fandom.com/wiki/Piandao",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-hama",
+        "name": "Хама",
+        "nameEn": "Hama",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/hama.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/4d/Sinister_Hama.png/revision/latest?cb=20111215082556",
+        "sourcePage": "https://avatar.fandom.com/wiki/Hama",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-hakoda",
+        "name": "Хакода",
+        "nameEn": "Hakoda",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/hakoda.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/4e/Hakoda_smiling.png/revision/latest?cb=20140510202641",
+        "sourcePage": "https://avatar.fandom.com/wiki/Hakoda",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-kya-nonbender",
+        "name": "Кая",
+        "nameEn": "Kya",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/kya-nonbender.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/b/b5/Kya_%28nonbender%29.png/revision/latest?cb=20170523213135",
+        "sourcePage": "https://avatar.fandom.com/wiki/Kya_(nonbender)",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-kanna",
+        "name": "Канна",
+        "nameEn": "Kanna",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/kanna.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/47/Kanna.png/revision/latest?cb=20130822224809",
+        "sourcePage": "https://avatar.fandom.com/wiki/Kanna",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-bato",
+        "name": "Бато",
+        "nameEn": "Bato",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/bato.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e3/Bato_smiling.png/revision/latest?cb=20130626122901",
+        "sourcePage": "https://avatar.fandom.com/wiki/Bato",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-yue",
+        "name": "Юи",
+        "nameEn": "Yue",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/yue.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/9/9d/Kind_Yue.png/revision/latest?cb=20140122221734",
+        "sourcePage": "https://avatar.fandom.com/wiki/Yue",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-haru",
+        "name": "Хару",
+        "nameEn": "Haru",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/haru.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/d/da/Haru.png/revision/latest?cb=20110104010244",
+        "sourcePage": "https://avatar.fandom.com/wiki/Haru",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-tyro",
+        "name": "Тиро",
+        "nameEn": "Tyro",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/tyro.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/8/88/Tyro_during_the_invasion.png/revision/latest?cb=20130609164844",
+        "sourcePage": "https://avatar.fandom.com/wiki/Tyro",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-jet",
+        "name": "Джет",
+        "nameEn": "Jet",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/jet.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/1/1e/Jet.png/revision/latest?cb=20150324102352",
+        "sourcePage": "https://avatar.fandom.com/wiki/Jet",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-smellerbee",
+        "name": "Смеллерби",
+        "nameEn": "Smellerbee",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/smellerbee.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/3/3a/Smellerbee.png/revision/latest?cb=20140413234450",
+        "sourcePage": "https://avatar.fandom.com/wiki/Smellerbee",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-longshot",
+        "name": "Лонгшот",
+        "nameEn": "Longshot",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/longshot.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e7/Longshot.png/revision/latest?cb=20140413233811",
+        "sourcePage": "https://avatar.fandom.com/wiki/Longshot",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-long-feng",
+        "name": "Лонг Фенг",
+        "nameEn": "Long Feng",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/long-feng.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/8/8d/Long_Feng_scheming.png/revision/latest?cb=20140510202422",
+        "sourcePage": "https://avatar.fandom.com/wiki/Long_Feng",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-kuei",
+        "name": "Царь Куэй",
+        "nameEn": "Kuei",
+        "traits": [
+          "male",
+          "dark",
+          "glasses"
+        ],
+        "img": "/images/avatar-aang/kuei.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/5/5e/Kuei.png/revision/latest?cb=20130627084042",
+        "sourcePage": "https://avatar.fandom.com/wiki/Kuei",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-xin-fu",
+        "name": "Синь Фу",
+        "nameEn": "Xin Fu",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/xin-fu.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/0/02/Xin_Fu.png/revision/latest?cb=20140317211615",
+        "sourcePage": "https://avatar.fandom.com/wiki/Xin_Fu",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-yu",
+        "name": "Мастер Ю",
+        "nameEn": "Yu",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/yu.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/e2/Yu.png/revision/latest?cb=20140317211616",
+        "sourcePage": "https://avatar.fandom.com/wiki/Yu",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-the-boulder",
+        "name": "Глыба",
+        "nameEn": "The Boulder",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/the-boulder.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/7/70/The_Boulder.png/revision/latest?cb=20140317195145",
+        "sourcePage": "https://avatar.fandom.com/wiki/The_Boulder",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-june",
+        "name": "Джун",
+        "nameEn": "June",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/june.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/e/ea/June.png/revision/latest?cb=20130626132827",
+        "sourcePage": "https://avatar.fandom.com/wiki/June",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-combustion-man",
+        "name": "Человек-Взрыв",
+        "nameEn": "Combustion Man",
+        "traits": [
+          "male"
+        ],
+        "img": "/images/avatar-aang/combustion-man.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/f/fc/Combustion_Man.png/revision/latest?cb=20140908141111",
+        "sourcePage": "https://avatar.fandom.com/wiki/Combustion_Man",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-teo",
+        "name": "Тео",
+        "nameEn": "Teo",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/teo.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/7/77/Teo.png/revision/latest?cb=20140118125457",
+        "sourcePage": "https://avatar.fandom.com/wiki/Teo",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-mechanist",
+        "name": "Механик",
+        "nameEn": "Mechanist",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/mechanist.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/b/b7/Mechanist.png/revision/latest?cb=20140118124602",
+        "sourcePage": "https://avatar.fandom.com/wiki/Mechanist",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-pathik",
+        "name": "Гуру Патик",
+        "nameEn": "Pathik",
+        "traits": [
+          "male",
+          "light"
+        ],
+        "img": "/images/avatar-aang/pathik.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/9/91/Guru_Pathik.png/revision/latest?cb=20140510202641",
+        "sourcePage": "https://avatar.fandom.com/wiki/Pathik",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-wu-fortuneteller",
+        "name": "Тётушка Ву",
+        "nameEn": "Aunt Wu",
+        "traits": [
+          "female",
+          "light"
+        ],
+        "img": "/images/avatar-aang/wu-fortuneteller.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/c/c9/Aunt_Wu.png/revision/latest?cb=20130626124117",
+        "sourcePage": "https://avatar.fandom.com/wiki/Wu_(fortuneteller)",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-meng",
+        "name": "Мэнг",
+        "nameEn": "Meng",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/meng.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/4/42/Meng.png/revision/latest?cb=20130814090639",
+        "sourcePage": "https://avatar.fandom.com/wiki/Meng",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-ursa",
+        "name": "Урса",
+        "nameEn": "Ursa",
+        "traits": [
+          "female",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/ursa.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/a/a6/Ursa.png/revision/latest?cb=20140331143655",
+        "sourcePage": "https://avatar.fandom.com/wiki/Ursa",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      },
+      {
+        "id": "avatar-aang-cabbage-merchant",
+        "name": "Продавец капусты",
+        "nameEn": "Cabbage merchant",
+        "traits": [
+          "male",
+          "dark"
+        ],
+        "img": "/images/avatar-aang/cabbage-merchant.webp",
+        "source": "https://static.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908",
+        "sourcePage": "https://avatar.fandom.com/wiki/Cabbage_merchant",
+        "crop": [
+          0.5,
+          0.25
+        ]
+      }
+    ]
+  }
+]

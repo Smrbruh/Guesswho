@@ -2,6 +2,8 @@ import type { CSSProperties, ReactNode } from 'react';
 import { ArrowUpRight, Coins, X, Sparkles } from 'lucide-react';
 import { useApp } from '../context';
 import type { Category } from '../types';
+const cardPlurals = new Intl.PluralRules('ru');
+const cardWords: Record<string,string> = {one:'КАРТА',few:'КАРТЫ',many:'КАРТ',other:'КАРТ'};
 export function Coin({ amount }: { amount: number }) { return <span className="coins"><Coins size={17} /> {amount.toLocaleString()}</span>; }
 export function Avatar({ name, frame = 'default', large = false, src }: { name: string; frame?: string; large?: boolean; src?:string|null }) { return <div className={`avatar ${large ? 'large' : ''} ${frame}`}>{src ? <img src={src} alt={name} width={large?92:35} height={large?92:35}/> : <span>{name.slice(0, 2).toUpperCase()}</span>}</div>; }
 export function PageHeading({ eyebrow, title, text, children }: { eyebrow: string; title: string; text: string; children?: ReactNode }) { return <div className="page-heading"><div><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{text}</p></div>{children}</div>; }
@@ -15,7 +17,7 @@ export function Modal({ title, children, onClose }: { title: string; children: R
 export function DeckCard({ category, index, onClick }: { category: Category; index: number; onClick: () => void }) {
   const { t } = useApp();
   return <button className={`deck-card deck-${category.id}`} style={{ '--deck-color': category.color } as CSSProperties} onClick={onClick}>
-    <div className="deck-art"><div className="deck-number">0{index + 1}</div><span className="deck-tag">{category.characters.length} {t('КАРТЫ', 'CARDS')}</span><div className="deck-portraits">{[2,0,1].map((n, i) => <img key={n} className={`portrait-${i}`} src={category.characters[n]?.img} alt="" loading="lazy" />)}</div><span className="deck-symbol">{['進撃', '忍者', 'ϟ', 'A'][index]}</span></div>
+    <div className="deck-art"><div className="deck-number">{String(index + 1).padStart(2,'0')}</div><span className="deck-tag">{category.characters.length} {t(cardWords[cardPlurals.select(category.characters.length)], 'CARDS')}</span><div className="deck-portraits">{[2,0,1].map((n, i) => <img key={n} className={`portrait-${i}`} src={category.characters[n]?.img} alt="" loading="lazy" />)}</div><span className="deck-symbol">{category.symbol || ['進撃', '忍者', 'ϟ', 'A'][index] || '?'}</span></div>
     <div className="deck-info"><div><h3>{t(category.title, category.titleEn)}</h3><p>{t(category.subtitle, category.subtitleEn)}</p></div><ArrowUpRight size={20} /></div>
   </button>;
 }

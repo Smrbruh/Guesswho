@@ -239,8 +239,12 @@ def main():
             try: print('OK', future.result(), flush=True)
             except Exception as error: failed.append(str(error)); print('FAIL', str(error), flush=True)
     (ROOT / 'src/data').mkdir(parents=True, exist_ok=True)
-    (ROOT / 'src/data/catalog.json').write_text(json.dumps(categories, ensure_ascii=False, indent=2), 'utf-8')
-    (ROOT / 'data/asset-sources.json').write_text(json.dumps(sources, ensure_ascii=False, indent=2), 'utf-8')
+    existing_path = ROOT / 'src/data/catalog.json'
+    expanded = [deck for deck in json.loads(existing_path.read_text('utf-8')) if deck['id'] not in {item['id'] for item in categories}] if existing_path.exists() else []
+    existing_path.write_text(json.dumps(categories + expanded, ensure_ascii=False, indent=2), 'utf-8')
+    sources_path = ROOT / 'data/asset-sources.json'
+    retained = [entry for entry in json.loads(sources_path.read_text('utf-8')) if entry['id'] not in {item['id'] for item in sources}] if sources_path.exists() else []
+    sources_path.write_text(json.dumps(sources + retained, ensure_ascii=False, indent=2), 'utf-8')
     rows = ',\n'.join("('%s','%s')" % (c['id'], cat['id']) for cat in categories for c in cat['characters'])
     (ROOT / 'supabase/migrations/202610110002_characters.sql').write_text('insert into game_private.characters(id, category) values\n' + rows + '\non conflict (id) do nothing;\n', 'utf-8')
     print('TOTAL', len(jobs), 'FAILED', len(failed))

@@ -766,5 +766,1013 @@
     "name": "Venom",
     "source": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/687-venom.jpg",
     "file": "/images/avengers/venom.webp"
+  },
+  {
+    "id": "walking-dead-rick-grimes",
+    "name": "Rick Grimes",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417473.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10763/the-walking-dead-rick-grimes",
+    "file": "/images/walking-dead/rick-grimes.webp"
+  },
+  {
+    "id": "walking-dead-daryl-dixon",
+    "name": "Daryl Dixon",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417474.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10764/the-walking-dead-daryl-dixon",
+    "file": "/images/walking-dead/daryl-dixon.webp"
+  },
+  {
+    "id": "walking-dead-michonne-hawthorne",
+    "name": "Michonne Hawthorne",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417476.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10768/the-walking-dead-michonne-hawthorne",
+    "file": "/images/walking-dead/michonne-hawthorne.webp"
+  },
+  {
+    "id": "walking-dead-carol-peletier",
+    "name": "Carol Peletier",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417477.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10769/the-walking-dead-carol-peletier",
+    "file": "/images/walking-dead/carol-peletier.webp"
+  },
+  {
+    "id": "walking-dead-glenn-rhee",
+    "name": "Glenn Rhee",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111991.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10765/the-walking-dead-glenn-rhee",
+    "file": "/images/walking-dead/glenn-rhee.webp"
+  },
+  {
+    "id": "walking-dead-maggie-greene",
+    "name": "Maggie Greene",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417475.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10766/the-walking-dead-maggie-greene",
+    "file": "/images/walking-dead/maggie-greene.webp"
+  },
+  {
+    "id": "walking-dead-negan",
+    "name": "Negan",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204644.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/267824/the-walking-dead-negan",
+    "file": "/images/walking-dead/negan.webp"
+  },
+  {
+    "id": "walking-dead-carl-grimes",
+    "name": "Carl Grimes",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/111990.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10767/the-walking-dead-carl-grimes",
+    "file": "/images/walking-dead/carl-grimes.webp"
+  },
+  {
+    "id": "walking-dead-judith-grimes",
+    "name": "Judith Grimes",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/184/460929.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10936/the-walking-dead-judith-grimes",
+    "file": "/images/walking-dead/judith-grimes.webp"
+  },
+  {
+    "id": "walking-dead-shane-walsh",
+    "name": "Shane Walsh",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/524.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10774/the-walking-dead-shane-walsh",
+    "file": "/images/walking-dead/shane-walsh.webp"
+  },
+  {
+    "id": "walking-dead-lori-grimes",
+    "name": "Lori Grimes",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/525.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10776/the-walking-dead-lori-grimes",
+    "file": "/images/walking-dead/lori-grimes.webp"
+  },
+  {
+    "id": "walking-dead-morgan-jones",
+    "name": "Morgan Jones",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112018.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10793/the-walking-dead-morgan-jones",
+    "file": "/images/walking-dead/morgan-jones.webp"
+  },
+  {
+    "id": "walking-dead-hershel-greene",
+    "name": "Hershel Greene",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/518.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10770/the-walking-dead-hershel-greene",
+    "file": "/images/walking-dead/hershel-greene.webp"
+  },
+  {
+    "id": "walking-dead-beth-greene",
+    "name": "Beth Greene",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/517.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10843/the-walking-dead-beth-greene",
+    "file": "/images/walking-dead/beth-greene.webp"
+  },
+  {
+    "id": "walking-dead-andrea",
+    "name": "Andrea",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/523.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10775/the-walking-dead-andrea",
+    "file": "/images/walking-dead/andrea.webp"
+  },
+  {
+    "id": "walking-dead-dale-horvath",
+    "name": "Dale Horvath",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/1117.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10773/the-walking-dead-dale-horvath",
+    "file": "/images/walking-dead/dale-horvath.webp"
+  },
+  {
+    "id": "walking-dead-t-dog",
+    "name": "T-Dog",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/519.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10800/the-walking-dead-t-dog",
+    "file": "/images/walking-dead/t-dog.webp"
+  },
+  {
+    "id": "walking-dead-merle-dixon",
+    "name": "Merle Dixon",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/516.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10771/the-walking-dead-merle-dixon",
+    "file": "/images/walking-dead/merle-dixon.webp"
+  },
+  {
+    "id": "walking-dead-governor-phillip-blake",
+    "name": "The Governor",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/0/1116.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/73211/the-walking-dead-governor-phillip-blake",
+    "file": "/images/walking-dead/governor-phillip-blake.webp"
+  },
+  {
+    "id": "walking-dead-tyreese-williams",
+    "name": "Tyreese Williams",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/2/7124.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/58931/the-walking-dead-tyreese-williams",
+    "file": "/images/walking-dead/tyreese-williams.webp"
+  },
+  {
+    "id": "walking-dead-sasha-williams",
+    "name": "Sasha Williams",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112000.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/58932/the-walking-dead-sasha-williams",
+    "file": "/images/walking-dead/sasha-williams.webp"
+  },
+  {
+    "id": "walking-dead-sgt-abraham-ford",
+    "name": "Abraham Ford",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112007.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/102304/the-walking-dead-sgt-abraham-ford",
+    "file": "/images/walking-dead/sgt-abraham-ford.webp"
+  },
+  {
+    "id": "walking-dead-rosita-espinosa",
+    "name": "Rosita Espinosa",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417478.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10981/the-walking-dead-rosita-espinosa",
+    "file": "/images/walking-dead/rosita-espinosa.webp"
+  },
+  {
+    "id": "walking-dead-eugene-porter",
+    "name": "Eugene Porter",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417480.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/53369/the-walking-dead-eugene-porter",
+    "file": "/images/walking-dead/eugene-porter.webp"
+  },
+  {
+    "id": "walking-dead-father-gabriel-stokes",
+    "name": "Gabriel Stokes",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417481.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/53373/the-walking-dead-father-gabriel-stokes",
+    "file": "/images/walking-dead/father-gabriel-stokes.webp"
+  },
+  {
+    "id": "walking-dead-aaron",
+    "name": "Aaron",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417482.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/100420/the-walking-dead-aaron",
+    "file": "/images/walking-dead/aaron.webp"
+  },
+  {
+    "id": "walking-dead-tara-chambler",
+    "name": "Tara Chambler",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417479.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10963/the-walking-dead-tara-chambler",
+    "file": "/images/walking-dead/tara-chambler.webp"
+  },
+  {
+    "id": "walking-dead-paul-jesus-rovia",
+    "name": "Paul \"Jesus\" Rovia",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417484.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/252768/the-walking-dead-paul-jesus-rovia",
+    "file": "/images/walking-dead/paul-jesus-rovia.webp"
+  },
+  {
+    "id": "walking-dead-ezekiel",
+    "name": "Ezekiel",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417485.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/342036/the-walking-dead-ezekiel",
+    "file": "/images/walking-dead/ezekiel.webp"
+  },
+  {
+    "id": "walking-dead-jerry",
+    "name": "Jerry",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417488.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/342232/the-walking-dead-jerry",
+    "file": "/images/walking-dead/jerry.webp"
+  },
+  {
+    "id": "walking-dead-enid",
+    "name": "Enid",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417483.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/100995/the-walking-dead-enid",
+    "file": "/images/walking-dead/enid.webp"
+  },
+  {
+    "id": "walking-dead-dwight",
+    "name": "Dwight",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/81/204643.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/203872/the-walking-dead-dwight",
+    "file": "/images/walking-dead/dwight.webp"
+  },
+  {
+    "id": "walking-dead-simon",
+    "name": "Simon",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/85/214140.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/267833/the-walking-dead-simon",
+    "file": "/images/walking-dead/simon.webp"
+  },
+  {
+    "id": "walking-dead-gregory",
+    "name": "Gregory",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/85/214134.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/251754/the-walking-dead-gregory",
+    "file": "/images/walking-dead/gregory.webp"
+  },
+  {
+    "id": "walking-dead-jadis-anne",
+    "name": "Jadis",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/166/417486.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/384093/the-walking-dead-jadis-anne",
+    "file": "/images/walking-dead/jadis-anne.webp"
+  },
+  {
+    "id": "walking-dead-alpha",
+    "name": "Alpha",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/177/444594.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/579725/the-walking-dead-alpha",
+    "file": "/images/walking-dead/alpha.webp"
+  },
+  {
+    "id": "walking-dead-beta",
+    "name": "Beta",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/186/466516.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/604922/the-walking-dead-beta",
+    "file": "/images/walking-dead/beta.webp"
+  },
+  {
+    "id": "walking-dead-lydia",
+    "name": "Lydia",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/185/463752.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/593882/the-walking-dead-lydia",
+    "file": "/images/walking-dead/lydia.webp"
+  },
+  {
+    "id": "walking-dead-connie",
+    "name": "Connie",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/174/436295.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/570068/the-walking-dead-connie",
+    "file": "/images/walking-dead/connie.webp"
+  },
+  {
+    "id": "walking-dead-magna",
+    "name": "Magna",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/174/436292.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/570067/the-walking-dead-magna",
+    "file": "/images/walking-dead/magna.webp"
+  },
+  {
+    "id": "walking-dead-siddiq",
+    "name": "Siddiq",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/136/341679.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/472666/the-walking-dead-siddiq",
+    "file": "/images/walking-dead/siddiq.webp"
+  },
+  {
+    "id": "walking-dead-bob-stookey",
+    "name": "Bob Stookey",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/247/619263.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/11016/the-walking-dead-bob-stookey",
+    "file": "/images/walking-dead/bob-stookey.webp"
+  },
+  {
+    "id": "walking-dead-juanita-sanchez-princess",
+    "name": "Princess",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/249/623032.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/711217/the-walking-dead-juanita-sanchez-princess",
+    "file": "/images/walking-dead/juanita-sanchez-princess.webp"
+  },
+  {
+    "id": "walking-dead-michael-mercer",
+    "name": "Michael Mercer",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/350/877078.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/845775/the-walking-dead-michael-mercer",
+    "file": "/images/walking-dead/michael-mercer.webp"
+  },
+  {
+    "id": "walking-dead-pamela-milton",
+    "name": "Pamela Milton",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/350/876249.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/893035/the-walking-dead-pamela-milton",
+    "file": "/images/walking-dead/pamela-milton.webp"
+  },
+  {
+    "id": "walking-dead-deanna-monroe",
+    "name": "Deanna Monroe",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/44/112015.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/100991/the-walking-dead-deanna-monroe",
+    "file": "/images/walking-dead/deanna-monroe.webp"
+  },
+  {
+    "id": "walking-dead-sophia-peletier",
+    "name": "Sophia Peletier",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/247/618765.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/10805/the-walking-dead-sophia-peletier",
+    "file": "/images/walking-dead/sophia-peletier.webp"
+  },
+  {
+    "id": "walking-dead-gareth",
+    "name": "Gareth",
+    "source": "https://static.tvmaze.com/uploads/images/original_untouched/2/7118.jpg",
+    "sourcePage": "https://www.tvmaze.com/characters/11047/the-walking-dead-gareth",
+    "file": "/images/walking-dead/gareth.webp"
+  },
+  {
+    "id": "jojo-jonathan-joestar",
+    "name": "Jonathan Joestar",
+    "source": "https://static.jojowiki.com/images/thumb/3/34/latest/20200604060940/Jonathan_Infobox_Anime.png/400px-Jonathan_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Jonathan_Joestar",
+    "file": "/images/jojo/jonathan-joestar.webp"
+  },
+  {
+    "id": "jojo-joseph-joestar",
+    "name": "Joseph Joestar",
+    "source": "https://static.jojowiki.com/images/thumb/6/6e/latest/20210313174003/Joseph_young_BT_Infobox_Anime.png/400px-Joseph_young_BT_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Joseph_Joestar",
+    "file": "/images/jojo/joseph-joestar.webp"
+  },
+  {
+    "id": "jojo-jotaro-kujo",
+    "name": "Jotaro Kujo",
+    "source": "https://static.jojowiki.com/images/thumb/3/3a/latest/20210430072039/Jotaro_SC_Infobox_Anime.png/400px-Jotaro_SC_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Jotaro_Kujo",
+    "file": "/images/jojo/jotaro-kujo.webp"
+  },
+  {
+    "id": "jojo-josuke-higashikata",
+    "name": "Josuke Higashikata",
+    "source": "https://static.jojowiki.com/images/thumb/4/49/latest/20211117015857/Josuke_DU_Infobox_Anime.png/400px-Josuke_DU_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Josuke_Higashikata",
+    "file": "/images/jojo/josuke-higashikata.webp"
+  },
+  {
+    "id": "jojo-giorno-giovanna",
+    "name": "Giorno Giovanna",
+    "source": "https://static.jojowiki.com/images/thumb/4/4a/latest/20210422070411/Giorno_Giovanna_Infobox_Anime.png/400px-Giorno_Giovanna_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Giorno_Giovanna",
+    "file": "/images/jojo/giorno-giovanna.webp"
+  },
+  {
+    "id": "jojo-jolyne-cujoh",
+    "name": "Jolyne Cujoh",
+    "source": "https://static.jojowiki.com/images/0/03/latest/20220111002807/Jolyne_Cujoh_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Jolyne_Cujoh",
+    "file": "/images/jojo/jolyne-cujoh.webp"
+  },
+  {
+    "id": "jojo-dio-brando",
+    "name": "Dio Brando",
+    "source": "https://static.jojowiki.com/images/3/37/latest/20210315113740/Dio_PB_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Dio_Brando",
+    "file": "/images/jojo/dio-brando.webp"
+  },
+  {
+    "id": "jojo-robert-e-o-speedwagon",
+    "name": "Robert E. O. Speedwagon",
+    "source": "https://static.jojowiki.com/images/thumb/e/e7/latest/20211009200001/SPW_PB_Infobox_Anime.png/400px-SPW_PB_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Robert_E._O._Speedwagon",
+    "file": "/images/jojo/robert-e-o-speedwagon.webp"
+  },
+  {
+    "id": "jojo-will-anthonio-zeppeli",
+    "name": "Will Anthonio Zeppeli",
+    "source": "https://static.jojowiki.com/images/thumb/0/0e/latest/20210501153511/Will_Zeppeli_Infobox_Anime.png/400px-Will_Zeppeli_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Will_Anthonio_Zeppeli",
+    "file": "/images/jojo/will-anthonio-zeppeli.webp"
+  },
+  {
+    "id": "jojo-erina-pendleton",
+    "name": "Erina Pendleton",
+    "source": "https://static.jojowiki.com/images/thumb/0/08/latest/20220108061329/Erina_PB_Infobox_Anime.png/400px-Erina_PB_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Erina_Pendleton",
+    "file": "/images/jojo/erina-pendleton.webp"
+  },
+  {
+    "id": "jojo-caesar-anthonio-zeppeli",
+    "name": "Caesar Anthonio Zeppeli",
+    "source": "https://static.jojowiki.com/images/thumb/2/23/latest/20210117024501/Caesar_Infobox_Anime.png/400px-Caesar_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Caesar_Anthonio_Zeppeli",
+    "file": "/images/jojo/caesar-anthonio-zeppeli.webp"
+  },
+  {
+    "id": "jojo-lisa-lisa",
+    "name": "Lisa Lisa",
+    "source": "https://static.jojowiki.com/images/thumb/3/35/latest/20260719221826/Lisa_Lisa_Infobox_Anime.png/400px-Lisa_Lisa_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Lisa_Lisa",
+    "file": "/images/jojo/lisa-lisa.webp"
+  },
+  {
+    "id": "jojo-kars",
+    "name": "Kars",
+    "source": "https://static.jojowiki.com/images/thumb/5/51/latest/20230317144721/Kars_Infobox_Anime.png/400px-Kars_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Kars",
+    "file": "/images/jojo/kars.webp"
+  },
+  {
+    "id": "jojo-wamuu",
+    "name": "Wamuu",
+    "source": "https://static.jojowiki.com/images/thumb/5/5f/latest/20210723005737/Wamuu_Infobox_Anime.png/400px-Wamuu_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Wamuu",
+    "file": "/images/jojo/wamuu.webp"
+  },
+  {
+    "id": "jojo-esidisi",
+    "name": "Esidisi",
+    "source": "https://static.jojowiki.com/images/thumb/4/45/latest/20210420214216/Esidisi_Infobox_Anime.png/400px-Esidisi_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Esidisi",
+    "file": "/images/jojo/esidisi.webp"
+  },
+  {
+    "id": "jojo-muhammad-avdol",
+    "name": "Muhammad Avdol",
+    "source": "https://static.jojowiki.com/images/thumb/8/80/latest/20210430075909/Avdol_Infobox_Anime.png/400px-Avdol_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Muhammad_Avdol",
+    "file": "/images/jojo/muhammad-avdol.webp"
+  },
+  {
+    "id": "jojo-noriaki-kakyoin",
+    "name": "Noriaki Kakyoin",
+    "source": "https://static.jojowiki.com/images/thumb/9/9f/latest/20210507202834/Kakyoin_Infobox_Anime.png/400px-Kakyoin_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Noriaki_Kakyoin",
+    "file": "/images/jojo/noriaki-kakyoin.webp"
+  },
+  {
+    "id": "jojo-jean-pierre-polnareff",
+    "name": "Jean Pierre Polnareff",
+    "source": "https://static.jojowiki.com/images/thumb/b/ba/latest/20211013051059/Polnareff_SC_Infobox_Anime.png/400px-Polnareff_SC_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Jean_Pierre_Polnareff",
+    "file": "/images/jojo/jean-pierre-polnareff.webp"
+  },
+  {
+    "id": "jojo-iggy",
+    "name": "Iggy",
+    "source": "https://static.jojowiki.com/images/thumb/3/31/latest/20201220221635/Iggy_Infobox_Anime.png/400px-Iggy_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Iggy",
+    "file": "/images/jojo/iggy.webp"
+  },
+  {
+    "id": "jojo-hol-horse",
+    "name": "Hol Horse",
+    "source": "https://static.jojowiki.com/images/thumb/6/64/latest/20210530063641/Hol_Horse_Infobox_Anime.png/400px-Hol_Horse_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Hol_Horse",
+    "file": "/images/jojo/hol-horse.webp"
+  },
+  {
+    "id": "jojo-enya-the-hag",
+    "name": "Enya the Hag",
+    "source": "https://static.jojowiki.com/images/thumb/3/3a/latest/20211012020828/Enya_Infobox_Anime.png/400px-Enya_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Enya_the_Hag",
+    "file": "/images/jojo/enya-the-hag.webp"
+  },
+  {
+    "id": "jojo-n-doul",
+    "name": "N'Doul",
+    "source": "https://static.jojowiki.com/images/thumb/7/78/latest/20210223013506/N%27Doul_Infobox_Anime.png/400px-N%27Doul_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/N'Doul",
+    "file": "/images/jojo/n-doul.webp"
+  },
+  {
+    "id": "jojo-daniel-j-d-arby",
+    "name": "Daniel J. D'Arby",
+    "source": "https://static.jojowiki.com/images/thumb/3/39/latest/20210324152622/Daniel_J._D%27Arby_Infobox_Anime.png/400px-Daniel_J._D%27Arby_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Daniel_J._D'Arby",
+    "file": "/images/jojo/daniel-j-d-arby.webp"
+  },
+  {
+    "id": "jojo-vanilla-ice",
+    "name": "Vanilla Ice",
+    "source": "https://static.jojowiki.com/images/thumb/a/a8/latest/20210530021831/Vanilla_Ice_Infobox_Anime.png/400px-Vanilla_Ice_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Vanilla_Ice",
+    "file": "/images/jojo/vanilla-ice.webp"
+  },
+  {
+    "id": "jojo-koichi-hirose",
+    "name": "Koichi Hirose",
+    "source": "https://static.jojowiki.com/images/thumb/9/9b/latest/20211012034402/Koichi_Hirose_Infobox_Anime.png/400px-Koichi_Hirose_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Koichi_Hirose",
+    "file": "/images/jojo/koichi-hirose.webp"
+  },
+  {
+    "id": "jojo-okuyasu-nijimura",
+    "name": "Okuyasu Nijimura",
+    "source": "https://static.jojowiki.com/images/thumb/8/80/latest/20210907213301/Okuyasu_Nijimura_Infobox_Anime.png/400px-Okuyasu_Nijimura_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Okuyasu_Nijimura",
+    "file": "/images/jojo/okuyasu-nijimura.webp"
+  },
+  {
+    "id": "jojo-rohan-kishibe",
+    "name": "Rohan Kishibe",
+    "source": "https://static.jojowiki.com/images/thumb/9/9e/latest/20210314044358/Rohan_Kishibe_Infobox_Anime.png/400px-Rohan_Kishibe_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Rohan_Kishibe",
+    "file": "/images/jojo/rohan-kishibe.webp"
+  },
+  {
+    "id": "jojo-yukako-yamagishi",
+    "name": "Yukako Yamagishi",
+    "source": "https://static.jojowiki.com/images/thumb/d/d3/latest/20211012030548/Yukako_Yamagishi_Infobox_Anime.png/400px-Yukako_Yamagishi_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Yukako_Yamagishi",
+    "file": "/images/jojo/yukako-yamagishi.webp"
+  },
+  {
+    "id": "jojo-yoshikage-kira",
+    "name": "Yoshikage Kira",
+    "source": "https://static.jojowiki.com/images/1/10/latest/20210220231052/Yoshikage_Kira_Original_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Yoshikage_Kira",
+    "file": "/images/jojo/yoshikage-kira.webp"
+  },
+  {
+    "id": "jojo-akira-otoishi",
+    "name": "Akira Otoishi",
+    "source": "https://static.jojowiki.com/images/thumb/3/31/latest/20211213170342/Akira_Otoishi_Infobox_Anime.png/400px-Akira_Otoishi_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Akira_Otoishi",
+    "file": "/images/jojo/akira-otoishi.webp"
+  },
+  {
+    "id": "jojo-shigekiyo-shigechi-yangu",
+    "name": "Shigechi",
+    "source": "https://static.jojowiki.com/images/thumb/f/fe/latest/20220525233647/Shigechi_Infobox_Anime.png/400px-Shigechi_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Shigekiyo_\"Shigechi\"_Yangu",
+    "file": "/images/jojo/shigekiyo-shigechi-yangu.webp"
+  },
+  {
+    "id": "jojo-tonio-trussardi",
+    "name": "Tonio Trussardi",
+    "source": "https://static.jojowiki.com/images/thumb/8/87/latest/20220112144423/Tonio_Trussardi_Infobox_Anime.png/400px-Tonio_Trussardi_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Tonio_Trussardi",
+    "file": "/images/jojo/tonio-trussardi.webp"
+  },
+  {
+    "id": "jojo-bruno-bucciarati",
+    "name": "Bruno Bucciarati",
+    "source": "https://static.jojowiki.com/images/thumb/a/a2/latest/20210513091755/Bruno_Bucciarati_Infobox_Anime.png/400px-Bruno_Bucciarati_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Bruno_Bucciarati",
+    "file": "/images/jojo/bruno-bucciarati.webp"
+  },
+  {
+    "id": "jojo-leone-abbacchio",
+    "name": "Leone Abbacchio",
+    "source": "https://static.jojowiki.com/images/thumb/e/ee/latest/20210827060558/Leone_Abbacchio_Infobox_Anime.png/400px-Leone_Abbacchio_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Leone_Abbacchio",
+    "file": "/images/jojo/leone-abbacchio.webp"
+  },
+  {
+    "id": "jojo-guido-mista",
+    "name": "Guido Mista",
+    "source": "https://static.jojowiki.com/images/thumb/c/c6/latest/20210827063749/Guido_Mista_Infobox_Anime.png/400px-Guido_Mista_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Guido_Mista",
+    "file": "/images/jojo/guido-mista.webp"
+  },
+  {
+    "id": "jojo-narancia-ghirga",
+    "name": "Narancia Ghirga",
+    "source": "https://static.jojowiki.com/images/thumb/4/44/latest/20201126091532/Narancia_Ghirga_Infobox_Anime.png/400px-Narancia_Ghirga_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Narancia_Ghirga",
+    "file": "/images/jojo/narancia-ghirga.webp"
+  },
+  {
+    "id": "jojo-pannacotta-fugo",
+    "name": "Pannacotta Fugo",
+    "source": "https://static.jojowiki.com/images/thumb/f/f7/latest/20201126081211/Pannacotta_Fugo_Infobox_Anime.png/400px-Pannacotta_Fugo_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Pannacotta_Fugo",
+    "file": "/images/jojo/pannacotta-fugo.webp"
+  },
+  {
+    "id": "jojo-trish-una",
+    "name": "Trish Una",
+    "source": "https://static.jojowiki.com/images/thumb/f/fc/latest/20210609202738/Trish_Una_Infobox_Anime.png/400px-Trish_Una_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Trish_Una",
+    "file": "/images/jojo/trish-una.webp"
+  },
+  {
+    "id": "jojo-diavolo",
+    "name": "Diavolo",
+    "source": "https://static.jojowiki.com/images/thumb/2/21/latest/20201208003715/Diavolo_Revealed_Infobox_Anime.png/400px-Diavolo_Revealed_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Diavolo",
+    "file": "/images/jojo/diavolo.webp"
+  },
+  {
+    "id": "jojo-vinegar-doppio",
+    "name": "Vinegar Doppio",
+    "source": "https://static.jojowiki.com/images/thumb/7/7b/latest/20210612004324/Vinegar_Doppio_Infobox_Anime.png/400px-Vinegar_Doppio_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Vinegar_Doppio",
+    "file": "/images/jojo/vinegar-doppio.webp"
+  },
+  {
+    "id": "jojo-risotto-nero",
+    "name": "Risotto Nero",
+    "source": "https://static.jojowiki.com/images/thumb/2/2a/latest/20210806010338/Risotto_Nero_Infobox_Anime.png/400px-Risotto_Nero_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Risotto_Nero",
+    "file": "/images/jojo/risotto-nero.webp"
+  },
+  {
+    "id": "jojo-ghiaccio",
+    "name": "Ghiaccio",
+    "source": "https://static.jojowiki.com/images/thumb/5/5d/latest/20220115115447/Ghiaccio_Infobox_Anime.png/400px-Ghiaccio_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Ghiaccio",
+    "file": "/images/jojo/ghiaccio.webp"
+  },
+  {
+    "id": "jojo-ermes-costello",
+    "name": "Ermes Costello",
+    "source": "https://static.jojowiki.com/images/thumb/1/1f/latest/20220304040153/Ermes_Costello_Infobox_Anime.png/400px-Ermes_Costello_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Ermes_Costello",
+    "file": "/images/jojo/ermes-costello.webp"
+  },
+  {
+    "id": "jojo-f-f",
+    "name": "Foo Fighters",
+    "source": "https://static.jojowiki.com/images/d/de/latest/20211204055511/F.F._Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/F.F.",
+    "file": "/images/jojo/f-f.webp"
+  },
+  {
+    "id": "jojo-weather-report",
+    "name": "Weather Report",
+    "source": "https://static.jojowiki.com/images/thumb/8/8e/latest/20220307143604/Weather_Report_Infobox_Anime.png/400px-Weather_Report_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Weather_Report",
+    "file": "/images/jojo/weather-report.webp"
+  },
+  {
+    "id": "jojo-narciso-anasui",
+    "name": "Narciso Anasui",
+    "source": "https://static.jojowiki.com/images/thumb/d/d7/latest/20220304035149/Narciso_Anasui_Infobox_Anime.png/400px-Narciso_Anasui_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Narciso_Anasui",
+    "file": "/images/jojo/narciso-anasui.webp"
+  },
+  {
+    "id": "jojo-enrico-pucci",
+    "name": "Enrico Pucci",
+    "source": "https://static.jojowiki.com/images/thumb/2/2b/latest/20220708032949/Pucci_Infobox_Anime.png/400px-Pucci_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Enrico_Pucci",
+    "file": "/images/jojo/enrico-pucci.webp"
+  },
+  {
+    "id": "jojo-emporio-alnino",
+    "name": "Emporio Alnino",
+    "source": "https://static.jojowiki.com/images/2/26/latest/20220107162048/Emporio_Alnino_Infobox_Anime.png",
+    "sourcePage": "https://jojowiki.com/Emporio_Alnino",
+    "file": "/images/jojo/emporio-alnino.webp"
+  },
+  {
+    "id": "avatar-aang-aang",
+    "name": "Aang",
+    "source": "https://static.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003",
+    "sourcePage": "https://avatar.fandom.com/wiki/Aang",
+    "file": "/images/avatar-aang/aang.webp"
+  },
+  {
+    "id": "avatar-aang-katara",
+    "name": "Katara",
+    "source": "https://static.wikia.nocookie.net/avatar/images/7/7a/Katara_smiles_at_coronation.png/revision/latest?cb=20150104171449",
+    "sourcePage": "https://avatar.fandom.com/wiki/Katara",
+    "file": "/images/avatar-aang/katara.webp"
+  },
+  {
+    "id": "avatar-aang-sokka",
+    "name": "Sokka",
+    "source": "https://static.wikia.nocookie.net/avatar/images/c/cc/Sokka.png/revision/latest?cb=20140905085428",
+    "sourcePage": "https://avatar.fandom.com/wiki/Sokka",
+    "file": "/images/avatar-aang/sokka.webp"
+  },
+  {
+    "id": "avatar-aang-toph-beifong",
+    "name": "Toph Beifong",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/46/Toph_Beifong.png/revision/latest?cb=20131230122047",
+    "sourcePage": "https://avatar.fandom.com/wiki/Toph_Beifong",
+    "file": "/images/avatar-aang/toph-beifong.webp"
+  },
+  {
+    "id": "avatar-aang-zuko",
+    "name": "Zuko",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/4b/Zuko.png/revision/latest?cb=20180630112142",
+    "sourcePage": "https://avatar.fandom.com/wiki/Zuko",
+    "file": "/images/avatar-aang/zuko.webp"
+  },
+  {
+    "id": "avatar-aang-iroh",
+    "name": "Iroh",
+    "source": "https://static.wikia.nocookie.net/avatar/images/c/c1/Iroh_smiling.png/revision/latest?cb=20130626131914",
+    "sourcePage": "https://avatar.fandom.com/wiki/Iroh",
+    "file": "/images/avatar-aang/iroh.webp"
+  },
+  {
+    "id": "avatar-aang-azula",
+    "name": "Azula",
+    "source": "https://static.wikia.nocookie.net/avatar/images/1/12/Azula.png/revision/latest?cb=20140905084941",
+    "sourcePage": "https://avatar.fandom.com/wiki/Azula",
+    "file": "/images/avatar-aang/azula.webp"
+  },
+  {
+    "id": "avatar-aang-mai",
+    "name": "Mai",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/40/Mai.png/revision/latest?cb=20090406114652",
+    "sourcePage": "https://avatar.fandom.com/wiki/Mai",
+    "file": "/images/avatar-aang/mai.webp"
+  },
+  {
+    "id": "avatar-aang-ty-lee",
+    "name": "Ty Lee",
+    "source": "https://static.wikia.nocookie.net/avatar/images/6/6d/Ty_Lee.png/revision/latest?cb=20140905083814",
+    "sourcePage": "https://avatar.fandom.com/wiki/Ty_Lee",
+    "file": "/images/avatar-aang/ty-lee.webp"
+  },
+  {
+    "id": "avatar-aang-suki",
+    "name": "Suki",
+    "source": "https://static.wikia.nocookie.net/avatar/images/1/14/Suki.png/revision/latest?cb=20130819094354",
+    "sourcePage": "https://avatar.fandom.com/wiki/Suki",
+    "file": "/images/avatar-aang/suki.webp"
+  },
+  {
+    "id": "avatar-aang-appa",
+    "name": "Appa",
+    "source": "https://static.wikia.nocookie.net/avatar/images/6/65/Appa_flying.png/revision/latest?cb=20140517110636",
+    "sourcePage": "https://avatar.fandom.com/wiki/Appa",
+    "file": "/images/avatar-aang/appa.webp"
+  },
+  {
+    "id": "avatar-aang-momo",
+    "name": "Momo",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/43/Inquisitive_Momo.png/revision/latest?cb=20081225191217",
+    "sourcePage": "https://avatar.fandom.com/wiki/Momo",
+    "file": "/images/avatar-aang/momo.webp"
+  },
+  {
+    "id": "avatar-aang-ozai",
+    "name": "Ozai",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/4a/Ozai.png/revision/latest?cb=20130612170743",
+    "sourcePage": "https://avatar.fandom.com/wiki/Ozai",
+    "file": "/images/avatar-aang/ozai.webp"
+  },
+  {
+    "id": "avatar-aang-zhao",
+    "name": "Zhao",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e1/Commander_Zhao.png/revision/latest?cb=20140103180854",
+    "sourcePage": "https://avatar.fandom.com/wiki/Zhao",
+    "file": "/images/avatar-aang/zhao.webp"
+  },
+  {
+    "id": "avatar-aang-roku",
+    "name": "Roku",
+    "source": "https://static.wikia.nocookie.net/avatar/images/f/f6/Roku.png/revision/latest?cb=20120601014953",
+    "sourcePage": "https://avatar.fandom.com/wiki/Roku",
+    "file": "/images/avatar-aang/roku.webp"
+  },
+  {
+    "id": "avatar-aang-kyoshi",
+    "name": "Kyoshi",
+    "source": "https://static.wikia.nocookie.net/avatar/images/0/07/Avatar_Kyoshi.png/revision/latest?cb=20140215111846",
+    "sourcePage": "https://avatar.fandom.com/wiki/Kyoshi",
+    "file": "/images/avatar-aang/kyoshi.webp"
+  },
+  {
+    "id": "avatar-aang-kuruk",
+    "name": "Kuruk",
+    "source": "https://static.wikia.nocookie.net/avatar/images/d/d1/Kuruk.png/revision/latest?cb=20081225191014",
+    "sourcePage": "https://avatar.fandom.com/wiki/Kuruk",
+    "file": "/images/avatar-aang/kuruk.webp"
+  },
+  {
+    "id": "avatar-aang-yangchen",
+    "name": "Yangchen",
+    "source": "https://wikimultia.org/images/thumb/7/74/3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg/350px-3%D1%8519_%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82.jpg",
+    "sourcePage": "https://wikimultia.org/wiki/%D0%AF%D0%BD%D0%B3%D1%87%D0%B5%D0%BD",
+    "file": "/images/avatar-aang/yangchen.webp"
+  },
+  {
+    "id": "avatar-aang-gyatso",
+    "name": "Gyatso",
+    "source": "https://static.wikia.nocookie.net/avatar/images/a/a4/Monk_Gyatso.png/revision/latest?cb=20140103203807",
+    "sourcePage": "https://avatar.fandom.com/wiki/Gyatso",
+    "file": "/images/avatar-aang/gyatso.webp"
+  },
+  {
+    "id": "avatar-aang-bumi-king-of-omashu",
+    "name": "King Bumi",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e8/King_Bumi.png/revision/latest?cb=20140106141303",
+    "sourcePage": "https://avatar.fandom.com/wiki/Bumi_(King_of_Omashu)",
+    "file": "/images/avatar-aang/bumi-king-of-omashu.webp"
+  },
+  {
+    "id": "avatar-aang-pakku",
+    "name": "Pakku",
+    "source": "https://static.wikia.nocookie.net/avatar/images/b/bb/Pakku_looking_smug.png/revision/latest?cb=20140119164142",
+    "sourcePage": "https://avatar.fandom.com/wiki/Pakku",
+    "file": "/images/avatar-aang/pakku.webp"
+  },
+  {
+    "id": "avatar-aang-jeong-jeong",
+    "name": "Jeong Jeong",
+    "source": "https://static.wikia.nocookie.net/avatar/images/a/a7/Jeong_Jeong_serious.png/revision/latest?cb=20140116113256",
+    "sourcePage": "https://avatar.fandom.com/wiki/Jeong_Jeong",
+    "file": "/images/avatar-aang/jeong-jeong.webp"
+  },
+  {
+    "id": "avatar-aang-piandao",
+    "name": "Piandao",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e1/Piandao.png/revision/latest?cb=20140905225031",
+    "sourcePage": "https://avatar.fandom.com/wiki/Piandao",
+    "file": "/images/avatar-aang/piandao.webp"
+  },
+  {
+    "id": "avatar-aang-hama",
+    "name": "Hama",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/4d/Sinister_Hama.png/revision/latest?cb=20111215082556",
+    "sourcePage": "https://avatar.fandom.com/wiki/Hama",
+    "file": "/images/avatar-aang/hama.webp"
+  },
+  {
+    "id": "avatar-aang-hakoda",
+    "name": "Hakoda",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/4e/Hakoda_smiling.png/revision/latest?cb=20140510202641",
+    "sourcePage": "https://avatar.fandom.com/wiki/Hakoda",
+    "file": "/images/avatar-aang/hakoda.webp"
+  },
+  {
+    "id": "avatar-aang-kya-nonbender",
+    "name": "Kya",
+    "source": "https://static.wikia.nocookie.net/avatar/images/b/b5/Kya_%28nonbender%29.png/revision/latest?cb=20170523213135",
+    "sourcePage": "https://avatar.fandom.com/wiki/Kya_(nonbender)",
+    "file": "/images/avatar-aang/kya-nonbender.webp"
+  },
+  {
+    "id": "avatar-aang-kanna",
+    "name": "Kanna",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/47/Kanna.png/revision/latest?cb=20130822224809",
+    "sourcePage": "https://avatar.fandom.com/wiki/Kanna",
+    "file": "/images/avatar-aang/kanna.webp"
+  },
+  {
+    "id": "avatar-aang-bato",
+    "name": "Bato",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e3/Bato_smiling.png/revision/latest?cb=20130626122901",
+    "sourcePage": "https://avatar.fandom.com/wiki/Bato",
+    "file": "/images/avatar-aang/bato.webp"
+  },
+  {
+    "id": "avatar-aang-yue",
+    "name": "Yue",
+    "source": "https://static.wikia.nocookie.net/avatar/images/9/9d/Kind_Yue.png/revision/latest?cb=20140122221734",
+    "sourcePage": "https://avatar.fandom.com/wiki/Yue",
+    "file": "/images/avatar-aang/yue.webp"
+  },
+  {
+    "id": "avatar-aang-haru",
+    "name": "Haru",
+    "source": "https://static.wikia.nocookie.net/avatar/images/d/da/Haru.png/revision/latest?cb=20110104010244",
+    "sourcePage": "https://avatar.fandom.com/wiki/Haru",
+    "file": "/images/avatar-aang/haru.webp"
+  },
+  {
+    "id": "avatar-aang-tyro",
+    "name": "Tyro",
+    "source": "https://static.wikia.nocookie.net/avatar/images/8/88/Tyro_during_the_invasion.png/revision/latest?cb=20130609164844",
+    "sourcePage": "https://avatar.fandom.com/wiki/Tyro",
+    "file": "/images/avatar-aang/tyro.webp"
+  },
+  {
+    "id": "avatar-aang-jet",
+    "name": "Jet",
+    "source": "https://static.wikia.nocookie.net/avatar/images/1/1e/Jet.png/revision/latest?cb=20150324102352",
+    "sourcePage": "https://avatar.fandom.com/wiki/Jet",
+    "file": "/images/avatar-aang/jet.webp"
+  },
+  {
+    "id": "avatar-aang-smellerbee",
+    "name": "Smellerbee",
+    "source": "https://static.wikia.nocookie.net/avatar/images/3/3a/Smellerbee.png/revision/latest?cb=20140413234450",
+    "sourcePage": "https://avatar.fandom.com/wiki/Smellerbee",
+    "file": "/images/avatar-aang/smellerbee.webp"
+  },
+  {
+    "id": "avatar-aang-longshot",
+    "name": "Longshot",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e7/Longshot.png/revision/latest?cb=20140413233811",
+    "sourcePage": "https://avatar.fandom.com/wiki/Longshot",
+    "file": "/images/avatar-aang/longshot.webp"
+  },
+  {
+    "id": "avatar-aang-long-feng",
+    "name": "Long Feng",
+    "source": "https://static.wikia.nocookie.net/avatar/images/8/8d/Long_Feng_scheming.png/revision/latest?cb=20140510202422",
+    "sourcePage": "https://avatar.fandom.com/wiki/Long_Feng",
+    "file": "/images/avatar-aang/long-feng.webp"
+  },
+  {
+    "id": "avatar-aang-kuei",
+    "name": "Kuei",
+    "source": "https://static.wikia.nocookie.net/avatar/images/5/5e/Kuei.png/revision/latest?cb=20130627084042",
+    "sourcePage": "https://avatar.fandom.com/wiki/Kuei",
+    "file": "/images/avatar-aang/kuei.webp"
+  },
+  {
+    "id": "avatar-aang-xin-fu",
+    "name": "Xin Fu",
+    "source": "https://static.wikia.nocookie.net/avatar/images/0/02/Xin_Fu.png/revision/latest?cb=20140317211615",
+    "sourcePage": "https://avatar.fandom.com/wiki/Xin_Fu",
+    "file": "/images/avatar-aang/xin-fu.webp"
+  },
+  {
+    "id": "avatar-aang-yu",
+    "name": "Yu",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/e2/Yu.png/revision/latest?cb=20140317211616",
+    "sourcePage": "https://avatar.fandom.com/wiki/Yu",
+    "file": "/images/avatar-aang/yu.webp"
+  },
+  {
+    "id": "avatar-aang-the-boulder",
+    "name": "The Boulder",
+    "source": "https://static.wikia.nocookie.net/avatar/images/7/70/The_Boulder.png/revision/latest?cb=20140317195145",
+    "sourcePage": "https://avatar.fandom.com/wiki/The_Boulder",
+    "file": "/images/avatar-aang/the-boulder.webp"
+  },
+  {
+    "id": "avatar-aang-june",
+    "name": "June",
+    "source": "https://static.wikia.nocookie.net/avatar/images/e/ea/June.png/revision/latest?cb=20130626132827",
+    "sourcePage": "https://avatar.fandom.com/wiki/June",
+    "file": "/images/avatar-aang/june.webp"
+  },
+  {
+    "id": "avatar-aang-combustion-man",
+    "name": "Combustion Man",
+    "source": "https://static.wikia.nocookie.net/avatar/images/f/fc/Combustion_Man.png/revision/latest?cb=20140908141111",
+    "sourcePage": "https://avatar.fandom.com/wiki/Combustion_Man",
+    "file": "/images/avatar-aang/combustion-man.webp"
+  },
+  {
+    "id": "avatar-aang-teo",
+    "name": "Teo",
+    "source": "https://static.wikia.nocookie.net/avatar/images/7/77/Teo.png/revision/latest?cb=20140118125457",
+    "sourcePage": "https://avatar.fandom.com/wiki/Teo",
+    "file": "/images/avatar-aang/teo.webp"
+  },
+  {
+    "id": "avatar-aang-mechanist",
+    "name": "Mechanist",
+    "source": "https://static.wikia.nocookie.net/avatar/images/b/b7/Mechanist.png/revision/latest?cb=20140118124602",
+    "sourcePage": "https://avatar.fandom.com/wiki/Mechanist",
+    "file": "/images/avatar-aang/mechanist.webp"
+  },
+  {
+    "id": "avatar-aang-pathik",
+    "name": "Pathik",
+    "source": "https://static.wikia.nocookie.net/avatar/images/9/91/Guru_Pathik.png/revision/latest?cb=20140510202641",
+    "sourcePage": "https://avatar.fandom.com/wiki/Pathik",
+    "file": "/images/avatar-aang/pathik.webp"
+  },
+  {
+    "id": "avatar-aang-wu-fortuneteller",
+    "name": "Aunt Wu",
+    "source": "https://static.wikia.nocookie.net/avatar/images/c/c9/Aunt_Wu.png/revision/latest?cb=20130626124117",
+    "sourcePage": "https://avatar.fandom.com/wiki/Wu_(fortuneteller)",
+    "file": "/images/avatar-aang/wu-fortuneteller.webp"
+  },
+  {
+    "id": "avatar-aang-meng",
+    "name": "Meng",
+    "source": "https://static.wikia.nocookie.net/avatar/images/4/42/Meng.png/revision/latest?cb=20130814090639",
+    "sourcePage": "https://avatar.fandom.com/wiki/Meng",
+    "file": "/images/avatar-aang/meng.webp"
+  },
+  {
+    "id": "avatar-aang-ursa",
+    "name": "Ursa",
+    "source": "https://static.wikia.nocookie.net/avatar/images/a/a6/Ursa.png/revision/latest?cb=20140331143655",
+    "sourcePage": "https://avatar.fandom.com/wiki/Ursa",
+    "file": "/images/avatar-aang/ursa.webp"
+  },
+  {
+    "id": "avatar-aang-cabbage-merchant",
+    "name": "Cabbage merchant",
+    "source": "https://static.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908",
+    "sourcePage": "https://avatar.fandom.com/wiki/Cabbage_merchant",
+    "file": "/images/avatar-aang/cabbage-merchant.webp"
   }
 ]
